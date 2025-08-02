@@ -257,192 +257,132 @@ const TestimonialsSection = () => {
 
         {/* Testimonials Grid */}
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          {/* Left Column - Trust & Stats */}
-          <motion.div 
-            className="space-y-8 order-2 lg:order-1"
-            variants={cardVariants}
-          >
-            {/* Header Section */}
-            <div className="space-y-6">
-              <motion.div 
-                className="flex items-center space-x-4"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ scale: 0, rotate: -180 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      transition={{ duration: 0.3, delay: i * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <Star className="w-6 h-6 text-[#FFD700] fill-current" />
-                    </motion.div>
-                  ))}
-                </div>
-                <span className="text-lg font-semibold text-[#1A1A1A]">4.9/5 average rating</span>
-              </motion.div>
-
-              <motion.h3 
-                className="text-3xl font-bold text-[#1A1A1A]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                Trusted by Industry Leaders
-              </motion.h3>
-
-              <motion.p 
-                className="text-lg text-[#666666] leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                viewport={{ once: true }}
-              >
-                Join 500+ companies that trust Clario AI to power their intelligent automation and scale their operations.
-              </motion.p>
-            </div>
-
-            {/* Trust Badges */}
+          {testimonials.map((testimonial, index) => (
             <motion.div 
-              className="grid grid-cols-2 gap-4"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
+              key={index} 
+              className="group relative bg-[#FFFFFF] border border-[#CCCCCC] rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden"
+              variants={cardVariants}
+              whileHover={{ 
+                scale: 1.03,
+                rotateY: 3,
+                boxShadow: "0 25px 50px -12px rgba(0, 102, 255, 0.2), 0 10px 20px -5px rgba(0, 102, 255, 0.1)"
+              }}
             >
-              {[
-                { icon: Award, text: "ISO 27001 Certified", color: "#25D366" },
-                { icon: CheckCircle, text: "GDPR Compliant", color: "#0066FF" },
-                { icon: Shield, text: "SOC 2 Type II", color: "#FF6B6B" },
-                { icon: Zap, text: "99.9% Uptime SLA", color: "#9C27B0" }
-              ].map((badge, index) => (
-                <motion.div 
-                  key={badge.text}
-                  className="flex items-center space-x-3 p-4 bg-[#F8F8F8] border border-[#CCCCCC] rounded-xl"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className={`w-8 h-8 bg-[${badge.color}] rounded-lg flex items-center justify-center`}>
-                    <badge.icon className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-sm font-medium text-[#1A1A1A]">{badge.text}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column - Testimonials Grid */}
-          <motion.div 
-            className="grid grid-cols-1 gap-6 auto-rows-fr order-1 lg:order-2"
-            variants={containerVariants}
-          >
-            {testimonials.map((testimonial, index) => (
+              {/* Animated Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#CCE0FF]/8 to-[#B8C2FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+              
+              {/* Quote Icon */}
               <motion.div 
-                key={index} 
-                className="group relative bg-[#FFFFFF] border border-[#CCCCCC] rounded-2xl p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col"
-                variants={cardVariants}
-                whileHover={{ 
-                  scale: 1.02,
-                  rotateY: 2,
-                  boxShadow: "0 20px 25px -5px rgba(0, 102, 255, 0.15), 0 10px 10px -5px rgba(0, 102, 255, 0.1)"
-                }}
+                className="absolute top-6 right-6 text-[#B8C2FF]"
+                whileHover={{ rotate: 360, scale: 1.3 }}
+                transition={{ duration: 0.8 }}
               >
-                {/* Animated Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#CCE0FF]/5 to-[#B8C2FF]/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-                
-                {/* Quote Icon */}
-                <motion.div 
-                  className="absolute top-4 right-4 text-[#B8C2FF]"
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <Quote className="w-8 h-8" />
-                </motion.div>
-                
-                {/* Category Badge */}
-                <motion.div 
-                  className="absolute top-4 left-4"
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <span className="text-xs font-medium text-[#0066FF] bg-[#CCE0FF]/30 px-3 py-1 rounded-full border border-[#CCE0FF]/50">
-                    {testimonial.category}
-                  </span>
-                </motion.div>
-                
-                {/* Profile Section */}
-                <div className="flex items-start space-x-4 mb-6 mt-8">
+                <Quote className="w-10 h-10" />
+              </motion.div>
+              
+              {/* Category Badge */}
+              <motion.div 
+                className="absolute top-6 left-6"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-sm font-semibold text-[#0066FF] bg-[#CCE0FF]/40 px-4 py-2 rounded-full border border-[#CCE0FF]/60 backdrop-blur-sm">
+                  {testimonial.category}
+                </span>
+              </motion.div>
+              
+              {/* Profile Section */}
+              <div className="flex items-start space-x-5 mb-8 mt-12">
+                <motion.div className="relative">
                   <motion.img
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-[#CCE0FF] flex-shrink-0"
+                  src={testimonial.image} 
+                  alt={testimonial.name}
+                    className="w-16 h-16 rounded-2xl object-cover border-3 border-[#CCE0FF] flex-shrink-0 shadow-lg"
+                    whileHover={{ scale: 1.15, rotate: 8 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                  <motion.div 
+                    className="absolute -bottom-1 -right-1 w-6 h-6 bg-[#0066FF] rounded-full flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Star className="w-3 h-3 text-white fill-current" />
+                  </motion.div>
+                </motion.div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-bold text-[#1A1A1A] text-xl mb-1">{testimonial.name}</h4>
+                  <p className="text-sm text-[#666666] mb-2">{testimonial.title}</p>
+                  <p className="text-sm text-[#0066FF] font-semibold">{testimonial.company}</p>
+                  <div className="flex items-center space-x-1 mt-3">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ scale: 0, rotate: -180 }}
+                        whileInView={{ scale: 1, rotate: 0 }}
+                        transition={{ duration: 0.4, delay: i * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <Star className="w-4 h-4 text-[#FFD700] fill-current" />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Testimonial Quote */}
+              <motion.blockquote 
+                className="text-[#1A1A1A] text-lg leading-relaxed mb-8 italic font-medium relative"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute -left-2 top-0 w-1 h-full bg-gradient-to-b from-[#0066FF] to-[#B8C2FF] rounded-full opacity-30"></div>
+                "{testimonial.quote}"
+              </motion.blockquote>
+
+              {/* Impact & Industry Section */}
+              <motion.div 
+                className="flex items-center justify-between pt-6 border-t border-[#CCCCCC]/30"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center space-x-3">
+                  <motion.div 
+                    className="w-10 h-10 bg-gradient-to-r from-[#0066FF] to-[#0033FF] rounded-xl flex items-center justify-center shadow-lg"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.3 }}
-                  />
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-bold text-[#1A1A1A] text-lg">{testimonial.name}</h4>
-                    <p className="text-sm text-[#666666]">{testimonial.title}</p>
-                    <p className="text-xs text-[#0066FF] font-medium">{testimonial.company}</p>
-                    <div className="flex items-center space-x-1 mt-2">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ scale: 0, rotate: -180 }}
-                          whileInView={{ scale: 1, rotate: 0 }}
-                          transition={{ duration: 0.3, delay: i * 0.1 }}
-                          viewport={{ once: true }}
-                        >
-                          <Star className="w-3 h-3 text-[#FFD700] fill-current" />
-                        </motion.div>
-                      ))}
-                    </div>
+                  >
+                    <TrendingUp className="w-5 h-5 text-white" />
+                  </motion.div>
+                  <div>
+                    <div className="text-sm text-[#0066FF] font-bold">{testimonial.impact}</div>
+                    <div className="text-xs text-[#666666]">Performance boost</div>
                   </div>
-                </div>
-                
-                {/* Testimonial Quote */}
-                <motion.blockquote 
-                  className="text-[#1A1A1A] text-base leading-relaxed mb-6 italic flex-grow"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  "{testimonial.quote}"
-                </motion.blockquote>
-
-                {/* Impact Metric */}
+            </div>
                 <motion.div 
-                  className="flex items-center justify-between mt-auto pt-4 border-t border-[#CCCCCC]/20"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-                  viewport={{ once: true }}
+                  className="text-xs text-[#666666] bg-[#F8F8F8] px-3 py-2 rounded-full border border-[#CCCCCC]/50 font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="flex items-center space-x-2 text-sm text-[#0066FF] font-semibold">
-                    <TrendingUp className="w-4 h-4" />
-                    <span>{testimonial.impact}</span>
-                  </div>
-                  <span className="text-xs text-[#666666] bg-[#F8F8F8] px-2 py-1 rounded-full">
-                    {testimonial.industry}
-                  </span>
+                  {testimonial.industry}
                 </motion.div>
               </motion.div>
-            ))}
-          </motion.div>
+
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0066FF]/5 via-transparent to-[#0033FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

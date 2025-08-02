@@ -1,61 +1,67 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Zap, Brain, MessageCircle, BarChart3, Palette, Settings } from 'lucide-react';
+import { ArrowRight, Zap, Brain, MessageCircle, BarChart3, Palette, Settings, Bot, Target } from 'lucide-react';
 
 const products = [
   {
-    title: "AI Receptionist",
+    title: "AI Voice Agents",
     description: "Handles 24/7 customer calls with intelligent routing and natural conversation.",
     benefits: ["Never miss a lead", "Natural voice interactions", "Intelligent call routing", "24/7 availability"],
     icon: MessageCircle,
     gradient: "from-[#0066FF] to-[#0033FF]",
     color: "#0066FF",
-    category: "Voice AI"
+    category: "Voice AI",
+    href: "/voice-agents"
   },
   {
-    title: "WhatsApp Voice Agent",
+    title: "AI Chatbots",
+    description: "Intelligent chatbots that understand context and provide instant customer support.",
+    benefits: ["24/7 availability", "Multi-channel support", "Instant responses", "Context awareness"],
+    icon: Bot,
+    gradient: "from-[#8B5CF6] to-[#7C3AED]",
+    color: "#8B5CF6",
+    category: "Chat AI",
+    href: "/ai-chatbots"
+  },
+  {
+    title: "AI Lead Generation",
+    description: "Automated lead generation with AI-powered targeting and qualification.",
+    benefits: ["Smart targeting", "Automated outreach", "Lead scoring", "Multi-channel campaigns"],
+    icon: Target,
+    gradient: "from-[#EC4899] to-[#BE185D]",
+    color: "#EC4899",
+    category: "Sales AI",
+    href: "/ai-lead-generation"
+  },
+  {
+    title: "WhatsApp Integration",
     description: "Smart voice capabilities integrated directly into WhatsApp messaging.",
     benefits: ["Voice message processing", "Multi-language support", "Instant responses", "Seamless integration"],
     icon: MessageCircle,
     gradient: "from-[#25D366] to-[#128C7E]",
     color: "#25D366",
-    category: "Messaging"
+    category: "Messaging",
+    href: "/whatsapp-integration"
   },
   {
-    title: "Custom Chatbots",
-    description: "Branded, intelligent support bots tailored to your business needs.",
-    benefits: ["Custom branding", "Industry-specific training", "Advanced NLP", "Multi-platform deployment"],
-    icon: Brain,
-    gradient: "from-[#9C27B0] to-[#673AB7]",
-    color: "#9C27B0",
-    category: "AI Chat"
-  },
-  {
-    title: "Automation Workflows",
+    title: "Workflow Automation",
     description: "Eliminate manual processes with intelligent workflow automation.",
     benefits: ["Process automation", "Task scheduling", "Data synchronization", "Error reduction"],
     icon: Zap,
-    gradient: "from-[#FF6B6B] to-[#FF5252]",
-    color: "#FF6B6B",
-    category: "Automation"
+    gradient: "from-[#FFA726] to-[#FF9800]",
+    color: "#FFA726",
+    category: "Automation",
+    href: "/workflow-automation"
   },
   {
-    title: "Admin Systems",
+    title: "Analytics Dashboard",
     description: "AI-powered scheduling, reporting, and management dashboards.",
     benefits: ["Smart scheduling", "Automated reports", "Resource optimization", "Performance analytics"],
     icon: BarChart3,
     gradient: "from-[#4CAF50] to-[#2E7D32]",
     color: "#4CAF50",
-    category: "Analytics"
-  },
-  {
-    title: "Custom Interfaces",
-    description: "Responsive UIs powered by AI for enhanced user experiences.",
-    benefits: ["Adaptive interfaces", "User behavior learning", "Personalized experiences", "Real-time optimization"],
-    icon: Palette,
-    gradient: "from-[#FF9800] to-[#F57C00]",
-    color: "#FF9800",
-    category: "UI/UX"
+    category: "Analytics",
+    href: "/analytics-dashboard"
   }
 ];
 
@@ -143,9 +149,10 @@ const ProductsSection = () => {
           viewport={{ once: true, amount: 0.1 }}
         >
           {products.map((product, index) => (
-            <motion.div 
+            <motion.a 
               key={product.title}
-              className="group relative bg-[#FFFFFF] border border-[#CCCCCC] rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+              href={product.href}
+              className="group relative bg-[#FFFFFF] border border-[#CCCCCC] rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden block cursor-pointer"
               variants={cardVariants}
               whileHover={{ 
                 boxShadow: `0 20px 25px -5px ${product.color}20, 0 10px 10px -5px ${product.color}10`
@@ -215,7 +222,7 @@ const ProductsSection = () => {
 
               {/* Hover Glow Effect */}
               <div className={`absolute inset-0 bg-gradient-to-r ${product.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}></div>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </div>

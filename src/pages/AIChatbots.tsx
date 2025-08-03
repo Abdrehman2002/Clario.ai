@@ -67,19 +67,19 @@ const AIChatbots = () => {
   };
 
   const features = [
-    { icon: Brain, title: "Intelligent Conversations", desc: "Advanced NLP for human-like interactions", color: "#8B5CF6" },
-    { icon: Clock, title: "24/7 Availability", desc: "Always ready to assist your customers", color: "#06B6D4" },
-    { icon: Users, title: "Multi-channel Support", desc: "Works across website, mobile, and social", color: "#10B981" },
-    { icon: Shield, title: "Secure & Compliant", desc: "Enterprise-grade security standards", color: "#F59E0B" },
-    { icon: TrendingUp, title: "Scalable Performance", desc: "Handle thousands of conversations", color: "#EF4444" },
-    { icon: Zap, title: "Instant Response", desc: "Real-time processing and replies", color: "#8B5CF6" }
+    { icon: Brain, title: "Handle 70% of Inquiries Automatically", desc: "Reduce support workload and costs by 50%", color: "#8B5CF6" },
+    { icon: Clock, title: "24/7 Customer Support", desc: "Never lose a customer due to wait times", color: "#06B6D4" },
+    { icon: Users, title: "Increase Conversion Rates by 35%", desc: "Turn visitors into customers instantly", color: "#10B981" },
+    { icon: Shield, title: "Reduce Support Costs by 50%", desc: "Automate repetitive tasks and scale efficiently", color: "#F59E0B" },
+    { icon: TrendingUp, title: "Improve Customer Satisfaction", desc: "Instant responses and accurate solutions", color: "#EF4444" },
+    { icon: Zap, title: "2.3 Second Response Time", desc: "Faster than any human support team", color: "#8B5CF6" }
   ];
 
   const useCases = [
-    { icon: MessageSquare, title: "Customer Support", desc: "Handle inquiries and resolve issues", color: "#8B5CF6", gradient: "from-[#8B5CF6] to-[#7C3AED]" },
-    { icon: Send, title: "Lead Qualification", desc: "Qualify leads and gather information", color: "#06B6D4", gradient: "from-[#06B6D4] to-[#0891B2]" },
-    { icon: Smartphone, title: "E-commerce Assistant", desc: "Product recommendations and orders", color: "#10B981", gradient: "from-[#10B981] to-[#059669]" },
-    { icon: Headphones, title: "Appointment Booking", desc: "Schedule and manage appointments", color: "#F59E0B", gradient: "from-[#F59E0B] to-[#D97706]" }
+    { icon: MessageSquare, title: "E-commerce", desc: "Increase sales by 35% with instant product support", color: "#8B5CF6", gradient: "from-[#8B5CF6] to-[#7C3AED]" },
+    { icon: Send, title: "SaaS Companies", desc: "Reduce churn and improve customer retention", color: "#06B6D4", gradient: "from-[#06B6D4] to-[#0891B2]" },
+    { icon: Smartphone, title: "Real Estate", desc: "Qualify leads 24/7 and schedule viewings instantly", color: "#10B981", gradient: "from-[#10B981] to-[#059669]" },
+    { icon: Headphones, title: "Healthcare", desc: "Reduce appointment no-shows by 60%", color: "#F59E0B", gradient: "from-[#F59E0B] to-[#D97706]" }
   ];
 
   const testimonials = [
@@ -154,17 +154,17 @@ const AIChatbots = () => {
               className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-[#8B5CF6] via-[#06B6D4] to-[#8B5CF6] bg-clip-text text-transparent">
-                Intelligent Chatbots
+                From First Hello to Final Booking
               </span>
               <br />
-              <span className="text-[#1A1A1A]">That Actually Help</span>
+              <span className="text-[#1A1A1A]">— AI Handles It All.</span>
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
               className="text-2xl sm:text-3xl text-[#666666] mb-12 max-w-4xl mx-auto leading-relaxed font-light"
             >
-              Transform your customer experience with AI chatbots that understand context, learn from interactions, and provide instant, intelligent responses across all channels.
+              While your competitors lose customers to slow responses and poor support, our AI chatbots handle 70% of inquiries automatically and increase your conversion rates by 35%.
             </motion.p>
 
             {/* Stats Section */}
@@ -253,7 +253,7 @@ const AIChatbots = () => {
               variants={itemVariants}
               className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
             >
-              Why Choose AI Chatbots?
+              The Problems We Solve
             </motion.h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -315,7 +315,7 @@ const AIChatbots = () => {
               variants={itemVariants}
               className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
             >
-              Perfect For Every Business Need
+              Industries We Transform
             </motion.h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -380,7 +380,7 @@ const AIChatbots = () => {
               variants={itemVariants}
               className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
             >
-              What Our Clients Say
+              Real Results from Real Clients
             </motion.h2>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -482,7 +482,7 @@ const AIChatbots = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                Ready to Transform Your Customer Experience?
+                Ready to Stop Losing Customers?
               </motion.h2>
               
               <motion.p 
@@ -492,7 +492,7 @@ const AIChatbots = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                Join thousands of businesses already using AI chatbots to enhance customer interactions and drive growth.
+                While your competitors lose customers to slow responses, you'll be converting visitors into paying customers 24/7.
               </motion.p>
               
               <motion.div 

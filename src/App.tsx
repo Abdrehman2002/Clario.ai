@@ -8,9 +8,9 @@ import NotFound from "./pages/NotFound";
 import VoiceAgents from "./pages/VoiceAgents";
 import WorkflowAutomation from "./pages/WorkflowAutomation";
 import WhatsAppIntegration from "./pages/WhatsAppIntegration";
-import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import AIChatbots from "./pages/AIChatbots";
 import AILeadGeneration from "./pages/AILeadGeneration";
+import AIWebsite from "./pages/AIWebsite";
 
 const queryClient = new QueryClient();
 
@@ -25,9 +25,9 @@ const App = () => (
           <Route path="/voice-agents" element={<VoiceAgents />} />
           <Route path="/workflow-automation" element={<WorkflowAutomation />} />
           <Route path="/whatsapp-integration" element={<WhatsAppIntegration />} />
-          <Route path="/analytics-dashboard" element={<AnalyticsDashboard />} />
           <Route path="/ai-chatbots" element={<AIChatbots />} />
           <Route path="/ai-lead-generation" element={<AILeadGeneration />} />
+          <Route path="/ai-website" element={<AIWebsite />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

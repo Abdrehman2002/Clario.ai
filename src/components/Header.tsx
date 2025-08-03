@@ -39,7 +39,7 @@ const Header = () => {
         { name: 'AI Lead Generation', href: '/ai-lead-generation', icon: Target },
         { name: 'Workflow Automation', href: '/workflow-automation', icon: Workflow },
         { name: 'WhatsApp Integration', href: '/whatsapp-integration', icon: MessageSquare },
-        { name: 'Analytics Dashboard', href: '/analytics-dashboard', icon: BarChart3 }
+        { name: 'AI Website', href: '/ai-website', icon: BarChart3 }
       ]
     },
     { name: 'Testimonials', href: '#testimonials' },
@@ -78,11 +78,11 @@ const Header = () => {
       initial="hidden"
       animate="visible"
     >
-      <div className="container mx-auto px-4 sm:px-6 py-4">
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - Mobile Responsive */}
           <motion.div 
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-1 sm:space-x-2"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
@@ -90,15 +90,15 @@ const Header = () => {
             <div className="flex items-center space-x-1">
               {/* CLARIO Text with Gradient */}
               <div className="flex items-center">
-                <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#8B5CF6] via-[#6366F1] to-[#0066FF] bg-clip-text text-transparent">
+                <span className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-[#8B5CF6] via-[#6366F1] to-[#0066FF] bg-clip-text text-transparent">
                   CLARI
                 </span>
                 
                 {/* Circular Logo Icon */}
-                <div className="relative w-8 h-8 sm:w-10 sm:h-10 mx-1">
+                <div className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mx-1">
                   <div className="w-full h-full bg-[#0066FF] rounded-full flex items-center justify-center shadow-lg">
                     <motion.div
-                      className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                      className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white"
                       animate={{ rotate: 360 }}
                       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     >
@@ -109,15 +109,15 @@ const Header = () => {
                   <div className="absolute inset-0 bg-[#0066FF]/20 rounded-full blur-md"></div>
                 </div>
                 
-                <span className="text-xl sm:text-2xl font-bold text-[#0066FF]">
+                <span className="text-lg sm:text-xl md:text-2xl font-bold text-[#0066FF]">
                   AI
                 </span>
               </div>
             </div>
           </motion.div>
           
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          {/* Desktop Navigation - Mobile Responsive */}
+          <nav className="hidden lg:flex items-center space-x-6 md:space-x-8">
             {navigationItems.map((item) => (
               <motion.div
                 key={item.name}
@@ -128,22 +128,22 @@ const Header = () => {
               >
                 {item.dropdown ? (
                   <div className="flex items-center space-x-1 text-[#1A1A1A] hover:text-[#0066FF] transition-colors duration-300 font-medium group cursor-pointer">
-                    <span>{item.name}</span>
-                    <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
+                    <span className="text-sm md:text-base">{item.name}</span>
+                    <ChevronDown className="w-3 h-3 md:w-4 md:h-4 group-hover:rotate-180 transition-transform duration-300" />
                   </div>
                 ) : (
                   <Link 
                     to={item.href}
                     className="flex items-center space-x-1 text-[#1A1A1A] hover:text-[#0066FF] transition-colors duration-300 font-medium group"
                   >
-                    <span>{item.name}</span>
+                    <span className="text-sm md:text-base">{item.name}</span>
                   </Link>
                 )}
                 
-                {/* Dropdown Menu */}
+                {/* Dropdown Menu - Mobile Responsive */}
                 {item.dropdown && activeDropdown === item.name && (
                   <motion.div
-                    className="absolute top-full left-0 mt-2 w-64 bg-white border border-[#CCCCCC] rounded-2xl shadow-xl py-2"
+                    className="absolute top-full left-0 mt-2 w-56 md:w-64 bg-white border border-[#CCCCCC] rounded-2xl shadow-xl py-2"
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -165,13 +165,13 @@ const Header = () => {
             ))}
           </nav>
           
-          {/* Desktop CTA Button */}
+          {/* Desktop CTA Button - Mobile Responsive */}
           <motion.div 
             className="hidden lg:block"
             variants={itemVariants}
           >
             <Button 
-              className="bg-[#0066FF] hover:bg-[#0052CC] text-white px-6 py-2 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-[#0066FF] hover:bg-[#0052CC] text-white px-4 md:px-6 py-2 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group text-sm md:text-base"
               size="lg"
             >
               <span>Get a Demo</span>
@@ -185,7 +185,7 @@ const Header = () => {
             </Button>
           </motion.div>
           
-          {/* Mobile menu button */}
+          {/* Mobile menu button - Mobile Responsive */}
           <motion.button
             className="lg:hidden p-2 rounded-lg hover:bg-[#F8F8F8] transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -201,7 +201,7 @@ const Header = () => {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="w-6 h-6 text-[#1A1A1A]" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-[#1A1A1A]" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -211,7 +211,7 @@ const Header = () => {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="w-6 h-6 text-[#1A1A1A]" />
+                  <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-[#1A1A1A]" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -219,7 +219,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Enhanced Mobile Responsive */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -230,31 +230,31 @@ const Header = () => {
             transition={{ duration: 0.3 }}
           >
             <div className="container mx-auto px-4 sm:px-6 py-4">
-              <nav className="space-y-4">
+              <nav className="space-y-3 sm:space-y-4">
                 {navigationItems.map((item) => (
                   <div key={item.name}>
                     {item.dropdown ? (
-                      <div className="block text-[#1A1A1A] hover:text-[#0066FF] transition-colors duration-200 font-medium py-2 cursor-pointer">
+                      <div className="block text-[#1A1A1A] hover:text-[#0066FF] transition-colors duration-200 font-medium py-2 cursor-pointer text-base sm:text-lg">
                         {item.name}
                       </div>
                     ) : (
                       <Link
                         to={item.href}
-                        className="block text-[#1A1A1A] hover:text-[#0066FF] transition-colors duration-200 font-medium py-2"
+                        className="block text-[#1A1A1A] hover:text-[#0066FF] transition-colors duration-200 font-medium py-2 text-base sm:text-lg"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.name}
                       </Link>
                     )}
                     
-                    {/* Mobile Dropdown */}
+                    {/* Mobile Dropdown - Enhanced */}
                     {item.dropdown && (
                       <div className="ml-4 mt-2 space-y-2">
                         {item.dropdown.map((dropdownItem) => (
                           <Link
                             key={dropdownItem.name}
                             to={dropdownItem.href}
-                            className="flex items-center space-x-3 text-sm text-[#666666] hover:text-[#0066FF] transition-colors duration-200 py-1"
+                            className="flex items-center space-x-3 text-sm sm:text-base text-[#666666] hover:text-[#0066FF] transition-colors duration-200 py-1"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             <dropdownItem.icon className="w-4 h-4 text-[#0066FF]" />
@@ -266,10 +266,10 @@ const Header = () => {
                   </div>
                 ))}
                 
-                {/* Mobile CTA Button */}
+                {/* Mobile CTA Button - Enhanced */}
                 <div className="pt-4 border-t border-[#CCCCCC]/30">
                   <Button 
-                    className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white py-3 rounded-xl font-semibold shadow-lg transition-all duration-300"
+                    className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white py-3 rounded-xl font-semibold shadow-lg transition-all duration-300 text-base sm:text-lg"
                     size="lg"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

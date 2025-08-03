@@ -37,7 +37,7 @@ const AboutSection = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: "easeOut"
       }
     }
   };
@@ -48,7 +48,7 @@ const AboutSection = () => {
       transition: {
         duration: 4,
         repeat: Infinity,
-        ease: "easeInOut"
+        ease: "easeInOut" as const
       }
     }
   };
@@ -60,7 +60,7 @@ const AboutSection = () => {
       transition: {
         duration: 2,
         repeat: Infinity,
-        ease: "easeInOut"
+        ease: "easeInOut" as const
       }
     }
   };
@@ -148,17 +148,17 @@ const AboutSection = () => {
             className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
           >
             <span className="bg-gradient-to-r from-[#0066FF] via-[#0033FF] to-[#0066FF] bg-clip-text text-transparent">
-              The Future of
+              AI that Talks, Books, and Follows Up
             </span>
             <br />
-            <span className="text-[#1A1A1A]">AI Automation</span>
+            <span className="text-[#1A1A1A]">— So You Don't Have To.</span>
           </motion.h2>
           
           <motion.p 
             variants={itemVariants}
             className="text-xl sm:text-2xl text-[#666666] max-w-4xl mx-auto leading-relaxed font-light"
           >
-            We're not just building AI tools — we're architecting the intelligent infrastructure that powers tomorrow's businesses.
+            While your competitors struggle with manual processes and poor customer experiences, we help you automate everything and scale your business 10x faster with AI that actually works.
           </motion.p>
         </motion.div>
 

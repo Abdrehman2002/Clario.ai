@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, Brain, MessageCircle, BarChart3, Palette, Settings, Bot, Target } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const products = [
   {
     title: "AI Voice Agents",
-    description: "Handles 24/7 customer calls with intelligent routing and natural conversation.",
-    benefits: ["Never miss a lead", "Natural voice interactions", "Intelligent call routing", "24/7 availability"],
+    description: "Transform your phone system into a 24/7 appointment booking and order processing powerhouse. Never miss a booking or sale again.",
+    benefits: ["Book appointments 24/7 automatically", "Process orders without human intervention", "Reduce no-shows by 60%", "Increase booking rates by 40%"],
+    painPoints: ["Missed appointment bookings", "Lost sales after hours", "High no-show rates", "Manual order processing"],
     icon: MessageCircle,
     gradient: "from-[#0066FF] to-[#0033FF]",
     color: "#0066FF",
@@ -15,8 +17,9 @@ const products = [
   },
   {
     title: "AI Chatbots",
-    description: "Intelligent chatbots that understand context and provide instant customer support.",
-    benefits: ["24/7 availability", "Multi-channel support", "Instant responses", "Context awareness"],
+    description: "Transform customer support from a cost center to a revenue generator. Intelligent chatbots that actually solve problems and drive sales.",
+    benefits: ["Handle 70% of inquiries automatically", "Increase conversion rates by 35%", "Reduce support costs by 50%", "Provide instant 24/7 support"],
+    painPoints: ["Overwhelmed support teams", "Slow response times", "Lost sales opportunities", "High support costs"],
     icon: Bot,
     gradient: "from-[#8B5CF6] to-[#7C3AED]",
     color: "#8B5CF6",
@@ -25,8 +28,9 @@ const products = [
   },
   {
     title: "AI Lead Generation",
-    description: "Automated lead generation with AI-powered targeting and qualification.",
-    benefits: ["Smart targeting", "Automated outreach", "Lead scoring", "Multi-channel campaigns"],
+    description: "Stop guessing and start converting. AI-powered lead generation that finds your ideal customers and qualifies them automatically.",
+    benefits: ["Generate 3x more qualified leads", "Reduce lead cost by 40%", "Increase conversion rates by 25%", "Automate follow-up sequences"],
+    painPoints: ["Low quality leads", "High customer acquisition costs", "Manual follow-up processes", "Poor conversion rates"],
     icon: Target,
     gradient: "from-[#EC4899] to-[#BE185D]",
     color: "#EC4899",
@@ -35,8 +39,9 @@ const products = [
   },
   {
     title: "WhatsApp Integration",
-    description: "Smart voice capabilities integrated directly into WhatsApp messaging.",
-    benefits: ["Voice message processing", "Multi-language support", "Instant responses", "Seamless integration"],
+    description: "Turn WhatsApp into your 24/7 booking and ordering platform. Customers can book appointments and place orders instantly through chat.",
+    benefits: ["Book appointments via WhatsApp 24/7", "Process orders through chat instantly", "Reduce booking friction by 70%", "Increase order completion by 45%"],
+    painPoints: ["Manual appointment scheduling", "Lost orders after hours", "Complex booking processes", "Poor customer experience"],
     icon: MessageCircle,
     gradient: "from-[#25D366] to-[#128C7E]",
     color: "#25D366",
@@ -45,8 +50,9 @@ const products = [
   },
   {
     title: "Workflow Automation",
-    description: "Eliminate manual processes with intelligent workflow automation.",
-    benefits: ["Process automation", "Task scheduling", "Data synchronization", "Error reduction"],
+    description: "Eliminate repetitive tasks and focus on what matters. Intelligent automation that scales your business without scaling your team.",
+    benefits: ["Save 20+ hours per week", "Reduce errors by 95%", "Scale operations 10x", "Improve team productivity"],
+    painPoints: ["Time-consuming manual processes", "Human errors and inconsistencies", "Difficulty scaling operations", "Team burnout from repetitive tasks"],
     icon: Zap,
     gradient: "from-[#FFA726] to-[#FF9800]",
     color: "#FFA726",
@@ -54,18 +60,21 @@ const products = [
     href: "/workflow-automation"
   },
   {
-    title: "Analytics Dashboard",
-    description: "AI-powered scheduling, reporting, and management dashboards.",
-    benefits: ["Smart scheduling", "Automated reports", "Resource optimization", "Performance analytics"],
-    icon: BarChart3,
-    gradient: "from-[#4CAF50] to-[#2E7D32]",
-    color: "#4CAF50",
-    category: "Analytics",
-    href: "/analytics-dashboard"
+    title: "AI Website",
+    description: "Create stunning, high-converting websites in minutes with AI. No coding required - just describe your business and watch your website come to life.",
+    benefits: ["Build websites in minutes, not months", "AI-optimized for conversions", "Mobile-first responsive design", "SEO-ready out of the box"],
+    painPoints: ["Expensive web development costs", "Long development timelines", "Poor conversion rates", "Outdated website designs"],
+    icon: Palette,
+    gradient: "from-[#FF6B6B] to-[#FF5252]",
+    color: "#FF6B6B",
+    category: "Web AI",
+    href: "/ai-website"
   }
 ];
 
 const ProductsSection = () => {
+  const navigate = useNavigate();
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -149,9 +158,9 @@ const ProductsSection = () => {
           viewport={{ once: true, amount: 0.1 }}
         >
           {products.map((product, index) => (
-            <motion.a 
+            <motion.div 
               key={product.title}
-              href={product.href}
+              onClick={() => navigate(product.href)}
               className="group relative bg-[#FFFFFF] border border-[#CCCCCC] rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden block cursor-pointer"
               variants={cardVariants}
               whileHover={{ 
@@ -186,32 +195,55 @@ const ProductsSection = () => {
                   {product.description}
                 </p>
                 
+                {/* Pain Points */}
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-[#FF4444] mb-2 uppercase tracking-wide">Problems We Solve:</h4>
+                  <ul className="space-y-2 mb-4">
+                    {product.painPoints.map((painPoint, painIndex) => (
+                      <motion.li 
+                        key={painIndex} 
+                        className="flex items-center text-xs text-[#666666]"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: painIndex * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="w-1.5 h-1.5 bg-[#FF4444] rounded-full mr-2 flex-shrink-0"></div>
+                        <span>{painPoint}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+                
                 {/* Benefits List */}
-                <ul className="space-y-3 mb-6">
-                  {product.benefits.map((benefit, benefitIndex) => (
-                    <motion.li 
-                      key={benefitIndex} 
-                      className="flex items-center text-sm text-[#1A1A1A]"
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: benefitIndex * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className={`w-2 h-2 bg-gradient-to-r ${product.gradient} rounded-full mr-3 flex-shrink-0`}></div>
-                      <span>{benefit}</span>
-                    </motion.li>
-                  ))}
-                </ul>
+                <div className="mb-6">
+                  <h4 className="text-sm font-semibold text-[#00AA44] mb-2 uppercase tracking-wide">Your Results:</h4>
+                  <ul className="space-y-2">
+                    {product.benefits.map((benefit, benefitIndex) => (
+                      <motion.li 
+                        key={benefitIndex} 
+                        className="flex items-center text-sm text-[#1A1A1A] font-medium"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: benefitIndex * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className={`w-2 h-2 bg-gradient-to-r ${product.gradient} rounded-full mr-3 flex-shrink-0`}></div>
+                        <span>{benefit}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
                 
                 {/* CTA Button */}
                 <motion.button 
-                  className="w-full bg-[#F8F8F8] text-[#1A1A1A] border border-[#CCCCCC] px-4 py-3 rounded-lg font-medium hover:bg-[#FFFFFF] hover:border-[#0066FF]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center space-x-2 group/btn"
-                  whileHover={{ scale: 1.02 }}
+                  className="w-full bg-gradient-to-r from-[#0066FF] to-[#0033FF] text-white border border-[#0066FF] px-4 py-3 rounded-lg font-semibold hover:from-[#0052CC] hover:to-[#002699] hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 group/btn"
+                  whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span>View Demo</span>
+                  <span>See How It Works</span>
                   <motion.div
-                    className="text-[#0066FF]"
+                    className="text-white"
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
@@ -222,7 +254,7 @@ const ProductsSection = () => {
 
               {/* Hover Glow Effect */}
               <div className={`absolute inset-0 bg-gradient-to-r ${product.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}></div>
-            </motion.a>
+            </motion.div>
           ))}
         </motion.div>
       </div>

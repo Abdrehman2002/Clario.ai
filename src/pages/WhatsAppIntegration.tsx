@@ -65,24 +65,24 @@ const WhatsAppIntegration = () => {
   };
 
   const features = [
-    { icon: MessageSquare, title: "Instant Messaging", desc: "Real-time conversations with customers", color: "#25D366" },
-    { icon: Brain, title: "AI-Powered Responses", desc: "Intelligent automated replies", color: "#0066FF" },
-    { icon: Shield, title: "Secure & Compliant", desc: "Enterprise-grade security standards", color: "#FF6B6B" },
-    { icon: Users, title: "Multi-user Support", desc: "Handle thousands of conversations", color: "#9C27B0" },
-    { icon: BarChart3, title: "Analytics Dashboard", desc: "Track performance and insights", color: "#FF9800" },
-    { icon: Globe, title: "Global Reach", desc: "Connect with customers worldwide", color: "#4CAF50" }
+    { icon: MessageSquare, title: "Book Appointments 24/7", desc: "Customers can schedule appointments instantly via chat", color: "#25D366" },
+    { icon: Brain, title: "Process Orders Automatically", desc: "Take orders and process payments through WhatsApp", color: "#0066FF" },
+    { icon: Shield, title: "Reduce Booking Friction by 70%", desc: "Simplified booking process increases conversions", color: "#FF6B6B" },
+    { icon: Users, title: "Increase Order Completion by 45%", desc: "Frictionless ordering experience", color: "#9C27B0" },
+    { icon: BarChart3, title: "Track All Interactions", desc: "Monitor bookings, orders, and customer behavior", color: "#FF9800" },
+    { icon: Globe, title: "Works Worldwide", desc: "Available in 180+ countries", color: "#4CAF50" }
   ];
 
   const useCases = [
-    { icon: Phone, title: "Customer Support", desc: "24/7 automated assistance", color: "#25D366", gradient: "from-[#25D366] to-[#128C7E]" },
-    { icon: Send, title: "Marketing Campaigns", desc: "Engage with your audience", color: "#0066FF", gradient: "from-[#0066FF] to-[#0033FF]" },
-    { icon: Bot, title: "Order Processing", desc: "Automated order management", color: "#FF6B6B", gradient: "from-[#FF6B6B] to-[#FF5252]" },
-    { icon: Smartphone, title: "Appointment Booking", desc: "Smart scheduling system", color: "#9C27B0", gradient: "from-[#9C27B0] to-[#7B1FA2]" }
+    { icon: Phone, title: "Restaurants", desc: "Take orders and reservations via WhatsApp", color: "#25D366", gradient: "from-[#25D366] to-[#128C7E]" },
+    { icon: Send, title: "Healthcare", desc: "Book appointments and send reminders", color: "#0066FF", gradient: "from-[#0066FF] to-[#0033FF]" },
+    { icon: Bot, title: "E-commerce", desc: "Process orders and handle customer service", color: "#FF6B6B", gradient: "from-[#FF6B6B] to-[#FF5252]" },
+    { icon: Smartphone, title: "Salons & Spas", desc: "Schedule appointments and manage bookings", color: "#9C27B0", gradient: "from-[#9C27B0] to-[#7B1FA2]" }
   ];
 
   const testimonials = [
-    { name: "Maria Garcia", role: "Marketing Director", company: "GlobalConnect", rating: 5, quote: "WhatsApp integration increased our customer engagement by 300% and response rates by 85%.", avatar: "MG" },
-    { name: "David Kim", role: "Customer Success Lead", company: "ChatFlow", rating: 5, quote: "The AI-powered responses are incredibly natural and our customers love the instant support.", avatar: "DK" }
+    { name: "Maria Garcia", role: "Restaurant Owner", company: "Fresh Bites", rating: 5, quote: "Customers can now order and book tables via WhatsApp 24/7. Our orders increased by 45% after hours.", avatar: "MG" },
+    { name: "David Kim", role: "Dental Practice Manager", company: "SmileCare", rating: 5, quote: "Patients book appointments through WhatsApp and we send automatic reminders. No-shows reduced by 60%.", avatar: "DK" }
   ];
 
   const stats = [
@@ -152,18 +152,31 @@ const WhatsAppIntegration = () => {
               className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
             >
               <span className="bg-gradient-to-r from-[#25D366] via-[#0066FF] to-[#25D366] bg-clip-text text-transparent">
-                Smart WhatsApp
+              Clients won’t wait
               </span>
               <br />
-              <span className="text-[#1A1A1A]">AI Integration</span>
+              <span className="text-[#1A1A1A]"> AI books instantly</span>
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
               className="text-2xl sm:text-3xl text-[#666666] mb-12 max-w-4xl mx-auto leading-relaxed font-light"
             >
-              Transform your WhatsApp business with intelligent AI that responds instantly, handles conversations naturally, and scales your customer engagement globally.
+              Turn WhatsApp into your 24/7 booking and ordering platform. Customers can book appointments and place orders instantly through chat, even when you're closed.
             </motion.p>
+
+            <motion.div 
+              variants={itemVariants}
+              className="mb-12"
+            >
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#25D366]/10 to-[#128C7E]/10 border border-[#25D366]/20 rounded-full px-6 py-3">
+                <MessageSquare className="w-5 h-5 text-[#25D366]" />
+                <span className="text-lg text-[#25D366] font-semibold italic">
+                  "Clients won't wait — if you don't reply instantly, someone else will."
+                </span>
+                <MessageSquare className="w-5 h-5 text-[#128C7E]" />
+              </div>
+            </motion.div>
 
             {/* Stats Section */}
             <motion.div 
@@ -251,7 +264,7 @@ const WhatsAppIntegration = () => {
               variants={itemVariants}
               className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
             >
-              Why Choose WhatsApp AI Integration?
+              The Problems We Solve
             </motion.h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -313,7 +326,7 @@ const WhatsAppIntegration = () => {
               variants={itemVariants}
               className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
             >
-              Perfect For Every Business Need
+              Industries We Transform
             </motion.h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -480,7 +493,7 @@ const WhatsAppIntegration = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                Ready to Transform Your WhatsApp Business?
+                Ready to Turn WhatsApp into Your Booking Platform?
               </motion.h2>
               
               <motion.p 
@@ -490,7 +503,7 @@ const WhatsAppIntegration = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                Join thousands of businesses already using AI-powered WhatsApp integration to enhance customer engagement and drive growth.
+                While your competitors lose bookings after hours, you'll be capturing appointments and orders 24/7 through WhatsApp.
               </motion.p>
               
               <motion.div 

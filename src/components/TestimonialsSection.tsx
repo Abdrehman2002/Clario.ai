@@ -6,21 +6,21 @@ const testimonials = [
   {
     name: "Andrew William",
     title: "VP of Marketing at XYZ Inc.",
-    quote: "I can't thank them enough for their professionalism and results. They went above and beyond to deliver exceptional value.",
+    quote: "Our conversion rates increased by 35% in the first month. The AI chatbot handles customer inquiries 24/7 and never misses a sale opportunity.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
     rating: 5,
-    impact: "60% cost reduction",
+    impact: "35% conversion increase",
     category: "Marketing",
     company: "XYZ Inc.",
-    industry: "Technology"
+    industry: "E-commerce"
   },
   {
     name: "Sarah Chen",
     title: "Operations Lead at TechFlow",
-    quote: "Incredible support and automation expertise. Clario AI helped us scale workflows in days, not months.",
+    quote: "We reduced our support costs by 60% while improving customer satisfaction. The AI handles 70% of inquiries automatically.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
     rating: 5,
-    impact: "10x faster processing",
+    impact: "60% cost reduction",
     category: "Operations",
     company: "TechFlow",
     industry: "SaaS"
@@ -28,10 +28,10 @@ const testimonials = [
   {
     name: "Nate Jacobs",
     title: "Head of Product at InnovateCorp",
-    quote: "Reliable, intelligent systems that actually work. Their voice agent cut our support load by 60% overnight.",
+    quote: "Our lead generation increased 3x with AI-powered qualification. We're closing deals faster than ever before.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     rating: 5,
-    impact: "24/7 availability",
+    impact: "3x more leads",
     category: "Product",
     company: "InnovateCorp",
     industry: "Fintech"
@@ -39,10 +39,10 @@ const testimonials = [
   {
     name: "Sophie Mark",
     title: "VP of Customer Success at GrowthAI",
-    quote: "A team of builders who just get it. The AI receptionist runs 24/7 and never misses a beat.",
+    quote: "The AI voice agent runs our customer support 24/7. We've never lost a customer due to wait times since implementing Clario.",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b1e5?w=150&h=150&fit=crop&crop=face",
     rating: 5,
-    impact: "99.9% uptime",
+    impact: "24/7 support",
     category: "Customer Success",
     company: "GrowthAI",
     industry: "AI/ML"
@@ -50,7 +50,7 @@ const testimonials = [
   {
     name: "Andy Marker",
     title: "Tech Director at FutureTech",
-    quote: "I'd work with Clario again in a heartbeat. Great design, real results, fast turnaround.",
+    quote: "ROI increased 3x in the first quarter. The workflow automation saved us 20+ hours per week per team member.",
     image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=150&h=150&fit=crop&crop=face",
     rating: 5,
     impact: "3x ROI increase",
@@ -61,10 +61,10 @@ const testimonials = [
   {
     name: "Rosaline James",
     title: "COO at ScaleUp Ventures",
-    quote: "From day one, their team made our process smoother and smarter. Highly recommended!",
+    quote: "We scaled our operations 10x without hiring additional staff. The AI automation handles everything seamlessly.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&crop=face",
     rating: 5,
-    impact: "50% time savings",
+    impact: "10x scale",
     category: "Operations",
     company: "ScaleUp Ventures",
     industry: "E-commerce"
@@ -192,10 +192,10 @@ const TestimonialsSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            What Our Clients
+            Real Results from
             <br />
             <span className="bg-gradient-to-r from-[#B8C2FF] to-[#CCE0FF] bg-clip-text text-transparent">
-              Love About Us
+              Real Clients
             </span>
           </motion.h2>
           
@@ -206,7 +206,7 @@ const TestimonialsSection = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            We're honoured by the feedback, and it fuels our commitment to keep delivering excellent services.
+            See how our clients are achieving 10x growth, 60% cost reduction, and 24/7 customer support with our AI solutions.
           </motion.p>
         </motion.div>
 

@@ -23,7 +23,14 @@ import {
   Search,
   Smartphone as Mobile,
   Monitor,
-  Code
+  Code,
+  AlertTriangle,
+  DollarSign,
+  Calendar,
+  Phone,
+  Mail,
+  Database,
+  BarChart3
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
@@ -64,67 +71,107 @@ const AIWebsite = () => {
     }
   };
 
-  const features = [
-    { icon: Zap, title: "Build Websites in Minutes", desc: "No coding required - just describe your business", color: "#FF6B6B" },
-    { icon: Eye, title: "AI-Optimized for Conversions", desc: "Automatically designed to convert visitors", color: "#4ECDC4" },
-    { icon: Mobile, title: "Mobile-First Design", desc: "Responsive design that works on all devices", color: "#45B7D1" },
-    { icon: Search, title: "SEO-Ready Out of the Box", desc: "Built-in SEO optimization for better rankings", color: "#96CEB4" },
-    { icon: TrendingUp, title: "Increase Conversion Rates by 40%", desc: "AI-optimized layouts and content", color: "#FFEAA7" },
-    { icon: Clock, title: "Save 90% on Development Time", desc: "From months to minutes", color: "#DDA0DD" }
+  // Case Study Data
+  const caseStudy = {
+    company: "Fresh Bites Restaurant",
+    industry: "Food & Beverage",
+    problem: "Losing customers due to outdated website and poor mobile experience",
+    solution: "AI-generated website with 40% higher conversion rate",
+    results: {
+      revenue: "+300% online orders",
+      conversionRate: "40% increase",
+      buildTime: "15 minutes",
+      costSavings: "90%"
+    }
+  };
+
+  const painPoints = [
+    { icon: AlertTriangle, title: "Outdated Website Losing Customers", desc: "Poor mobile experience causing 60% bounce rate", color: "#EF4444" },
+    { icon: DollarSign, title: "Missing Online Revenue", desc: "No online ordering = lost sales opportunities", color: "#F59E0B" },
+    { icon: Clock, title: "Months of Development Time", desc: "Traditional websites take 3-6 months to build", color: "#8B5CF6" },
+    { icon: Users, title: "Poor Conversion Rates", desc: "Generic templates don't convert visitors", color: "#06B6D4" }
   ];
 
-  const useCases = [
-    { icon: Globe, title: "Small Businesses", desc: "Professional websites without the cost", color: "#FF6B6B", gradient: "from-[#FF6B6B] to-[#FF5252]" },
-    { icon: Users, title: "Startups", desc: "Launch your MVP website instantly", color: "#4ECDC4", gradient: "from-[#4ECDC4] to-[#44A08D]" },
-    { icon: Target, title: "E-commerce", desc: "High-converting online stores", color: "#45B7D1", gradient: "from-[#45B7D1] to-[#3498DB]" },
-    { icon: Monitor, title: "Agencies", desc: "Create client websites in record time", color: "#96CEB4", gradient: "from-[#96CEB4] to-[#7FB069]" }
+  const solutions = [
+    { icon: Zap, title: "15-Minute Website Creation", desc: "From idea to live website in under an hour", color: "#8B5CF6" },
+    { icon: Eye, title: "40% Higher Conversions", desc: "AI-optimized for maximum visitor conversion", color: "#06B6D4" },
+    { icon: Mobile, title: "Mobile-First Design", desc: "Responsive design that works on all devices", color: "#10B981" },
+    { icon: DollarSign, title: "90% Cost Savings", desc: "No developers, no agencies, no delays", color: "#F59E0B" },
+    { icon: Search, title: "Built-in SEO Optimization", desc: "Automatically optimized for search engines", color: "#8B5CF6" },
+    { icon: Shield, title: "Enterprise Security", desc: "SSL certificates and security built-in", color: "#06B6D4" },
+    { icon: TrendingUp, title: "Real-time Analytics", desc: "Track performance and optimize continuously", color: "#10B981" },
+    { icon: Globe, title: "Global CDN", desc: "Lightning-fast loading worldwide", color: "#F59E0B" }
+  ];
+
+  const features = [
+    { icon: Brain, title: "AI-Powered Design", desc: "Automatically creates conversion-optimized layouts", color: "#8B5CF6" },
+    { icon: Search, title: "Built-in SEO", desc: "Optimized for search engines from day one", color: "#06B6D4" },
+    { icon: Shield, title: "Enterprise Security", desc: "SSL certificates and security built-in", color: "#10B981" },
+    { icon: TrendingUp, title: "Analytics Dashboard", desc: "Track performance and optimize continuously", color: "#F59E0B" },
+    { icon: Palette, title: "Custom Branding", desc: "Match your brand colors and fonts perfectly", color: "#8B5CF6" },
+    { icon: Database, title: "Content Management", desc: "Easy-to-use CMS for non-technical users", color: "#06B6D4" },
+    { icon: Wifi, title: "Automatic Backups", desc: "Daily backups and version control included", color: "#10B981" },
+    { icon: Cpu, title: "AI Content Generation", desc: "Automatically generate compelling copy", color: "#F59E0B" },
+    { icon: Smartphone, title: "Mobile App Ready", desc: "PWA capabilities for app-like experience", color: "#8B5CF6" },
+    { icon: BarChart3, title: "A/B Testing Tools", desc: "Test different layouts and optimize conversions", color: "#06B6D4" },
+    { icon: Mail, title: "Email Integration", desc: "Built-in contact forms and email marketing", color: "#10B981" },
+    { icon: Calendar, title: "Booking Integration", desc: "Appointment scheduling and calendar sync", color: "#F59E0B" }
   ];
 
   const testimonials = [
-    { name: "Sarah Chen", role: "Restaurant Owner", company: "Fresh Bites", rating: 5, quote: "Our website was built in 15 minutes and increased our online orders by 300%. The AI knew exactly what we needed.", avatar: "SC" },
-    { name: "Mike Rodriguez", role: "Startup Founder", company: "TechFlow", rating: 5, quote: "We went from idea to live website in under an hour. The conversion rate is 40% higher than our old site.", avatar: "MR" }
+    { 
+      name: "Sarah Chen", 
+      role: "Restaurant Owner", 
+      company: "Fresh Bites", 
+      rating: 5, 
+      quote: "Our website was built in 15 minutes and increased our online orders by 300%. The AI knew exactly what we needed.", 
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      results: "+300% online orders"
+    },
+    { 
+      name: "Mike Rodriguez", 
+      role: "Startup Founder", 
+      company: "TechFlow", 
+      rating: 5, 
+      quote: "We went from idea to live website in under an hour. The conversion rate is 40% higher than our old site.", 
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      results: "40% higher conversions"
+    }
   ];
 
   const stats = [
-    { icon: Clock, value: "15min", label: "Build Time", color: "#FF6B6B" },
-    { icon: TrendingUp, value: "40%", label: "Conversion Boost", color: "#4ECDC4" },
-    { icon: Users, value: "90%", label: "Cost Savings", color: "#45B7D1" },
-    { icon: Eye, value: "24/7", label: "Live Website", color: "#96CEB4" }
+    { icon: Clock, value: "15min", label: "Build Time", color: "#8B5CF6" },
+    { icon: TrendingUp, value: "40%", label: "Conversion Boost", color: "#06B6D4" },
+    { icon: Users, value: "90%", label: "Cost Savings", color: "#10B981" },
+    { icon: Eye, value: "24/7", label: "Live Website", color: "#F59E0B" }
+  ];
+
+  const fomoElements = [
+    { icon: Users, text: "1,000+ websites built with Clario AI", color: "#8B5CF6" },
+    { icon: TrendingUp, text: "Average 40% increase in conversions", color: "#06B6D4" },
+    { icon: Clock, text: "Get your website live in 15 minutes", color: "#10B981" },
+    { icon: DollarSign, text: "90% savings vs traditional development", color: "#F59E0B" }
   ];
 
   return (
     <div className="min-h-screen bg-[#FFFFFF]">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section - Problem Focused */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Futuristic Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-[#FF6B6B]/10 to-[#4ECDC4]/10 rounded-full blur-3xl"
+            className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-[#8B5CF6]/10 to-[#06B6D4]/10 rounded-full blur-3xl"
             variants={floatingVariants}
             animate="animate"
           />
           <motion.div
-            className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-[#45B7D1]/15 to-[#96CEB4]/15 rounded-full blur-2xl"
+            className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-[#C4B5FD]/15 to-[#A5F3FC]/15 rounded-full blur-2xl"
             variants={floatingVariants}
             animate="animate"
             style={{ animationDelay: "1s" }}
           />
-          <motion.div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-[#FF6B6B]/5 to-[#4ECDC4]/5 rounded-full blur-xl"
-            variants={floatingVariants}
-            animate="animate"
-            style={{ animationDelay: "2s" }}
-          />
-        </div>
-
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #FF6B6B 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -134,55 +181,56 @@ const AIWebsite = () => {
             initial="hidden"
             animate="visible"
           >
+            {/* Problem Statement */}
             <motion.div variants={itemVariants} className="mb-8">
               <motion.div
-                className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#FF6B6B]/10 to-[#4ECDC4]/10 border border-[#FF6B6B]/20 rounded-full px-6 py-3 mb-6"
+                className="inline-flex items-center space-x-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-full px-6 py-3 mb-6"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
               >
-                <Sparkles className="w-5 h-5 text-[#FF6B6B]" />
-                <span className="text-lg text-[#FF6B6B] font-semibold">AI Website Builder</span>
-                <Sparkles className="w-5 h-5 text-[#4ECDC4]" />
+                <AlertTriangle className="w-5 h-5 text-red-500" />
+                <span className="text-lg text-red-500 font-semibold">The Problem</span>
               </motion.div>
             </motion.div>
 
             <motion.h1 
               variants={itemVariants}
-              className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
             >
-              <span className="bg-gradient-to-r from-[#FF6B6B] via-[#4ECDC4] to-[#FF6B6B] bg-clip-text text-transparent">
-                From Idea to Live Website
+              <span className="text-[#1A1A1A]">Your Website is</span>
+              <br />
+              <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+                Losing Customers
               </span>
               <br />
-              <span className="text-[#1A1A1A]">in 15 Minutes</span>
+              <span className="text-[#1A1A1A]">Every Day</span>
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
-              className="text-2xl sm:text-3xl text-[#666666] mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+              className="text-xl sm:text-2xl text-[#666666] mb-12 max-w-4xl mx-auto leading-relaxed"
             >
-              While your competitors spend months and thousands on web development, you'll have a professional, high-converting website in minutes. No coding required.
+              While your competitors build conversion-optimized websites in minutes, you're still waiting months for developers. Fresh Bites increased online orders by <span className="font-bold text-green-600">300%</span> with an AI website built in <span className="font-bold text-blue-600">15 minutes</span>.
             </motion.p>
 
-            {/* Stats Section */}
+            {/* FOMO Stats */}
             <motion.div 
               variants={itemVariants}
               className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
             >
-              {stats.map((stat, index) => (
+              {fomoElements.map((element, index) => (
                 <motion.div
-                  key={stat.label}
-                  className="text-center"
+                  key={index}
+                  className="text-center bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-4 border border-gray-200"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="flex items-center justify-center mb-2">
-                    <stat.icon className="w-6 h-6 mr-2" style={{ color: stat.color }} />
-                    <span className="text-3xl font-bold text-[#1A1A1A]">{stat.value}</span>
+                    <element.icon className="w-5 h-5 mr-2" style={{ color: element.color }} />
                   </div>
-                  <p className="text-sm text-[#666666] font-medium">{stat.label}</p>
+                  <p className="text-sm text-[#666666] font-medium">{element.text}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -197,13 +245,11 @@ const AIWebsite = () => {
                 transition={{ duration: 0.2 }}
               >
                 <Button 
-                  className="bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] hover:from-[#FF5252] hover:to-[#44A08D] text-white px-10 py-5 text-xl font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 group relative overflow-hidden"
-                  size="lg"
+                  size="lg" 
+                  className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] hover:from-[#7C3AED] hover:to-[#0891B2] text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <Play className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300" />
-                  Watch Live Demo
-                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
+                  <Play className="w-5 h-5 mr-2" />
+                  See How Fresh Bites Did It
                 </Button>
               </motion.div>
               
@@ -213,14 +259,12 @@ const AIWebsite = () => {
                 transition={{ duration: 0.2 }}
               >
                 <Button 
-                  variant="outline"
-                  className="border-3 border-[#FF6B6B]/30 hover:border-[#FF6B6B] text-[#1A1A1A] hover:text-[#FF6B6B] px-10 py-5 text-xl font-bold rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300 group relative overflow-hidden"
-                  size="lg"
+                  variant="outline" 
+                  size="lg" 
+                  className="border-2 border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B6B]/5 to-[#4ECDC4]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <Palette className="w-6 h-6 mr-3 group-hover:rotate-12 transition-transform duration-300" />
-                  Start Free Trial
-                  <Rocket className="w-6 h-6 ml-3 group-hover:translate-y-[-2px] transition-transform duration-300" />
+                  <ArrowRight className="w-5 h-5 mr-2" />
+                  Build Your Website Now
                 </Button>
               </motion.div>
             </motion.div>
@@ -228,70 +272,211 @@ const AIWebsite = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-gradient-to-br from-[#F8F8F8] to-[#FFFFFF] relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(45deg, #FF6B6B 25%, transparent 25%), linear-gradient(-45deg, #FF6B6B 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #FF6B6B 75%), linear-gradient(-45deg, transparent 75%, #FF6B6B 75%)`,
-            backgroundSize: '20px 20px',
-            backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px'
-          }}></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      {/* Case Study Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div 
-            className="text-center mb-20"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            <motion.h2 
-              variants={itemVariants}
-              className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
+            {/* Case Study Header */}
+            <div className="text-center mb-16">
+              <motion.div
+                className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#8B5CF6]/10 to-[#06B6D4]/10 border border-[#8B5CF6]/20 rounded-full px-6 py-3 mb-6"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Star className="w-5 h-5 text-[#8B5CF6]" />
+                <span className="text-lg text-[#8B5CF6] font-semibold">Success Story</span>
+              </motion.div>
+              
+              <motion.h2 
+                className="text-4xl lg:text-5xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
+                  Fresh Bites Restaurant
+                </span>
+                <br />
+                <span className="text-[#1A1A1A]">Case Study</span>
+              </motion.h2>
+              
+              <motion.p 
+                className="text-xl text-[#666666] max-w-3xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                How a local restaurant went from outdated website to 300% increase in online orders
+              </motion.p>
+            </div>
+
+            {/* Problem vs Solution Grid */}
+            <div className="grid lg:grid-cols-2 gap-12 mb-16">
+              {/* Problem Side */}
+              <motion.div 
+                className="space-y-8"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-200">
+                  <div className="flex items-center space-x-3 mb-6">
+                    <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                      <AlertTriangle className="w-6 h-6 text-red-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-red-600">The Problem</h3>
+                      <p className="text-red-600/80">What was holding them back</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-[#666666]">Outdated website with 60% bounce rate</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-[#666666]">No mobile ordering system</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-[#666666]">Losing customers to competitors with better websites</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-[#666666]">No online revenue stream</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Solution Side */}
+              <motion.div 
+                className="space-y-8"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
+                  <div className="flex items-center space-x-3 mb-6">
+                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                      <Sparkles className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-green-600">The Solution</h3>
+                      <p className="text-green-600/80">How Clario AI helped</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-[#666666]">AI-generated website built in 15 minutes</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-[#666666]">Mobile-first design with online ordering</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-[#666666]">Conversion-optimized layout and content</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-[#666666]">Built-in SEO and analytics</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Results Grid */}
+            <motion.div 
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
             >
-              The Problems We Solve
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
+              <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 text-center border border-green-200">
+                <div className="text-3xl font-bold text-green-600 mb-2">+300%</div>
+                <div className="text-[#666666] font-medium">Online Orders</div>
+              </div>
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 text-center border border-blue-200">
+                <div className="text-3xl font-bold text-blue-600 mb-2">40%</div>
+                <div className="text-[#666666] font-medium">Higher Conversions</div>
+              </div>
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center border border-purple-200">
+                <div className="text-3xl font-bold text-purple-600 mb-2">15min</div>
+                <div className="text-[#666666] font-medium">Build Time</div>
+              </div>
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-6 text-center border border-orange-200">
+                <div className="text-3xl font-bold text-orange-600 mb-2">90%</div>
+                <div className="text-[#666666] font-medium">Cost Savings</div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Pain Points Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div 
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-4xl lg:text-5xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-[#1A1A1A]">Common Business</span>
+                <br />
+                <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+                  Problems We Solve
+                </span>
+              </motion.h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {painPoints.map((point, index) => (
                 <motion.div
-                  key={feature.title}
-                  className="group relative bg-white border border-[#CCCCCC] rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden"
-                  variants={itemVariants}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  key={index}
+                  className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: `0 25px 50px -12px ${feature.color}20`
-                  }}
                 >
-                  {/* Animated Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#FFE5E5]/5 to-[#E0F7FA]/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
-                   
-                  {/* Icon */}
-                  <motion.div 
-                    className="relative mb-6"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <div className="w-20 h-20 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-3xl flex items-center justify-center shadow-xl relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <feature.icon className="w-10 h-10 text-white relative z-10" />
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${point.color}20` }}>
+                      <point.icon className="w-6 h-6" style={{ color: point.color }} />
                     </div>
-                  </motion.div>
-                   
-                  {/* Content */}
-                  <div className="relative">
-                    <h3 className="font-bold text-[#1A1A1A] text-2xl mb-4">{feature.title}</h3>
-                    <p className="text-[#666666] leading-relaxed text-lg">{feature.desc}</p>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">{point.title}</h3>
+                      <p className="text-[#666666]">{point.desc}</p>
+                    </div>
                   </div>
-
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B6B]/5 to-[#4ECDC4]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
                 </motion.div>
               ))}
             </div>
@@ -299,64 +484,103 @@ const AIWebsite = () => {
         </div>
       </section>
 
-      {/* Use Cases Section */}
-      <section className="py-24 bg-[#FFFFFF] relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      {/* Solutions Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div 
-            className="text-center mb-20"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            <motion.h2 
-              variants={itemVariants}
-              className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
-            >
-              Perfect For Every Business
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {useCases.map((useCase, index) => (
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-4xl lg:text-5xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-[#1A1A1A]">How Our AI</span>
+                <br />
+                <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
+                  Solves These Problems
+                </span>
+              </motion.h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {solutions.map((solution, index) => (
                 <motion.div
-                  key={useCase.title}
-                  className="group relative bg-white border border-[#CCCCCC] rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 text-center overflow-hidden"
-                  variants={itemVariants}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  key={index}
+                  className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: `0 25px 50px -12px ${useCase.color}20`
-                  }}
                 >
-                  {/* Animated Background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${useCase.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
-                   
-                  {/* Icon */}
-                  <motion.div 
-                    className="relative mb-6"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <div 
-                      className="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center shadow-xl relative overflow-hidden"
-                      style={{ background: `linear-gradient(135deg, ${useCase.color}, ${useCase.color}dd)` }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <useCase.icon className="w-10 h-10 text-white relative z-10" />
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${solution.color}20` }}>
+                      <solution.icon className="w-6 h-6" style={{ color: solution.color }} />
                     </div>
-                  </motion.div>
-                   
-                  {/* Content */}
-                  <div className="relative">
-                    <h3 className="font-bold text-[#1A1A1A] text-xl mb-3">{useCase.title}</h3>
-                    <p className="text-[#666666] text-base">{useCase.desc}</p>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">{solution.title}</h3>
+                      <p className="text-[#666666]">{solution.desc}</p>
+                    </div>
                   </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-                  {/* Hover Glow */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${useCase.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
+      {/* Features Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div 
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-4xl lg:text-5xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-[#1A1A1A]">Powerful Features</span>
+                <br />
+                <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
+                  Built for Results
+                </span>
+              </motion.h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${feature.color}20` }}>
+                      <feature.icon className="w-6 h-6" style={{ color: feature.color }} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">{feature.title}</h3>
+                      <p className="text-[#666666]">{feature.desc}</p>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -365,73 +589,71 @@ const AIWebsite = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-gradient-to-br from-[#F8F8F8] to-[#FFFFFF] relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div 
-            className="text-center mb-20"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            <motion.h2 
-              variants={itemVariants}
-              className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
-            >
-              Real Results from Real Clients
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <motion.h2 
+                className="text-4xl lg:text-5xl font-bold mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-[#1A1A1A]">What Our</span>
+                <br />
+                <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
+                  Customers Say
+                </span>
+              </motion.h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
                 <motion.div
-                  key={testimonial.name}
-                  className="group relative bg-white border border-[#CCCCCC] rounded-3xl p-10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
-                  variants={itemVariants}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  key={index}
+                  className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.02,
-                    boxShadow: "0 25px 50px -12px rgba(255, 107, 107, 0.15)"
-                  }}
                 >
-                  {/* Quote Icon */}
-                  <motion.div 
-                    className="absolute top-8 right-8 text-[#FFE5E5]"
-                    whileHover={{ rotate: 360, scale: 1.3 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <Globe className="w-10 h-10" />
-                  </motion.div>
-                   
-                  {/* Rating */}
-                  <div className="flex items-center space-x-1 mb-6">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-6 h-6 text-[#FFD700] fill-current" />
-                    ))}
-                  </div>
-                   
-                  {/* Quote */}
-                  <blockquote className="text-[#1A1A1A] text-xl leading-relaxed mb-8 italic font-medium">
-                    "{testimonial.quote}"
-                  </blockquote>
-                   
-                  {/* Author */}
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-xl">
-                        {testimonial.avatar}
-                      </span>
+                  <div className="flex items-center space-x-4 mb-6">
+                    <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center">
+                      {testimonial.avatar.startsWith('http') ? (
+                        <img 
+                          src={testimonial.avatar} 
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] flex items-center justify-center text-white font-bold">
+                          {testimonial.avatar}
+                        </div>
+                      )}
                     </div>
                     <div>
-                      <div className="font-bold text-[#1A1A1A] text-lg">{testimonial.name}</div>
-                      <div className="text-sm text-[#666666]">{testimonial.role} at {testimonial.company}</div>
+                      <h3 className="font-bold text-[#1A1A1A]">{testimonial.name}</h3>
+                      <p className="text-[#666666]">{testimonial.role}, {testimonial.company}</p>
                     </div>
                   </div>
-
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B6B]/5 to-[#4ECDC4]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                  
+                  <blockquote className="text-lg text-[#666666] mb-6 italic">
+                    "{testimonial.quote}"
+                  </blockquote>
+                  
+                  <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 border border-green-200">
+                    <div className="flex items-center space-x-2">
+                      <TrendingUp className="w-5 h-5 text-green-600" />
+                      <span className="font-bold text-green-600">{testimonial.results}</span>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -439,116 +661,77 @@ const AIWebsite = () => {
         </div>
       </section>
 
-      {/* Enhanced CTA Section */}
-      <section className="py-24 bg-[#FFFFFF] relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      {/* FOMO CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-[#8B5CF6] to-[#06B6D4]">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div 
-            className="text-center"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            <motion.div 
-              className="bg-gradient-to-r from-[#FF6B6B] via-[#4ECDC4] to-[#FF6B6B] rounded-3xl p-16 lg:p-20 text-white relative overflow-hidden"
-              variants={itemVariants}
-            >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0" style={{
-                  backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-                  backgroundSize: '40px 40px'
-                }}></div>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
+              Don't Let Your Competitors
+              <br />
+              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                Get Ahead
+              </span>
+            </h2>
+            
+            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+              While you're reading this, your competitors are building AI-powered websites and capturing your customers. 
+              <span className="font-bold"> Start building your website today.</span>
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <div className="text-3xl font-bold text-white mb-2">1,000+</div>
+                <div className="text-white/80">Websites built with Clario</div>
               </div>
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <div className="text-3xl font-bold text-white mb-2">40%</div>
+                <div className="text-white/80">Average conversion increase</div>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <div className="text-3xl font-bold text-white mb-2">15 min</div>
+                <div className="text-white/80">To build your website</div>
+              </div>
+            </div>
 
-              {/* Floating Elements */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
               <motion.div
-                className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full"
-                animate={{ y: [-10, 10, -10], rotate: [0, 360] }}
-                transition={{ duration: 6, repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute bottom-10 right-10 w-16 h-16 bg-white/10 rounded-full"
-                animate={{ y: [10, -10, 10], rotate: [360, 0] }}
-                transition={{ duration: 8, repeat: Infinity }}
-              />
-
-              <motion.h2 
-                className="text-5xl lg:text-6xl font-bold mb-8 relative z-10"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
               >
-                Ready to Build Your Website in Minutes?
-              </motion.h2>
-               
-              <motion.p 
-                className="text-2xl mb-12 max-w-3xl mx-auto opacity-90 relative z-10"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                While your competitors spend months on development, you'll have a professional website live in minutes.
-              </motion.p>
-               
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-8 justify-center relative z-10"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Button 
-                    className="bg-white text-[#FF6B6B] hover:bg-gray-100 px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 group relative overflow-hidden"
-                    size="lg"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B6B]/5 to-[#4ECDC4]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <Palette className="w-6 h-6 mr-3 group-hover:rotate-12 transition-transform duration-300 relative z-10" />
-                    Start Free Trial
-                    <Rocket className="w-6 h-6 ml-3 group-hover:translate-y-[-2px] transition-transform duration-300 relative z-10" />
-                  </Button>
-                </motion.div>
-                
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Button 
-                    variant="outline"
-                    className="border-3 border-white/30 text-white hover:bg-white hover:text-[#FF6B6B] px-12 py-6 text-xl font-bold rounded-2xl backdrop-blur-sm transition-all duration-300 group relative overflow-hidden"
-                    size="lg"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <Play className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300 relative z-10" />
-                    Watch Demo
-                    <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
-                  </Button>
-                </motion.div>
-              </motion.div>
-
-              {/* Additional CTA */}
-              <motion.div 
-                className="mt-12 relative z-10"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-lg opacity-80 mb-4">Or schedule a personalized demo</p>
                 <Button 
-                  variant="outline"
-                  className="border-2 border-white/50 text-white hover:bg-white hover:text-[#FF6B6B] px-8 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm transition-all duration-300 group"
+                  size="lg" 
+                  className="bg-white text-[#8B5CF6] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <Target className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                  Schedule Demo
+                  <Rocket className="w-5 h-5 mr-2" />
+                  Build Your Website Now
+                </Button>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#8B5CF6] px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Book a Demo
                 </Button>
               </motion.div>
             </motion.div>

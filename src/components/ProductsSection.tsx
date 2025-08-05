@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, Brain, MessageCircle, BarChart3, Palette, Settings, Bot, Target } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -38,10 +37,10 @@ const products = [
     href: "/ai-lead-generation"
   },
   {
-    title: "WhatsApp Integration",
-    description: "Turn WhatsApp into your 24/7 booking and ordering platform. Customers can book appointments and place orders instantly through chat.",
-    benefits: ["Book appointments via WhatsApp 24/7", "Process orders through chat instantly", "Reduce booking friction by 70%", "Increase order completion by 45%"],
-    painPoints: ["Manual appointment scheduling", "Lost orders after hours", "Complex booking processes", "Poor customer experience"],
+    title: "AI WhatsApp Agent",
+          description: "AI WhatsApp Agent that understands voice notes and makes bookings & orders automatically. Turn WhatsApp into your 24/7 intelligent assistant.",
+          benefits: ["Understands voice notes perfectly", "Makes bookings and orders automatically", "Reduce booking friction by 70%", "Increase order completion by 45%"],
+          painPoints: ["Manual appointment scheduling", "Lost orders after hours", "Complex booking processes", "Voice notes not understood"],
     icon: MessageCircle,
     gradient: "from-[#25D366] to-[#128C7E]",
     color: "#25D366",
@@ -50,7 +49,7 @@ const products = [
   },
   {
     title: "Workflow Automation",
-    description: "Eliminate repetitive tasks and focus on what matters. Intelligent automation that scales your business without scaling your team.",
+    description: "Eliminate repetitive tasks and focus on what matters. Intelligent automation that scales your business without increasing your team or your work hours.",
     benefits: ["Save 20+ hours per week", "Reduce errors by 95%", "Scale operations 10x", "Improve team productivity"],
     painPoints: ["Time-consuming manual processes", "Human errors and inconsistencies", "Difficulty scaling operations", "Team burnout from repetitive tasks"],
     icon: Zap,
@@ -100,6 +99,10 @@ const ProductsSection = () => {
         ease: "easeOut"
       }
     }
+  };
+
+  const handleCardClick = (href: string) => {
+    navigate(href);
   };
 
   return (
@@ -160,12 +163,12 @@ const ProductsSection = () => {
           {products.map((product, index) => (
             <motion.div 
               key={product.title}
-              onClick={() => navigate(product.href)}
-              className="group relative bg-[#FFFFFF] border border-[#CCCCCC] rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden block cursor-pointer"
+              className="group relative bg-[#FFFFFF] border border-[#CCCCCC] rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden cursor-pointer"
               variants={cardVariants}
               whileHover={{ 
                 boxShadow: `0 20px 25px -5px ${product.color}20, 0 10px 10px -5px ${product.color}10`
               }}
+              onClick={() => handleCardClick(product.href)}
             >
               {/* Background Glow Effect */}
               <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}></div>
@@ -235,21 +238,17 @@ const ProductsSection = () => {
                   </ul>
                 </div>
                 
-                {/* CTA Button */}
-                <motion.button 
-                  className="w-full bg-gradient-to-r from-[#0066FF] to-[#0033FF] text-white border border-[#0066FF] px-4 py-3 rounded-lg font-semibold hover:from-[#0052CC] hover:to-[#002699] hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 group/btn"
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>See How It Works</span>
+                {/* Click Indicator */}
+                <div className="flex items-center justify-center text-[#0066FF] font-semibold text-sm group-hover:text-[#0052CC] transition-colors duration-300">
+                  <span>Click to learn more</span>
                   <motion.div
-                    className="text-white"
+                    className="ml-2"
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
                     <ArrowRight className="w-4 h-4" />
                   </motion.div>
-                </motion.button>
+                </div>
               </div>
 
               {/* Hover Glow Effect */}

@@ -71,7 +71,7 @@ const ContactSection = () => {
               
               <div className="space-y-4 sm:space-y-6">
                 <a 
-                  href="mailto:hello@clario.ai" 
+                  href="mailto:George@clario.ai" 
                   className="flex items-center space-x-4 glass rounded-xl p-4 hover:shadow-glow transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
@@ -81,7 +81,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="font-semibold">Email</div>
-                    <div className="text-muted-foreground">hello@clario.ai</div>
+                    <div className="text-muted-foreground">George@clario.ai</div>
                   </div>
                 </a>
 
@@ -129,7 +129,7 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-glass-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
                   placeholder="Your full name"
                 />
               </div>
@@ -145,7 +145,7 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-glass-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
                   placeholder="your@email.com"
                 />
               </div>
@@ -161,7 +161,7 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-glass-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
                   placeholder="Tell us about your automation needs..."
                 />
               </div>

@@ -261,7 +261,7 @@ const TestimonialsSection = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true }}
         >
           {testimonials.map((testimonial, index) => (
             <motion.div 
@@ -369,7 +369,7 @@ const TestimonialsSection = () => {
                     <div className="text-sm text-[#0066FF] font-bold">{testimonial.impact}</div>
                     <div className="text-xs text-[#666666]">Performance boost</div>
                   </div>
-            </div>
+                </div>
                 <motion.div 
                   className="text-xs text-[#666666] bg-[#F8F8F8] px-3 py-2 rounded-full border border-[#CCCCCC]/50 font-medium"
                   whileHover={{ scale: 1.05 }}

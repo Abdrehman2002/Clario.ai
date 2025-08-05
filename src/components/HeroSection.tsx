@@ -97,35 +97,6 @@ const HeroSection = () => {
             See How It Works
           </Button>
         </div>
-        
-        {/* Tech Stack Icons - Mobile Responsive */}
-        <div className="animate-on-load mt-8 sm:mt-12 lg:mt-16 flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 opacity-60 px-2 sm:px-4">
-          <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-            <div className="w-2 h-2 bg-primary rounded-full animate-glow-pulse"></div>
-            <span className="hidden xs:inline">OpenAI</span>
-            <span className="xs:hidden">OpenAI</span>
-          </div>
-          <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-            <div className="w-2 h-2 bg-violet-red rounded-full animate-glow-pulse" style={{ animationDelay: '0.5s' }}></div>
-            <span className="hidden xs:inline">WhatsApp Cloud API</span>
-            <span className="xs:hidden">WhatsApp</span>
-          </div>
-          <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-            <div className="w-2 h-2 bg-electric-blue rounded-full animate-glow-pulse" style={{ animationDelay: '1s' }}></div>
-            <span className="hidden xs:inline">Node.js</span>
-            <span className="xs:hidden">Node.js</span>
-          </div>
-          <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-            <div className="w-2 h-2 bg-primary rounded-full animate-glow-pulse" style={{ animationDelay: '1.5s' }}></div>
-            <span className="hidden xs:inline">n8n</span>
-            <span className="xs:hidden">n8n</span>
-          </div>
-          <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-            <div className="w-2 h-2 bg-violet-red rounded-full animate-glow-pulse" style={{ animationDelay: '2s' }}></div>
-            <span className="hidden xs:inline">Vercel</span>
-            <span className="xs:hidden">Vercel</span>
-          </div>
-        </div>
       </div>
       
       {/* Scroll indicator - Mobile Responsive */}

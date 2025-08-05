@@ -1,0 +1,44 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066FF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- CLARI Text -->
+  <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#textGradient)">
+    CLARI
+  </text>
+  
+  <!-- Circular Logo Icon -->
+  <g transform="translate(85, 15)">
+    <!-- Glow Effect -->
+    <circle cx="15" cy="15" r="18" fill="#0066FF" opacity="0.3" filter="url(#glow)"/>
+    <!-- Main Circle -->
+    <circle cx="15" cy="15" r="15" fill="#0066FF"/>
+    <!-- Globe Icon -->
+    <g transform="translate(15, 15)" fill="white">
+      <!-- Vertical line -->
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="white" stroke-width="1.5"/>
+      <!-- Horizontal line -->
+      <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.5"/>
+      <!-- Curved lines (simplified) -->
+      <path d="M -6 -4 Q 0 -6 6 -4" stroke="white" stroke-width="1" fill="none"/>
+      <path d="M -6 4 Q 0 6 6 4" stroke="white" stroke-width="1" fill="none"/>
+    </g>
+  </g>
+  
+  <!-- AI Text -->
+  <text x="115" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0066FF">
+    AI
+  </text>
+</svg> 

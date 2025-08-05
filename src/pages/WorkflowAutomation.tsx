@@ -23,7 +23,13 @@ import {
   Rocket,
   Activity,
   Wifi,
-  Globe
+  Globe,
+  AlertTriangle,
+  DollarSign,
+  Phone,
+  Mail,
+  Timer,
+  BarChart
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
@@ -64,25 +70,72 @@ const WorkflowAutomation = () => {
     }
   };
 
-  const features = [
-    { icon: Zap, title: "Lightning Fast", desc: "Execute complex workflows in milliseconds", color: "#FF9800" },
-    { icon: Brain, title: "AI-Powered", desc: "Intelligent decision making and automation", color: "#0066FF" },
-    { icon: Shield, title: "Secure & Reliable", desc: "Enterprise-grade security and uptime", color: "#25D366" },
-    { icon: Users, title: "Team Collaboration", desc: "Multi-user workflow management", color: "#FF6B6B" },
-    { icon: BarChart3, title: "Real-time Analytics", desc: "Monitor and optimize performance", color: "#9C27B0" },
-    { icon: Settings, title: "Easy Integration", desc: "Connect with 500+ applications", color: "#4CAF50" }
+  // Case Study Data
+  const caseStudy = {
+    company: "DataFlow Inc.",
+    industry: "Manufacturing",
+    problem: "Losing $200K/month due to manual processes and human errors",
+    solution: "AI-powered workflow automation reducing manual tasks by 80%",
+    results: {
+      timeSaved: "80%",
+      costReduction: "$200K/month",
+      accuracy: "99.9%",
+      productivity: "300%"
+    }
+  };
+
+  const painPoints = [
+    { icon: AlertTriangle, title: "Manual Processes Eating Profits", desc: "Employees spending 20+ hours/week on repetitive tasks", color: "#EF4444" },
+    { icon: DollarSign, title: "Losing $200K Monthly to Errors", desc: "Human errors causing costly mistakes and delays", color: "#F59E0B" },
+    { icon: Timer, title: "Slow Response Times", desc: "Manual approvals taking days instead of minutes", color: "#8B5CF6" },
+    { icon: Users, title: "Team Burnout & Turnover", desc: "Employees quitting due to repetitive, boring work", color: "#06B6D4" }
   ];
 
-  const workflows = [
-    { icon: MessageSquare, title: "Customer Onboarding", desc: "Automate welcome sequences", color: "#0066FF", gradient: "from-[#0066FF] to-[#0033FF]" },
-    { icon: Calendar, title: "Appointment Scheduling", desc: "Smart calendar management", color: "#25D366", gradient: "from-[#25D366] to-[#128C7E]" },
-    { icon: FileText, title: "Document Processing", desc: "Automated form handling", color: "#FF6B6B", gradient: "from-[#FF6B6B] to-[#FF5252]" },
-    { icon: Database, title: "Data Synchronization", desc: "Real-time data updates", color: "#9C27B0", gradient: "from-[#9C27B0] to-[#7B1FA2]" }
+  const solutions = [
+    { icon: Zap, title: "Lightning Fast Execution", desc: "Complex workflows completed in milliseconds", color: "#FF9800" },
+    { icon: Brain, title: "AI-Powered Decisions", desc: "Intelligent automation with human-like reasoning", color: "#0066FF" },
+    { icon: Shield, title: "99.9% Accuracy", desc: "Eliminate human errors completely", color: "#25D366" },
+    { icon: TrendingUp, title: "300% Productivity Boost", desc: "Scale operations without adding headcount", color: "#FF6B6B" },
+    { icon: Settings, title: "500+ Integrations", desc: "Connect with any tool in your stack", color: "#8B5CF6" },
+    { icon: BarChart3, title: "Real-time Analytics", desc: "Monitor and optimize performance live", color: "#06B6D4" },
+    { icon: Users, title: "Team Collaboration", desc: "Multi-user workflow management", color: "#10B981" },
+    { icon: Database, title: "Data Processing", desc: "Handle millions of records automatically", color: "#F59E0B" }
+  ];
+
+  const features = [
+    { icon: Settings, title: "500+ Integrations", desc: "Connect with any tool in your stack", color: "#8B5CF6" },
+    { icon: BarChart3, title: "Real-time Analytics", desc: "Monitor and optimize performance live", color: "#06B6D4" },
+    { icon: Shield, title: "Enterprise Security", desc: "SOC 2 compliant with end-to-end encryption", color: "#10B981" },
+    { icon: Users, title: "Team Collaboration", desc: "Multi-user workflow management", color: "#F59E0B" },
+    { icon: Brain, title: "AI Decision Making", desc: "Intelligent automation with machine learning", color: "#8B5CF6" },
+    { icon: Database, title: "Data Processing", desc: "Handle millions of records automatically", color: "#06B6D4" },
+    { icon: Calendar, title: "Scheduling Automation", desc: "Automated task scheduling and reminders", color: "#10B981" },
+    { icon: Mail, title: "Email Automation", desc: "Automated email workflows and responses", color: "#F59E0B" },
+    { icon: FileText, title: "Document Processing", desc: "Automated document creation and management", color: "#8B5CF6" },
+    { icon: Activity, title: "Process Monitoring", desc: "Real-time workflow monitoring and alerts", color: "#06B6D4" },
+    { icon: Globe, title: "Multi-Platform Support", desc: "Works across web, mobile, and desktop", color: "#10B981" },
+    { icon: Timer, title: "Time Tracking", desc: "Automated time tracking and reporting", color: "#F59E0B" }
   ];
 
   const testimonials = [
-    { name: "Alex Rodriguez", role: "Operations Manager", company: "DataFlow", rating: 5, quote: "Workflow automation reduced our manual tasks by 80% and improved accuracy significantly.", avatar: "AR" },
-    { name: "Emma Wilson", role: "Process Engineer", company: "AutoTech", rating: 5, quote: "The AI-powered workflows are incredibly intelligent and adapt to our business needs.", avatar: "EW" }
+    { 
+      name: "Alex Rodriguez", 
+      role: "Operations Manager", 
+      company: "DataFlow Inc.", 
+      rating: 5, 
+      quote: "We were losing $200K/month due to manual processes. After implementing Clario's workflow automation, we saved 80% of our time and eliminated costly errors. The ROI was immediate.", 
+      avatar: "AR",
+      results: "80% time savings, $200K/month saved"
+    },
+    { 
+      name: "Emma Wilson", 
+      role: "Process Engineer", 
+      company: "AutoTech", 
+      rating: 5, 
+      quote: "Our team was drowning in repetitive tasks. Now they focus on high-value work while AI handles the rest. Productivity increased 300% in just 60 days.", 
+      avatar: "EW",
+      results: "300% productivity increase"
+    }
   ];
 
   const stats = [
@@ -92,39 +145,32 @@ const WorkflowAutomation = () => {
     { icon: Users, value: "10K+", label: "Workflows", color: "#9C27B0" }
   ];
 
+  const fomoElements = [
+    { icon: Users, text: "1000+ companies automated with Clario", color: "#8B5CF6" },
+    { icon: TrendingUp, text: "Average 80% time savings", color: "#06B6D4" },
+    { icon: Clock, text: "See results in 30 days", color: "#10B981" },
+    { icon: DollarSign, text: "ROI within first quarter", color: "#F59E0B" }
+  ];
+
   return (
     <div className="min-h-screen bg-[#FFFFFF]">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section - Problem Focused */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Futuristic Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-[#FF9800]/10 to-[#FF6B6B]/10 rounded-full blur-3xl"
+            className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-[#FF9800]/10 to-[#0066FF]/10 rounded-full blur-3xl"
             variants={floatingVariants}
             animate="animate"
           />
           <motion.div
-            className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-[#FFE0B2]/15 to-[#FFCC80]/15 rounded-full blur-2xl"
+            className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-[#FFB74D]/15 to-[#42A5F5]/15 rounded-full blur-2xl"
             variants={floatingVariants}
             animate="animate"
             style={{ animationDelay: "1s" }}
           />
-          <motion.div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-[#FF9800]/5 to-[#0066FF]/5 rounded-full blur-xl"
-            variants={floatingVariants}
-            animate="animate"
-            style={{ animationDelay: "2s" }}
-          />
-        </div>
-
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #FF9800 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -134,55 +180,56 @@ const WorkflowAutomation = () => {
             initial="hidden"
             animate="visible"
           >
+            {/* Problem Statement */}
             <motion.div variants={itemVariants} className="mb-8">
               <motion.div
-                className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#FF9800]/10 to-[#0066FF]/10 border border-[#FF9800]/20 rounded-full px-6 py-3 mb-6"
+                className="inline-flex items-center space-x-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-full px-6 py-3 mb-6"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
               >
-                <Sparkles className="w-5 h-5 text-[#FF9800]" />
-                <span className="text-lg text-[#FF9800] font-semibold">Workflow Automation</span>
-                <Sparkles className="w-5 h-5 text-[#0066FF]" />
+                <AlertTriangle className="w-5 h-5 text-red-500" />
+                <span className="text-lg text-red-500 font-semibold">The Problem</span>
               </motion.div>
             </motion.div>
 
             <motion.h1 
               variants={itemVariants}
-              className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
             >
-              <span className="bg-gradient-to-r from-[#FF9800] via-[#0066FF] to-[#FF9800] bg-clip-text text-transparent">
-                Intelligent Automation
+              <span className="text-[#1A1A1A]">Losing</span>
+              <br />
+              <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+                $200K Monthly
               </span>
               <br />
-              <span className="text-[#1A1A1A]">for Modern Business</span>
+              <span className="text-[#1A1A1A]">to Manual Processes?</span>
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
-              className="text-2xl sm:text-3xl text-[#666666] mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+              className="text-xl sm:text-2xl text-[#666666] mb-12 max-w-4xl mx-auto leading-relaxed"
             >
-              Transform your business operations with AI-powered workflow automation that eliminates manual tasks, reduces errors, and scales your efficiency to new heights.
+              While your competitors automate and scale, DataFlow Inc. saved <span className="font-bold text-green-600">$200K/month</span> and increased productivity by <span className="font-bold text-blue-600">300%</span> with AI-powered workflow automation.
             </motion.p>
 
-            {/* Stats Section */}
+            {/* FOMO Stats */}
             <motion.div 
               variants={itemVariants}
               className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
             >
-              {stats.map((stat, index) => (
+              {fomoElements.map((element, index) => (
                 <motion.div
-                  key={stat.label}
-                  className="text-center"
+                  key={index}
+                  className="text-center bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-4 border border-gray-200"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="flex items-center justify-center mb-2">
-                    <stat.icon className="w-6 h-6 mr-2" style={{ color: stat.color }} />
-                    <span className="text-3xl font-bold text-[#1A1A1A]">{stat.value}</span>
+                    <element.icon className="w-5 h-5 mr-2" style={{ color: element.color }} />
                   </div>
-                  <p className="text-sm text-[#666666] font-medium">{stat.label}</p>
+                  <p className="text-sm text-[#666666] font-medium">{element.text}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -197,13 +244,11 @@ const WorkflowAutomation = () => {
                 transition={{ duration: 0.2 }}
               >
                 <Button 
-                  className="bg-gradient-to-r from-[#FF9800] to-[#0066FF] hover:from-[#F57C00] hover:to-[#0052CC] text-white px-10 py-5 text-xl font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 group relative overflow-hidden"
-                  size="lg"
+                  size="lg" 
+                  className="bg-gradient-to-r from-[#FF9800] to-[#0066FF] hover:from-[#F57C00] hover:to-[#1976D2] text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <Play className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300" />
-                  Watch Live Demo
-                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
+                  <Play className="w-5 h-5 mr-2" />
+                  See How DataFlow Did It
                 </Button>
               </motion.div>
               
@@ -213,14 +258,12 @@ const WorkflowAutomation = () => {
                 transition={{ duration: 0.2 }}
               >
                 <Button 
-                  variant="outline"
-                  className="border-3 border-[#FF9800]/30 hover:border-[#FF9800] text-[#1A1A1A] hover:text-[#FF9800] px-10 py-5 text-xl font-bold rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white transition-all duration-300 group relative overflow-hidden"
-                  size="lg"
+                  variant="outline" 
+                  size="lg" 
+                  className="border-2 border-[#FF9800] text-[#FF9800] hover:bg-[#FF9800] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#FF9800]/5 to-[#0066FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <Workflow className="w-6 h-6 mr-3 group-hover:rotate-12 transition-transform duration-300" />
-                  Start Free Trial
-                  <Rocket className="w-6 h-6 ml-3 group-hover:translate-y-[-2px] transition-transform duration-300" />
+                  <ArrowRight className="w-5 h-5 mr-2" />
+                  Start Your Case Study
                 </Button>
               </motion.div>
             </motion.div>
@@ -228,327 +271,420 @@ const WorkflowAutomation = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-gradient-to-br from-[#F8F8F8] to-[#FFFFFF] relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(45deg, #FF9800 25%, transparent 25%), linear-gradient(-45deg, #FF9800 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #FF9800 75%), linear-gradient(-45deg, transparent 75%, #FF9800 75%)`,
-            backgroundSize: '20px 20px',
-            backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px'
-          }}></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      {/* Case Study Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div 
-            className="text-center mb-20"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            <motion.h2 
-              variants={itemVariants}
-              className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
-            >
-              Why Choose Workflow Automation?
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  className="group relative bg-white border border-[#CCCCCC] rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden"
-                  variants={itemVariants}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: `0 25px 50px -12px ${feature.color}20`
-                  }}
-                >
-                  {/* Animated Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#FFE0B2]/5 to-[#FFCC80]/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
-                  
-                  {/* Icon */}
-                  <motion.div 
-                    className="relative mb-6"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <div className="w-20 h-20 bg-gradient-to-r from-[#FF9800] to-[#0066FF] rounded-3xl flex items-center justify-center shadow-xl relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <feature.icon className="w-10 h-10 text-white relative z-10" />
-                    </div>
-                  </motion.div>
-                  
-                  {/* Content */}
-                  <div className="relative">
-                    <h3 className="font-bold text-[#1A1A1A] text-2xl mb-4">{feature.title}</h3>
-                    <p className="text-[#666666] leading-relaxed text-lg">{feature.desc}</p>
-                  </div>
-
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#FF9800]/5 to-[#0066FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Workflows Section */}
-      <section className="py-24 bg-[#FFFFFF] relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <motion.div 
-            className="text-center mb-20"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <motion.h2 
-              variants={itemVariants}
-              className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
-            >
-              Popular Workflow Templates
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {workflows.map((workflow, index) => (
-                <motion.div
-                  key={workflow.title}
-                  className="group relative bg-white border border-[#CCCCCC] rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 text-center overflow-hidden"
-                  variants={itemVariants}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: `0 25px 50px -12px ${workflow.color}20`
-                  }}
-                >
-                  {/* Animated Background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${workflow.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
-                  
-                  {/* Icon */}
-                  <motion.div 
-                    className="relative mb-6"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <div 
-                      className="w-20 h-20 mx-auto rounded-3xl flex items-center justify-center shadow-xl relative overflow-hidden"
-                      style={{ background: `linear-gradient(135deg, ${workflow.color}, ${workflow.color}dd)` }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <workflow.icon className="w-10 h-10 text-white relative z-10" />
-                    </div>
-                  </motion.div>
-                  
-                  {/* Content */}
-                  <div className="relative">
-                    <h3 className="font-bold text-[#1A1A1A] text-xl mb-3">{workflow.title}</h3>
-                    <p className="text-[#666666] text-base">{workflow.desc}</p>
-                  </div>
-
-                  {/* Hover Glow */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${workflow.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-24 bg-gradient-to-br from-[#F8F8F8] to-[#FFFFFF] relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <motion.div 
-            className="text-center mb-20"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <motion.h2 
-              variants={itemVariants}
-              className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-8"
-            >
-              What Our Clients Say
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.name}
-                  className="group relative bg-white border border-[#CCCCCC] rounded-3xl p-10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
-                  variants={itemVariants}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.02,
-                    boxShadow: "0 25px 50px -12px rgba(255, 152, 0, 0.15)"
-                  }}
-                >
-                  {/* Quote Icon */}
-                  <motion.div 
-                    className="absolute top-8 right-8 text-[#FFE0B2]"
-                    whileHover={{ rotate: 360, scale: 1.3 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <Workflow className="w-10 h-10" />
-                  </motion.div>
-                  
-                  {/* Rating */}
-                  <div className="flex items-center space-x-1 mb-6">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-6 h-6 text-[#FFD700] fill-current" />
-                    ))}
-                  </div>
-                  
-                  {/* Quote */}
-                  <blockquote className="text-[#1A1A1A] text-xl leading-relaxed mb-8 italic font-medium">
-                    "{testimonial.quote}"
-                  </blockquote>
-                  
-                  {/* Author */}
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-[#FF9800] to-[#0066FF] rounded-2xl flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-xl">
-                        {testimonial.avatar}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="font-bold text-[#1A1A1A] text-lg">{testimonial.name}</div>
-                      <div className="text-sm text-[#666666]">{testimonial.role} at {testimonial.company}</div>
-                    </div>
-                  </div>
-
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#FF9800]/5 to-[#0066FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Enhanced CTA Section */}
-      <section className="py-24 bg-[#FFFFFF] relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <motion.div 
-            className="text-center"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <motion.div 
-              className="bg-gradient-to-r from-[#FF9800] via-[#0066FF] to-[#FF9800] rounded-3xl p-16 lg:p-20 text-white relative overflow-hidden"
-              variants={itemVariants}
-            >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0" style={{
-                  backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-                  backgroundSize: '40px 40px'
-                }}></div>
-              </div>
-
-              {/* Floating Elements */}
+            {/* Case Study Header */}
+            <div className="text-center mb-16">
               <motion.div
-                className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full"
-                animate={{ y: [-10, 10, -10], rotate: [0, 360] }}
-                transition={{ duration: 6, repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute bottom-10 right-10 w-16 h-16 bg-white/10 rounded-full"
-                animate={{ y: [10, -10, 10], rotate: [360, 0] }}
-                transition={{ duration: 8, repeat: Infinity }}
-              />
-
-              <motion.h2 
-                className="text-5xl lg:text-6xl font-bold mb-8 relative z-10"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#FF9800]/10 to-[#0066FF]/10 border border-[#FF9800]/20 rounded-full px-6 py-3 mb-6"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                Ready to Automate Your Business?
-              </motion.h2>
+                <Star className="w-5 h-5 text-[#FF9800]" />
+                <span className="text-lg text-[#FF9800] font-semibold">Success Story</span>
+              </motion.div>
               
-              <motion.p 
-                className="text-2xl mb-12 max-w-3xl mx-auto opacity-90 relative z-10"
+              <motion.h2 
+                className="text-4xl lg:text-5xl font-bold mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                Join thousands of businesses already using AI-powered workflow automation to streamline operations and drive growth.
-              </motion.p>
+                <span className="bg-gradient-to-r from-[#FF9800] to-[#0066FF] bg-clip-text text-transparent">
+                  DataFlow Inc.
+                </span>
+                <br />
+                <span className="text-[#1A1A1A]">Case Study</span>
+              </motion.h2>
               
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-8 justify-center relative z-10"
+              <motion.p 
+                className="text-xl text-[#666666] max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Button 
-                    className="bg-white text-[#FF9800] hover:bg-gray-100 px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 group relative overflow-hidden"
-                    size="lg"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#FF9800]/5 to-[#0066FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <Workflow className="w-6 h-6 mr-3 group-hover:rotate-12 transition-transform duration-300 relative z-10" />
-                    Start Free Trial
-                    <Rocket className="w-6 h-6 ml-3 group-hover:translate-y-[-2px] transition-transform duration-300 relative z-10" />
-                  </Button>
-                </motion.div>
-                
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Button 
-                    variant="outline"
-                    className="border-3 border-white/30 text-white hover:bg-white hover:text-[#FF9800] px-12 py-6 text-xl font-bold rounded-2xl backdrop-blur-sm transition-all duration-300 group relative overflow-hidden"
-                    size="lg"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <Play className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300 relative z-10" />
-                    Watch Demo
-                    <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
-                  </Button>
-                </motion.div>
-              </motion.div>
+                How a manufacturing company eliminated manual processes and scaled operations 10x
+              </motion.p>
+            </div>
 
-              {/* Additional CTA */}
-              <motion.div 
-                className="mt-12 relative z-10"
+            {/* Problem Section */}
+            <motion.div 
+              className="grid lg:grid-cols-2 gap-12 mb-20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div>
+                <h3 className="text-3xl font-bold mb-6 text-red-600">The Problem</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <AlertTriangle className="w-6 h-6 text-red-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Manual Processes Killing Profits</h4>
+                      <p className="text-[#666666]">DataFlow employees spent 20+ hours per week on repetitive tasks, costing the company $200K monthly in lost productivity.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <DollarSign className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Costly Human Errors</h4>
+                      <p className="text-[#666666]">Manual data entry and processing led to expensive mistakes, delays, and customer dissatisfaction.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Timer className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Slow Response Times</h4>
+                      <p className="text-[#666666]">Manual approvals took days instead of minutes, causing bottlenecks and missed opportunities.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-200">
+                <h4 className="text-2xl font-bold mb-4 text-red-600">The Impact</h4>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#666666]">Monthly Revenue Loss</span>
+                    <span className="text-2xl font-bold text-red-600">$200,000</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#666666]">Manual Task Hours</span>
+                    <span className="text-2xl font-bold text-red-600">20+ hours/week</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#666666]">Error Rate</span>
+                    <span className="text-2xl font-bold text-red-600">15%</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#666666]">Employee Turnover</span>
+                    <span className="text-2xl font-bold text-red-600">High</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Solution Section */}
+            <motion.div 
+              className="grid lg:grid-cols-2 gap-12 mb-20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
+                <h4 className="text-2xl font-bold mb-4 text-green-600">The Results</h4>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#666666]">Time Saved</span>
+                    <span className="text-2xl font-bold text-green-600">80%</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#666666]">Cost Reduction</span>
+                    <span className="text-2xl font-bold text-green-600">$200K/month</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#666666]">Accuracy Rate</span>
+                    <span className="text-2xl font-bold text-green-600">99.9%</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[#666666]">Productivity Increase</span>
+                    <span className="text-2xl font-bold text-green-600">300%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-3xl font-bold mb-6 text-green-600">The Solution</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Zap className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">AI-Powered Automation</h4>
+                      <p className="text-[#666666]">Implemented Clario's workflow automation that handles complex processes in milliseconds with 99.9% accuracy.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Brain className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Intelligent Decision Making</h4>
+                      <p className="text-[#666666]">AI algorithms make complex decisions automatically, eliminating bottlenecks and human errors.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <TrendingUp className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Scalable Operations</h4>
+                      <p className="text-[#666666]">Scale operations 10x without adding headcount or infrastructure costs.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Pain Points Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <span className="text-[#1A1A1A]">Sound Familiar?</span>
+            </h2>
+            <p className="text-xl text-[#666666] max-w-3xl mx-auto">
+              These are the exact problems our workflow automation solves for businesses like yours
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {painPoints.map((point, index) => (
+              <motion.div
+                key={point.title}
+                className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: `${point.color}20` }}>
+                  <point.icon className="w-6 h-6" style={{ color: point.color }} />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{point.title}</h3>
+                <p className="text-[#666666]">{point.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Solution Features */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-[#FF9800] to-[#0066FF] bg-clip-text text-transparent">
+                How We Solve It
+              </span>
+            </h2>
+            <p className="text-xl text-[#666666] max-w-3xl mx-auto">
+              The same technology that transformed DataFlow's operations is available for yours
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {solutions.map((solution, index) => (
+              <motion.div
+                key={solution.title}
+                className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: `${solution.color}20` }}>
+                  <solution.icon className="w-6 h-6" style={{ color: solution.color }} />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{solution.title}</h3>
+                <p className="text-[#666666]">{solution.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials with Results */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <span className="text-[#1A1A1A]">Real Results,</span>
+              <br />
+              <span className="bg-gradient-to-r from-[#FF9800] to-[#0066FF] bg-clip-text text-transparent">
+                Real Companies
+              </span>
+            </h2>
+          </motion.div>
+
+          <motion.div 
+            className="grid lg:grid-cols-2 gap-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <p className="text-lg opacity-80 mb-4">Or schedule a personalized demo</p>
+                <div className="flex items-start space-x-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-[#FF9800] to-[#0066FF] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    {testimonial.avatar}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold">{testimonial.name}</h3>
+                    <p className="text-[#666666]">{testimonial.role} at {testimonial.company}</p>
+                    <div className="flex items-center mt-2">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                <blockquote className="text-lg text-[#666666] mb-6 italic">
+                  "{testimonial.quote}"
+                </blockquote>
+                
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 border border-green-200">
+                  <div className="flex items-center space-x-2">
+                    <TrendingUp className="w-5 h-5 text-green-600" />
+                    <span className="font-bold text-green-600">{testimonial.results}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FOMO CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-[#FF9800] to-[#0066FF]">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div 
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
+              Don't Let Your Competitors
+              <br />
+              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                Automate First
+              </span>
+            </h2>
+            
+            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+              While you're reading this, your competitors are implementing workflow automation and capturing your market share. 
+              <span className="font-bold"> Start your case study today.</span>
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <div className="text-3xl font-bold text-white mb-2">1000+</div>
+                <div className="text-white/80">Companies automated with Clario</div>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <div className="text-3xl font-bold text-white mb-2">80%</div>
+                <div className="text-white/80">Average time savings</div>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <div className="text-3xl font-bold text-white mb-2">30 days</div>
+                <div className="text-white/80">To see results</div>
+              </div>
+            </div>
+
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
                 <Button 
-                  variant="outline"
-                  className="border-2 border-white/50 text-white hover:bg-white hover:text-[#FF9800] px-8 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm transition-all duration-300 group"
+                  size="lg" 
+                  className="bg-white text-[#FF9800] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <Target className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                  Schedule Demo
+                  <Rocket className="w-5 h-5 mr-2" />
+                  Start Your Case Study Now
+                </Button>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#FF9800] px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Book a Demo
                 </Button>
               </motion.div>
             </motion.div>

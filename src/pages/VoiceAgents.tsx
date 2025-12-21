@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { 
   Bot, 
   MessageSquare, 
@@ -33,40 +32,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const VoiceAgents = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut" as const
-      }
-    }
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut" as const
-      }
-    }
-  };
-
   // Case Study Data
   const caseStudy = {
     company: "HealthFirst Clinic",
@@ -150,185 +115,109 @@ const VoiceAgents = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF]">
+    <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section - Problem Focused */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Futuristic Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-[#8B5CF6]/10 to-[#06B6D4]/10 rounded-full blur-3xl"
-            variants={floatingVariants}
-            animate="animate"
-          />
-          <motion.div
-            className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-[#C4B5FD]/15 to-[#A5F3FC]/15 rounded-full blur-2xl"
-            variants={floatingVariants}
-            animate="animate"
-            style={{ animationDelay: "1s" }}
-          />
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-[#8B5CF6]/10 to-[#06B6D4]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-[#C4B5FD]/15 to-[#A5F3FC]/15 rounded-full blur-2xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <motion.div 
-            className="text-center max-w-5xl mx-auto"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
+          <div className="text-center max-w-5xl mx-auto">
             {/* Problem Statement */}
-            <motion.div variants={itemVariants} className="mb-8">
-              <motion.div
-                className="inline-flex items-center space-x-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-full px-6 py-3 mb-6"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-              >
+            <div className="mb-8">
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-full px-6 py-3 mb-6">
                 <AlertTriangle className="w-5 h-5 text-red-500" />
                 <span className="text-lg text-red-500 font-semibold">The Problem</span>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
-            <motion.h1 
-              variants={itemVariants}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
-            >
-              <span className="text-[#1A1A1A]">Missing Calls</span>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+              <span className="text-foreground">Missing Calls</span>
               <br />
-              <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
                 After Hours?
               </span>
               <br />
-              <span className="text-[#1A1A1A]">Losing Customers?</span>
-            </motion.h1>
+              <span className="text-foreground">Losing Customers?</span>
+            </h1>
             
-            <motion.p 
-              variants={itemVariants}
-              className="text-xl sm:text-2xl text-[#666666] mb-12 max-w-4xl mx-auto leading-relaxed"
-            >
+            <p className="text-xl sm:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
               While your competitors miss calls when closed, HealthFirst Clinic increased bookings by <span className="font-bold text-green-600">40%</span> and reduced no-shows by <span className="font-bold text-blue-600">60%</span> with AI voice agents that work 24/7.
-            </motion.p>
+            </p>
 
             {/* FOMO Stats */}
-            <motion.div 
-              variants={itemVariants}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-            >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
               {fomoElements.map((element, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="text-center bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-4 border border-gray-200"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center bg-card rounded-xl p-4 border border-border"
                 >
                   <div className="flex items-center justify-center mb-2">
                     <element.icon className="w-5 h-5 mr-2" style={{ color: element.color }} />
                   </div>
-                  <p className="text-sm text-[#666666] font-medium">{element.text}</p>
-                </motion.div>
+                  <p className="text-sm text-muted-foreground font-medium">{element.text}</p>
+                </div>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div 
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
-            >
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] hover:from-[#7C3AED] hover:to-[#0891B2] text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl"
               >
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] hover:from-[#7C3AED] hover:to-[#0891B2] text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <Play className="w-5 h-5 mr-2" />
-                  See How HealthFirst Did It
-                </Button>
-              </motion.div>
+                <Play className="w-5 h-5 mr-2" />
+                See How HealthFirst Did It
+              </Button>
               
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-2 border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl"
               >
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-2 border-[#8B5CF6] text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
-                >
-                  <ArrowRight className="w-5 h-5 mr-2" />
-                  Start Your Voice Agent
-                </Button>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+                <ArrowRight className="w-5 h-5 mr-2" />
+                Start Your Voice Agent
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Case Study Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div 
-            className="max-w-6xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="max-w-6xl mx-auto">
             {/* Case Study Header */}
             <div className="text-center mb-16">
-              <motion.div
-                className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#8B5CF6]/10 to-[#06B6D4]/10 border border-[#8B5CF6]/20 rounded-full px-6 py-3 mb-6"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#8B5CF6]/10 to-[#06B6D4]/10 border border-[#8B5CF6]/20 rounded-full px-6 py-3 mb-6">
                 <Star className="w-5 h-5 text-[#8B5CF6]" />
                 <span className="text-lg text-[#8B5CF6] font-semibold">Success Story</span>
-              </motion.div>
+              </div>
               
-              <motion.h2 
-                className="text-4xl lg:text-5xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
                   HealthFirst Clinic
                 </span>
                 <br />
-                <span className="text-[#1A1A1A]">Case Study</span>
-              </motion.h2>
+                <span className="text-foreground">Case Study</span>
+              </h2>
               
-              <motion.p 
-                className="text-xl text-[#666666] max-w-3xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 How a healthcare clinic transformed patient booking with AI voice agents
-              </motion.p>
+              </p>
             </div>
 
             {/* Problem vs Solution Grid */}
             <div className="grid lg:grid-cols-2 gap-12 mb-16">
               {/* Problem Side */}
-              <motion.div 
-                className="space-y-8"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-200">
+              <div className="space-y-8">
+                <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/20 dark:to-orange-950/20 rounded-2xl p-8 border border-red-200 dark:border-red-800">
                   <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-xl flex items-center justify-center">
                       <AlertTriangle className="w-6 h-6 text-red-600" />
                     </div>
                     <div>
@@ -340,35 +229,29 @@ const VoiceAgents = () => {
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-[#666666]">Missing 40% of potential patient calls after hours</p>
+                      <p className="text-muted-foreground">Missing 40% of potential patient calls after hours</p>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-[#666666]">30% no-show rate costing revenue</p>
+                      <p className="text-muted-foreground">30% no-show rate costing revenue</p>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-[#666666]">Limited phone hours (9-5 only)</p>
+                      <p className="text-muted-foreground">Limited phone hours (9-5 only)</p>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-[#666666]">Receptionists overwhelmed with calls</p>
+                      <p className="text-muted-foreground">Receptionists overwhelmed with calls</p>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Solution Side */}
-              <motion.div 
-                className="space-y-8"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
+              <div className="space-y-8">
+                <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950/20 dark:to-blue-950/20 rounded-2xl p-8 border border-green-200 dark:border-green-800">
                   <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-xl flex items-center justify-center">
                       <Sparkles className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
@@ -380,245 +263,175 @@ const VoiceAgents = () => {
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-[#666666]">AI voice agent handling calls 24/7</p>
+                      <p className="text-muted-foreground">AI voice agent handling calls 24/7</p>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-[#666666]">Smart appointment booking and reminders</p>
+                      <p className="text-muted-foreground">Smart appointment booking and reminders</p>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-[#666666]">Multi-language support for diverse patients</p>
+                      <p className="text-muted-foreground">Multi-language support for diverse patients</p>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-[#666666]">Instant confirmation and follow-ups</p>
+                      <p className="text-muted-foreground">Instant confirmation and follow-ups</p>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Results Grid */}
-            <motion.div 
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 text-center border border-green-200">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950/20 dark:to-blue-950/20 rounded-xl p-6 text-center border border-green-200 dark:border-green-800">
                 <div className="text-3xl font-bold text-green-600 mb-2">+40%</div>
-                <div className="text-[#666666] font-medium">More Bookings</div>
+                <div className="text-muted-foreground font-medium">More Bookings</div>
               </div>
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 text-center border border-blue-200">
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-xl p-6 text-center border border-blue-200 dark:border-blue-800">
                 <div className="text-3xl font-bold text-blue-600 mb-2">60%</div>
-                <div className="text-[#666666] font-medium">Fewer No-Shows</div>
+                <div className="text-muted-foreground font-medium">Fewer No-Shows</div>
               </div>
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center border border-purple-200">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20 rounded-xl p-6 text-center border border-purple-200 dark:border-purple-800">
                 <div className="text-3xl font-bold text-purple-600 mb-2">+35%</div>
-                <div className="text-[#666666] font-medium">Revenue Increase</div>
+                <div className="text-muted-foreground font-medium">Revenue Increase</div>
               </div>
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-6 text-center border border-orange-200">
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-950/20 dark:to-red-950/20 rounded-xl p-6 text-center border border-orange-200 dark:border-orange-800">
                 <div className="text-3xl font-bold text-orange-600 mb-2">85%</div>
-                <div className="text-[#666666] font-medium">Faster Response</div>
+                <div className="text-muted-foreground font-medium">Faster Response</div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Pain Points Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div 
-            className="max-w-6xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <motion.h2 
-                className="text-4xl lg:text-5xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-[#1A1A1A]">Common Business</span>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                <span className="text-foreground">Common Business</span>
                 <br />
                 <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
                   Problems We Solve
                 </span>
-              </motion.h2>
+              </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {painPoints.map((point, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  className="bg-card rounded-2xl p-8 border border-border hover:shadow-lg"
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${point.color}20` }}>
                       <point.icon className="w-6 h-6" style={{ color: point.color }} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">{point.title}</h3>
-                      <p className="text-[#666666]">{point.desc}</p>
+                      <h3 className="text-xl font-bold text-foreground mb-2">{point.title}</h3>
+                      <p className="text-muted-foreground">{point.desc}</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Solutions Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div 
-            className="max-w-6xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <motion.h2 
-                className="text-4xl lg:text-5xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-[#1A1A1A]">How Our AI</span>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                <span className="text-foreground">How Our AI</span>
                 <br />
                 <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
                   Solves These Problems
                 </span>
-              </motion.h2>
+              </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {solutions.map((solution, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  className="bg-background rounded-2xl p-8 border border-border hover:shadow-lg"
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${solution.color}20` }}>
                       <solution.icon className="w-6 h-6" style={{ color: solution.color }} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">{solution.title}</h3>
-                      <p className="text-[#666666]">{solution.desc}</p>
+                      <h3 className="text-xl font-bold text-foreground mb-2">{solution.title}</h3>
+                      <p className="text-muted-foreground">{solution.desc}</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div 
-            className="max-w-6xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <motion.h2 
-                className="text-4xl lg:text-5xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-[#1A1A1A]">Powerful Features</span>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                <span className="text-foreground">Powerful Features</span>
                 <br />
                 <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
                   Built for Results
                 </span>
-              </motion.h2>
+              </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {features.map((feature, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  className="bg-card rounded-2xl p-8 border border-border hover:shadow-lg"
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${feature.color}20` }}>
                       <feature.icon className="w-6 h-6" style={{ color: feature.color }} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">{feature.title}</h3>
-                      <p className="text-[#666666]">{feature.desc}</p>
+                      <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
+                      <p className="text-muted-foreground">{feature.desc}</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div 
-            className="max-w-6xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <motion.h2 
-                className="text-4xl lg:text-5xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-[#1A1A1A]">What Our</span>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                <span className="text-foreground">What Our</span>
                 <br />
                 <span className="bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] bg-clip-text text-transparent">
                   Customers Say
                 </span>
-              </motion.h2>
+              </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  className="bg-background rounded-2xl p-8 border border-border hover:shadow-lg"
                 >
                   <div className="flex items-center space-x-4 mb-6">
                     <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center">
@@ -635,38 +448,32 @@ const VoiceAgents = () => {
                       )}
                     </div>
                     <div>
-                      <h3 className="font-bold text-[#1A1A1A]">{testimonial.name}</h3>
-                      <p className="text-[#666666]">{testimonial.role}, {testimonial.company}</p>
+                      <h3 className="font-bold text-foreground">{testimonial.name}</h3>
+                      <p className="text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
                     </div>
                   </div>
                   
-                  <blockquote className="text-lg text-[#666666] mb-6 italic">
+                  <blockquote className="text-lg text-muted-foreground mb-6 italic">
                     "{testimonial.quote}"
                   </blockquote>
                   
-                  <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 border border-green-200">
+                  <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-950/20 dark:to-blue-950/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
                     <div className="flex items-center space-x-2">
                       <TrendingUp className="w-5 h-5 text-green-600" />
                       <span className="font-bold text-green-600">{testimonial.results}</span>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* FOMO CTA Section */}
       <section className="py-20 bg-gradient-to-br from-[#8B5CF6] to-[#06B6D4]">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
               Don't Let Your Competitors
               <br />
@@ -695,43 +502,25 @@ const VoiceAgents = () => {
               </div>
             </div>
 
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-6 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-white text-[#8B5CF6] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl"
               >
-                <Button 
-                  size="lg" 
-                  className="bg-white text-[#8B5CF6] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <Rocket className="w-5 h-5 mr-2" />
-                  Start Your Voice Agent Now
-                </Button>
-              </motion.div>
+                <Rocket className="w-5 h-5 mr-2" />
+                Start Your Voice Agent Now
+              </Button>
               
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-2 border-white text-white hover:bg-white hover:text-[#8B5CF6] px-8 py-4 text-lg font-semibold rounded-xl"
               >
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-2 border-white text-white hover:bg-white hover:text-[#8B5CF6] px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Book a Demo
-                </Button>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+                <Phone className="w-5 h-5 mr-2" />
+                Book a Demo
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -740,4 +529,4 @@ const VoiceAgents = () => {
   );
 };
 
-export default VoiceAgents; 
+export default VoiceAgents;

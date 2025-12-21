@@ -1,185 +1,165 @@
-import { useState, useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+import { motion } from "framer-motion"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Mail, Calendar, ArrowRight } from "lucide-react"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
-  };
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const headingRef = useRef<HTMLHeadingElement>(null)
+  const [sectionMousePosition, setSectionMousePosition] = useState({ x: 50, y: 50 })
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const animatedElements = entry.target.querySelectorAll('.animate-on-scroll');
-            animatedElements.forEach((el, index) => {
-              const element = el as HTMLElement;
-              element.style.animationDelay = `${index * 0.2}s`;
-              element.classList.add('animate-fade-in-up');
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 70%",
+          toggleActions: "play none none none",
+          once: true
+        }
+      })
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+      tl.fromTo(
+        headingRef.current,
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+      ).fromTo(
+        ".contact-item",
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          stagger: 0.15
+        },
+        "-=0.4"
+      )
+    })
+
+    return () => ctx.revert()
+  }, [])
+
+  const handleSectionMouseMove = (e: React.MouseEvent) => {
+    const rect = sectionRef.current?.getBoundingClientRect()
+    if (rect) {
+      setSectionMousePosition({
+        x: ((e.clientX - rect.left) / rect.width) * 100,
+        y: ((e.clientY - rect.top) / rect.height) * 100
+      })
     }
-
-    return () => observer.disconnect();
-  }, []);
+  }
 
   return (
-    <section id="contact" ref={sectionRef} className="relative py-12 sm:py-16 lg:py-20 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text neon-underline mb-4">
-            Get in Touch
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="relative py-32 px-4 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
+      onMouseMove={handleSectionMouseMove}
+    >
+      {/* Background matching other sections */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,97,255,0.08),transparent_50%)]"></div>
+
+      {/* Animated Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.04]" style={{
+        backgroundImage: `
+          linear-gradient(to right, #7B61FF 1px, transparent 1px),
+          linear-gradient(to bottom, #7B61FF 1px, transparent 1px)
+        `,
+        backgroundSize: '60px 60px'
+      }}></div>
+
+      {/* Radial gradient that follows mouse */}
+      <div
+        className="absolute inset-0 opacity-30 pointer-events-none transition-opacity duration-700"
+        style={{
+          background: `radial-gradient(600px circle at ${sectionMousePosition.x}% ${sectionMousePosition.y}%, rgba(123, 97, 255, 0.15), transparent 60%)`
+        }}
+      ></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div ref={headingRef} className="text-center mb-20">
+          <div className="inline-block mb-6">
+            <span className="text-sm font-semibold tracking-widest uppercase text-[#A16BFF] px-6 py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-sm"
+              style={{ background: 'rgba(123, 97, 255, 0.1)' }}>
+              Contact Us
+            </span>
+          </div>
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Let's talk.
           </h2>
-          <p className="animate-on-scroll text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            Let's automate your workflow. Drop us a message and we'll get back to you within 24 hours.
+          <h3 className="text-4xl md:text-6xl font-bold mb-8">
+            <span className="bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent">
+              Transform your business today.
+            </span>
+          </h3>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Ready to automate and scale? Get in touch and let's build<br className="hidden md:block" />
+            intelligent AI solutions tailored to your business needs.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto">
-          {/* Left: Contact Info */}
-          <div className="space-y-6 sm:space-y-8 order-last lg:order-first">
-            <div className="animate-on-scroll">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 gradient-text">
-                Connect With Us
-              </h3>
-              
-              <div className="space-y-4 sm:space-y-6">
-                <a 
-                  href="mailto:George@clario.ai" 
-                  className="flex items-center space-x-4 glass rounded-xl p-4 hover:shadow-glow transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold">Email</div>
-                    <div className="text-muted-foreground">George@clario.ai</div>
-                  </div>
-                </a>
-
-                <a 
-                  href="https://linkedin.com/company/clario-ai" 
-                  className="flex items-center space-x-4 glass rounded-xl p-4 hover:shadow-glow transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold">LinkedIn</div>
-                    <div className="text-muted-foreground">@clario-ai</div>
-                  </div>
-                </a>
-
-                <div className="flex items-center space-x-4 glass rounded-xl p-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="font-semibold">Response Time</div>
-                    <div className="text-muted-foreground">Within 24 hours</div>
-                  </div>
-                </div>
+        {/* Contact Options - Sleek Design */}
+        <div className="max-w-2xl mx-auto space-y-6">
+          {/* Email */}
+          <motion.a
+            href="mailto:George@clario.ai"
+            className="contact-item group flex items-center justify-between p-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.05] hover:border-[#7B61FF]/30 transition-all duration-300"
+            whileHover={{ x: 10 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7B61FF]/20 to-[#8B5CF6]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Mail className="w-6 h-6 text-[#7B61FF]" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-1">Email Us</h3>
+                <p className="text-sm text-gray-400">George@clario.ai</p>
               </div>
             </div>
-          </div>
+            <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-[#7B61FF] group-hover:translate-x-1 transition-all duration-300" />
+          </motion.a>
 
-          {/* Right: Contact Form */}
-          <div className="animate-on-scroll">
-            <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                  placeholder="Your full name"
-                />
+          {/* Schedule Meeting - Primary CTA */}
+          <motion.a
+            href="https://calendly.com/abdurrehman1711/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-item group flex items-center justify-between p-6 rounded-2xl transition-all duration-300"
+            style={{
+              background: 'linear-gradient(135deg, #7B61FF 0%, #6B4CFF 100%)',
+              boxShadow: '0 0 30px rgba(123, 97, 255, 0.3)',
+            }}
+            whileHover={{
+              scale: 1.02,
+              boxShadow: '0 0 40px rgba(123, 97, 255, 0.5)',
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+                <Calendar className="w-6 h-6 text-white" />
               </div>
-              
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                  placeholder="your@email.com"
-                />
+                <h3 className="text-lg font-bold text-white mb-1">Schedule a Meeting</h3>
+                <p className="text-sm text-white/80">Book a 30-minute call</p>
               </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
-                  placeholder="Tell us about your automation needs..."
-                />
-              </div>
-              
-              <Button 
-                type="submit" 
-                variant="glow" 
-                size="lg" 
-                className="w-full"
-              >
-                Send Message
-              </Button>
-            </form>
-          </div>
+            </div>
+            <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-all duration-300" />
+          </motion.a>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ContactSection;
+export default ContactSection

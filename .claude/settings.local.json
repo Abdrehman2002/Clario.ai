@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm install:*)",
+      "Bash(cat:*)",
+      "Bash(tail:*)",
+      "Bash(git checkout:*)",
+      "Bash(npx tsc:*)",
+      "Bash(\"c:\\Users\\Thinkbook 16 G6\\Desktop\\(Work) Abdur Rehman\\clario-ai\\src\\components\\ContactSection.tsx\")",
+      "Bash(git add:*)"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}

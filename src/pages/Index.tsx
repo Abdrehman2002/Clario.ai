@@ -1,38 +1,71 @@
-import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import ProductsSection from '@/components/ProductsSection';
+import LogoCarouselSection from '@/components/LogoCarouselSection';
+import FeaturesDetail from '@/components/ui/features-detail';
+import { FrameworksSection } from '@/components/FrameworksSection';
+import { TryAgentNew } from '@/components/TryAgentNew';
+import ProcessSection from '@/components/ProcessSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import { ModernNavbar } from '@/components/ui/modern-navbar';
 
 const Index = () => {
-  console.log('Index component rendering...');
   return (
-    <div className="relative min-h-screen bg-white">
-      
-      {/* Header */}
-      <Header />
-      
+    <div className="relative min-h-screen bg-background">
+
+      {/* Navbar */}
+      <ModernNavbar
+        logo={{
+          url: "/",
+          src: "/logo.svg (2).svg",
+          alt: "Clario AI",
+          title: "Clario AI"
+        }}
+        menu={[
+          { title: "Home", url: "#hero" },
+          { title: "Features", url: "#features" },
+          { title: "Process", url: "#process" },
+          { title: "Frameworks", url: "#frameworks" },
+          { title: "Try Agent", url: "#try-agent" },
+        ]}
+        auth={{
+          login: { text: "", url: "#" },
+          signup: { text: "Let's Talk", url: "https://calendly.com/abdurrehman1711/30min" },
+        }}
+      />
+
       {/* Main Content */}
-      <main className="relative z-10">
+      <main className="relative -space-y-12">
         <section id="hero">
           <HeroSection />
         </section>
-        <section id="about">
-          <AboutSection />
+
+        {/* Logo Carousel */}
+        <section id="partners">
+          <LogoCarouselSection />
         </section>
-        <section id="products">
-          <ProductsSection />
+
+        {/* Features Detail with Dashboard */}
+        <section id="features">
+          <FeaturesDetail />
         </section>
-        <section id="testimonials">
-          <TestimonialsSection />
+
+        <section id="try-agent">
+          <TryAgentNew />
         </section>
+
+        <section id="frameworks">
+          <FrameworksSection />
+        </section>
+
+        <section id="process">
+          <ProcessSection />
+        </section>
+
         <section id="contact">
           <ContactSection />
         </section>
       </main>
-      
+
       {/* Footer */}
       <Footer />
     </div>

@@ -16,7 +16,7 @@ const AGENTS = [
     description: "Property inquiries & showings",
   },
   {
-    id: 'agent_medical_placeholder',
+    id: 'agent_8ce17d51123f73b631cb29c6e0',
     label: "Medical Receptionist",
     description: "Healthcare appointments",
   },

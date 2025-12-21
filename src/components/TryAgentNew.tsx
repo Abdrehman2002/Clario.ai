@@ -173,8 +173,8 @@ export function TryAgentNew() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12"
-          style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)' }}
+          className="bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative"
+          style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)', zIndex: 1 }}
         >
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
             {/* Left Side - Text */}
@@ -188,9 +188,9 @@ export function TryAgentNew() {
             </div>
 
             {/* Right Side - Call Interface */}
-            <div className="flex-1 w-full max-w-md space-y-4 md:space-y-6 relative">
+            <div className="flex-1 w-full max-w-md space-y-4 md:space-y-6 relative z-50">
               {/* Dropdown */}
-              <div className="relative" ref={dropdownRef}>
+              <div className="relative z-50" ref={dropdownRef}>
                 <motion.button
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}

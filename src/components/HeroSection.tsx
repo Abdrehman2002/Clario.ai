@@ -95,7 +95,7 @@ const HeroSection = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1]"
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-[1.1] px-4"
               style={{
                 color: '#FFFFFF',
                 opacity: 0,
@@ -108,7 +108,7 @@ const HeroSection = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed px-4"
              style={{
                opacity: 0,
                animation: 'fadeInUp 0.8s ease-out 0.4s forwards'
@@ -118,26 +118,26 @@ const HeroSection = () => {
           </p>
 
           {/* Feature Pills */}
-          <div className="flex flex-wrap gap-3 mb-8 pointer-events-auto justify-center"
+          <div className="flex flex-wrap gap-2 md:gap-3 mb-8 pointer-events-auto justify-center px-4"
                style={{
                  opacity: 0,
                  animation: 'fadeInUp 0.8s ease-out 0.5s forwards'
                }}>
             {['24/7 Availability', 'Instant Responses', 'Zero Missed Calls'].map((feature, i) => (
-              <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
-                <CheckCircle className="w-4 h-4 text-[#7B61FF]" />
-                <span className="text-sm text-white/90 font-medium">{feature}</span>
+              <div key={i} className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-[#7B61FF]" />
+                <span className="text-xs md:text-sm text-white/90 font-medium">{feature}</span>
               </div>
             ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 pointer-events-auto justify-center mb-12"
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pointer-events-auto justify-center mb-12 px-4"
                style={{
                  opacity: 0,
                  animation: 'fadeInUp 0.8s ease-out 0.6s forwards'
                }}>
-            <a href="https://calendly.com/abdurrehman1711/30min" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base text-white transition-all duration-300 hover:scale-105"
+            <a href="https://calendly.com/abdurrehman1711/30min" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-sm md:text-base text-white transition-all duration-300 hover:scale-105"
                     style={{
                       background: 'linear-gradient(135deg, #7B61FF 0%, #6B4CFF 100%)',
                       boxShadow: '0 0 30px rgba(123, 97, 255, 0.5)',
@@ -149,41 +149,41 @@ const HeroSection = () => {
                       e.currentTarget.style.boxShadow = '0 0 30px rgba(123, 97, 255, 0.5)';
                     }}>
               Get Started Free
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
             </a>
 
-            <a href="/dashboard.png" target="_blank" className="group flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base text-white transition-all duration-300 hover:bg-white/10"
+            <a href="/dashboard.png" target="_blank" className="group flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-sm md:text-base text-white transition-all duration-300 hover:bg-white/10"
                     style={{
                       background: 'rgba(255, 255, 255, 0.05)',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
                       backdropFilter: 'blur(10px)',
                     }}>
-              <Play className="w-5 h-5" />
+              <Play className="w-4 h-4 md:w-5 md:h-5" />
               Watch Demo
             </a>
           </div>
 
           {/* Simple Stats - No Boxes */}
-          <div className="flex flex-wrap items-center justify-center gap-8 pointer-events-auto"
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 pointer-events-auto px-4"
                style={{
                  opacity: 0,
                  animation: 'fadeInUp 0.8s ease-out 0.7s forwards'
                }}>
             <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent mb-1">200+</div>
-              <div className="text-sm text-gray-400">Active Businesses</div>
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent mb-1">200+</div>
+              <div className="text-xs md:text-sm text-gray-400">Active Businesses</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent mb-1">40%</div>
-              <div className="text-sm text-gray-400">Revenue Increase</div>
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent mb-1">40%</div>
+              <div className="text-xs md:text-sm text-gray-400">Revenue Increase</div>
             </div>
             <div className="text-center">
-              <div className="flex items-center gap-1 mb-1 justify-center">
+              <div className="flex items-center gap-0.5 md:gap-1 mb-1 justify-center">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#7B61FF] text-[#7B61FF]" />
+                  <Star key={i} className="w-3 h-3 md:w-4 md:h-4 fill-[#7B61FF] text-[#7B61FF]" />
                 ))}
               </div>
-              <div className="text-sm text-gray-400">4.9/5 Rating</div>
+              <div className="text-xs md:text-sm text-gray-400">4.9/5 Rating</div>
             </div>
           </div>
 

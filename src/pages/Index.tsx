@@ -4,6 +4,7 @@ import FeaturesDetail from '@/components/ui/features-detail';
 import { FrameworksSection } from '@/components/FrameworksSection';
 import { TryAgentNew } from '@/components/TryAgentNew';
 import ProcessSection from '@/components/ProcessSection';
+import FAQSection from '@/components/FAQSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { ModernNavbar } from '@/components/ui/modern-navbar';
@@ -26,6 +27,7 @@ const Index = () => {
           { title: "Process", url: "#process" },
           { title: "Frameworks", url: "#frameworks" },
           { title: "Try Agent", url: "#try-agent" },
+          { title: "FAQ", url: "#faq" },
         ]}
         auth={{
           login: { text: "", url: "#" },
@@ -59,6 +61,10 @@ const Index = () => {
 
         <section id="process">
           <ProcessSection />
+        </section>
+
+        <section id="faq">
+          <FAQSection />
         </section>
 
         <section id="contact">

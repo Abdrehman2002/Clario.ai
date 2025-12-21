@@ -126,7 +126,7 @@ export function FrameworksSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 pb-32 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
+      className="relative py-16 md:py-20 pb-16 md:pb-32 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
       onMouseMove={handleMouseMove}
     >
       {/* Background matching TryAgentNew */}
@@ -151,18 +151,18 @@ export function FrameworksSection() {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header with Glow Effect */}
-        <div className="text-center max-w-5xl mx-auto mb-24">
-          <div className="inline-flex items-center space-x-2 mb-6 px-4 py-2 rounded-full backdrop-blur-xl border border-[#7B61FF]/30 bg-[#7B61FF]/5">
-            <Sparkles className="w-4 h-4 text-[#7B61FF]" />
-            <span className="text-sm font-semibold text-[#A78BFA] uppercase tracking-wider">
+        <div className="text-center max-w-5xl mx-auto mb-12 md:mb-24">
+          <div className="inline-flex items-center space-x-2 mb-4 md:mb-6 px-3 md:px-4 py-2 rounded-full backdrop-blur-xl border border-[#7B61FF]/30 bg-[#7B61FF]/5">
+            <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-[#7B61FF]" />
+            <span className="text-xs md:text-sm font-semibold text-[#A78BFA] uppercase tracking-wider">
               AI Infrastructure
             </span>
-            <Sparkles className="w-4 h-4 text-[#7B61FF]" />
+            <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-[#7B61FF]" />
           </div>
 
           <h2
             ref={headingRef}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-8"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6 md:mb-8 px-4"
             style={{
               lineHeight: '1.1',
               textShadow: '0 0 80px rgba(123, 97, 255, 0.3)'
@@ -178,7 +178,7 @@ export function FrameworksSection() {
           </h2>
           <p
             ref={subheadingRef}
-            className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
+            className="text-base md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto px-4"
             style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}
           >
             Each framework is a building block of your AI infrastructure—crafted to automate,
@@ -187,7 +187,7 @@ export function FrameworksSection() {
         </div>
 
         {/* Framework Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {frameworks.map((framework, index) => (
             <FrameworkCard
               key={framework.id}
@@ -253,7 +253,7 @@ function FrameworkCard({ framework, index, isActive, onHover, onLeave }: Framewo
       }}
     >
       {/* Card Container with Glass Effect */}
-      <div className="relative h-full bg-gradient-to-br from-black/60 via-black/40 to-black/60 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 overflow-hidden transition-all duration-500 hover:border-white/30"
+      <div className="relative h-full bg-gradient-to-br from-black/60 via-black/40 to-black/60 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-white/30"
            style={{
              boxShadow: isActive ? `0 20px 80px -10px ${framework.glowColor}, 0 0 40px -10px ${framework.glowColor}` : '0 10px 40px -10px rgba(0,0,0,0.5)'
            }}>
@@ -269,39 +269,39 @@ function FrameworkCard({ framework, index, isActive, onHover, onLeave }: Framewo
         {/* Content */}
         <div className="relative z-10">
           {/* Icon & Stats */}
-          <div className="flex items-start justify-between mb-6">
+          <div className="flex items-start justify-between mb-5 md:mb-6">
             <div className="relative">
               <div
-                className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${framework.gradient} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all duration-500 relative overflow-hidden`}
+                className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${framework.gradient} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all duration-500 relative overflow-hidden`}
                 style={{
                   boxShadow: `0 10px 40px -5px ${framework.glowColor}`,
                 }}
               >
                 {/* Icon glow pulse */}
                 <div className="absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:opacity-100 animate-pulse"></div>
-                <Icon className="w-10 h-10 text-white relative z-10" />
+                <Icon className="w-8 h-8 md:w-10 md:h-10 text-white relative z-10" />
               </div>
               {/* Orbiting ring */}
               <div className="absolute inset-0 rounded-2xl border-2 border-white/20 opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700"></div>
             </div>
 
             {/* Stats Badge with Icon */}
-            <div className="text-right backdrop-blur-xl bg-white/5 px-4 py-2 rounded-xl border border-white/10 group-hover:border-white/30 transition-all duration-500">
-              <div className="flex items-center justify-end space-x-2 mb-1">
-                <StatsIcon className="w-4 h-4" style={{ color: framework.color }} />
-                <div className="text-3xl font-bold" style={{ color: framework.color }}>
+            <div className="text-right backdrop-blur-xl bg-white/5 px-3 md:px-4 py-1.5 md:py-2 rounded-xl border border-white/10 group-hover:border-white/30 transition-all duration-500">
+              <div className="flex items-center justify-end space-x-1.5 md:space-x-2 mb-0.5 md:mb-1">
+                <StatsIcon className="w-3 h-3 md:w-4 md:h-4" style={{ color: framework.color }} />
+                <div className="text-2xl md:text-3xl font-bold" style={{ color: framework.color }}>
                   {framework.stats.value}
                 </div>
               </div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider font-semibold">
+              <div className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider font-semibold">
                 {framework.stats.label}
               </div>
             </div>
           </div>
 
           {/* Title & Tagline */}
-          <div className="mb-5">
-            <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text transition-all duration-500"
+          <div className="mb-4 md:mb-5">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text transition-all duration-500"
                 style={{
                   backgroundImage: isActive ? `linear-gradient(135deg, ${framework.color}, #fff)` : 'none',
                   textShadow: isActive ? `0 0 20px ${framework.glowColor}` : 'none'
@@ -309,25 +309,25 @@ function FrameworkCard({ framework, index, isActive, onHover, onLeave }: Framewo
             >
               {framework.title}
             </h3>
-            <p className="text-sm font-semibold italic flex items-center space-x-2" style={{ color: framework.color }}>
+            <p className="text-xs md:text-sm font-semibold italic flex items-center space-x-2" style={{ color: framework.color }}>
               <Sparkles className="w-3 h-3" />
               <span>{framework.tagline}</span>
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-gray-300 leading-relaxed mb-6 text-sm">
+          <p className="text-gray-300 leading-relaxed mb-5 md:mb-6 text-xs md:text-sm">
             {framework.description}
           </p>
 
           {/* Features Grid with Enhanced Icons */}
-          <div className="space-y-3">
+          <div className="space-y-2.5 md:space-y-3">
             {framework.features.map((feature, idx) => {
               const FeatureIcon = feature.icon;
               return (
-                <div key={idx} className="flex items-start space-x-3 group/item">
+                <div key={idx} className="flex items-start space-x-2.5 md:space-x-3 group/item">
                   <div
-                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover/item:scale-110 relative overflow-hidden"
+                    className="w-8 h-8 md:w-9 md:h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover/item:scale-110 relative overflow-hidden"
                     style={{
                       backgroundColor: `${framework.color}20`,
                       border: `1px solid ${framework.color}40`,
@@ -336,13 +336,13 @@ function FrameworkCard({ framework, index, isActive, onHover, onLeave }: Framewo
                   >
                     {/* Icon background pulse */}
                     <div className="absolute inset-0 bg-white/10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></div>
-                    <FeatureIcon className="w-4 h-4 relative z-10" style={{ color: framework.color }} />
+                    <FeatureIcon className="w-3.5 h-3.5 md:w-4 md:h-4 relative z-10" style={{ color: framework.color }} />
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-white font-semibold text-sm mb-1">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-white font-semibold text-xs md:text-sm mb-0.5 md:mb-1">
                       {feature.title}
                     </h4>
-                    <p className="text-gray-400 text-xs leading-relaxed">
+                    <p className="text-gray-400 text-[11px] md:text-xs leading-relaxed">
                       {feature.desc}
                     </p>
                   </div>
@@ -352,13 +352,13 @@ function FrameworkCard({ framework, index, isActive, onHover, onLeave }: Framewo
           </div>
 
           {/* Learn More Link with Arrow */}
-          <div className="mt-6 pt-6 border-t border-white/10">
-            <button className="flex items-center space-x-2 text-sm font-bold group/link relative">
+          <div className="mt-5 md:mt-6 pt-5 md:pt-6 border-t border-white/10">
+            <button className="flex items-center space-x-2 text-xs md:text-sm font-bold group/link relative">
               <span className="relative z-10" style={{ color: framework.color }}>
                 Explore {framework.title}
               </span>
               <ArrowRight
-                className="w-4 h-4 group-hover/link:translate-x-2 transition-transform duration-300"
+                className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover/link:translate-x-2 transition-transform duration-300"
                 style={{ color: framework.color }}
               />
               {/* Underline animation */}

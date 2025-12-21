@@ -183,7 +183,7 @@ const ProcessSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-32 px-4 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
+      className="relative py-16 md:py-32 px-4 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
       onMouseMove={handleSectionMouseMove}
     >
       {/* Background matching FrameworksSection */}
@@ -208,29 +208,29 @@ const ProcessSection = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div ref={headingRef} className="text-center mb-20">
-          <div className="inline-block mb-6">
-            <span className="text-sm font-semibold tracking-widest uppercase text-[#A16BFF] px-6 py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-sm"
+        <div ref={headingRef} className="text-center mb-12 md:mb-20">
+          <div className="inline-block mb-4 md:mb-6">
+            <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-[#A16BFF] px-4 md:px-6 py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-sm"
               style={{ background: 'rgba(123, 97, 255, 0.1)' }}>
               Process
             </span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6">
             The blueprint.
           </h2>
-          <h3 className="text-4xl md:text-6xl font-bold mb-8">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent">
               Behind every system.
             </span>
           </h3>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
             A clear three-step process that moves every project from discovery<br className="hidden md:block" />
             to seamless automation and measurable business growth.
           </p>
         </div>
 
         {/* Process Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-32">
           {processSteps.map((step, index) => (
             <div
               key={step.id}
@@ -239,7 +239,7 @@ const ProcessSection = () => {
               onMouseLeave={() => setActiveStep(null)}
               onMouseMove={(e) => handleMouseMove(e, step.id)}
             >
-              <div className="relative h-full p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-transparent backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-white/20"
+              <div className="relative h-full p-6 md:p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-transparent backdrop-blur-xl overflow-hidden transition-all duration-500 hover:border-white/20"
                 style={{
                   boxShadow: activeStep === step.id ? `0 20px 60px ${step.glowColor}` : 'none',
                   transform: activeStep === step.id ? 'translateY(-10px) scale(1.02)' : 'none'
@@ -259,27 +259,27 @@ const ProcessSection = () => {
                 </div>
 
                 {/* Icon */}
-                <div className="relative z-10 mb-8">
-                  <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
+                <div className="relative z-10 mb-6 md:mb-8">
+                  <div className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
                     style={{ boxShadow: `0 10px 40px ${step.glowColor}` }}>
-                    <step.icon className="w-10 h-10 text-white" />
+                    <step.icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 group-hover:bg-clip-text transition-all duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed mb-6">
+                  <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-4 md:mb-6">
                     {step.description}
                   </p>
 
                   {/* Details list */}
                   <ul className="space-y-2">
                     {step.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
-                        <div className="w-1.5 h-1.5 rounded-full" style={{ background: step.color }} />
+                      <li key={idx} className="flex items-center gap-2 text-xs md:text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
+                        <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: step.color }} />
                         {detail}
                       </li>
                     ))}

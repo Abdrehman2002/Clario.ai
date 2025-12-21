@@ -67,23 +67,23 @@ export default function FeaturesDetail() {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 max-w-4xl mx-auto">
-          <h2 ref={headingRef} className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+        <div className="text-center mb-10 md:mb-16 max-w-4xl mx-auto px-4">
+          <h2 ref={headingRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 md:mb-6">
             The command center.
             <br />
             <span className="bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent">
               Your business, made visible.
             </span>
           </h2>
-          <p ref={subtitleRef} className="text-lg md:text-xl text-gray-300 leading-relaxed">
+          <p ref={subtitleRef} className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed">
             A unified dashboard that gives you real-time visibility into calls, messages,
             automations, and performance, so every decision is data-driven.
           </p>
         </div>
 
         {/* Main Dashboard */}
-        <div ref={dashboardRef} className="max-w-6xl mx-auto mb-16">
-          <div className="relative bg-black/60 backdrop-blur-xl rounded-3xl border-4 border-[#7B61FF] overflow-hidden"
+        <div ref={dashboardRef} className="max-w-6xl mx-auto mb-10 md:mb-16">
+          <div className="relative bg-black/60 backdrop-blur-xl rounded-2xl md:rounded-3xl border-2 md:border-4 border-[#7B61FF] overflow-hidden"
                style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.4), 0 0 100px rgba(123, 97, 255, 0.2)' }}>
 
             {/* Dashboard Image */}
@@ -99,36 +99,36 @@ export default function FeaturesDetail() {
         </div>
 
         {/* Bottom Features - Simplified */}
-        <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+        <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto">
           {/* Unified Intelligence */}
-          <div className="stat-card text-center">
-            <Zap className="w-8 h-8 text-[#7B61FF] mx-auto mb-3" />
-            <h4 className="text-lg font-bold text-white mb-2">
+          <div className="stat-card text-center px-4">
+            <Zap className="w-7 h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 md:mb-3" />
+            <h4 className="text-base md:text-lg font-bold text-white mb-1.5 md:mb-2">
               Unified Intelligence
             </h4>
-            <p className="text-sm text-gray-400">
+            <p className="text-xs md:text-sm text-gray-400">
               See every AI agent, workflow, and data source in one seamless interface.
             </p>
           </div>
 
           {/* Real-Time Insights */}
-          <div className="stat-card text-center">
-            <Clock className="w-8 h-8 text-[#7B61FF] mx-auto mb-3" />
-            <h4 className="text-lg font-bold text-white mb-2">
+          <div className="stat-card text-center px-4">
+            <Clock className="w-7 h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 md:mb-3" />
+            <h4 className="text-base md:text-lg font-bold text-white mb-1.5 md:mb-2">
               Real-Time Insights
             </h4>
-            <p className="text-sm text-gray-400">
+            <p className="text-xs md:text-sm text-gray-400">
               Get instant performance metrics, response rates, and automation impact updated live.
             </p>
           </div>
 
           {/* Total Control */}
-          <div className="stat-card text-center">
-            <CheckCircle className="w-8 h-8 text-[#7B61FF] mx-auto mb-3" />
-            <h4 className="text-lg font-bold text-white mb-2">
+          <div className="stat-card text-center px-4">
+            <CheckCircle className="w-7 h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 md:mb-3" />
+            <h4 className="text-base md:text-lg font-bold text-white mb-1.5 md:mb-2">
               Total Control
             </h4>
-            <p className="text-sm text-gray-400">
+            <p className="text-xs md:text-sm text-gray-400">
               Adjust, pause, or optimize automations instantly, all from your central dashboard.
             </p>
           </div>

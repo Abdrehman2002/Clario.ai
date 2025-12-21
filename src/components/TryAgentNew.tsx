@@ -164,17 +164,17 @@ export function TryAgentNew() {
   };
 
   return (
-    <section className="py-16 md:py-20 pb-20 md:pb-32 bg-gradient-to-b from-black via-[#0A0510] to-black relative">
+    <section className="py-16 md:py-20 pb-20 md:pb-32 bg-gradient-to-b from-black via-[#0A0510] to-black relative z-50">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,97,255,0.08),transparent_50%)]"></div>
 
-      <div className="max-w-5xl mx-auto px-4 md:px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 md:px-6 relative z-50">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative"
-          style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)', zIndex: 1 }}
+          className="bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative z-50"
+          style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)' }}
         >
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
             {/* Left Side - Text */}

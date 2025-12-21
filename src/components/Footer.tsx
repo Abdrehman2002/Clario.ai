@@ -28,12 +28,12 @@ const Footer = () => {
   };
 
   const solutions = [
-    { name: "Voice Agents", href: "/voice-agents" },
-    { name: "AI Chatbots", href: "/ai-chatbots" },
-    { name: "AutoCare AI", href: "/autocare-ai-receptionist" },
-    { name: "GlamCare AI", href: "/glamcare-ai-agent" },
-    { name: "MediCare AI", href: "/medicare-ai-receptionist" },
-    { name: "DineMate AI", href: "/dinemate-ai-agent" }
+    { name: "Home", href: "#hero" },
+    { name: "Features", href: "#features" },
+    { name: "Process", href: "#process" },
+    { name: "Frameworks", href: "#frameworks" },
+    { name: "Try Agent", href: "#try-agent" },
+    { name: "FAQ", href: "#faq" }
   ];
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {

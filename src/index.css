@@ -629,9 +629,9 @@ section[id] {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Smooth scrolling optimization */
+  /* Disable smooth scrolling for better performance */
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
   /* GPU acceleration for animations */

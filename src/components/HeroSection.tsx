@@ -64,7 +64,7 @@ const HeroSection = () => {
     return (
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Spline 3D Background - Desktop Only */}
-        <div className="absolute inset-0 w-full h-full z-[15] spline-container pointer-events-auto">
+        <div className="absolute inset-0 w-full h-full z-[15] spline-container pointer-events-auto will-change-transform">
           <SplineComponent
             scene="https://prod.spline.design/0tU4673t03E7iQ85/scene.splinecode"
             style={{
@@ -72,7 +72,8 @@ const HeroSection = () => {
               height: '100%',
               minHeight: '100vh',
               maxHeight: '100vh',
-              pointerEvents: 'auto'
+              pointerEvents: 'auto',
+              willChange: 'transform'
             }}
           />
         </div>
@@ -95,14 +96,14 @@ const HeroSection = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-[1.1] px-4"
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-[1.2] px-4"
               style={{
                 color: '#FFFFFF',
                 opacity: 0,
                 animation: 'fadeInUp 0.8s ease-out 0.3s forwards'
               }}>
             Transform your business
-            <span className="block bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent pb-2">
               with AI Intelligence.
             </span>
           </h1>

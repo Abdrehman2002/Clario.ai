@@ -75,7 +75,7 @@ export function ModernNavbar({
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300`}
       style={{
         backdropFilter: 'blur(12px)',
         background: isScrolled ? 'rgba(15, 15, 30, 0.65)' : 'rgba(15, 15, 30, 0.4)',

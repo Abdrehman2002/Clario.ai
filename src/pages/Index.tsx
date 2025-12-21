@@ -30,7 +30,7 @@ const Index = () => {
           { title: "FAQ", url: "#faq" },
         ]}
         auth={{
-          login: { text: "", url: "#" },
+          login: { text: "Dashboard", url: "https://clariodashboard.vercel.app/" },
           signup: { text: "Let's Talk", url: "https://calendly.com/abdurrehman1711/30min" },
         }}
       />

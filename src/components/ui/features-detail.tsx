@@ -61,16 +61,16 @@ export default function FeaturesDetail() {
   }, [])
 
   return (
-    <div ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-b from-black via-[#0A0510] to-black relative overflow-hidden">
+    <div ref={sectionRef} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-black via-[#0A0510] to-black relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,97,255,0.08),transparent_50%)]"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-10 md:mb-16 max-w-4xl mx-auto px-4">
-          <h2 ref={headingRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 md:mb-6">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16 max-w-4xl mx-auto px-2 sm:px-4">
+          <h2 ref={headingRef} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
             The command center.
-            <br />
+            <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent">
               Your business, made visible.
             </span>
@@ -82,8 +82,8 @@ export default function FeaturesDetail() {
         </div>
 
         {/* Main Dashboard */}
-        <div ref={dashboardRef} className="max-w-6xl mx-auto mb-10 md:mb-16">
-          <div className="relative bg-black/60 backdrop-blur-xl rounded-2xl md:rounded-3xl border-2 md:border-4 border-[#7B61FF] overflow-hidden"
+        <div ref={dashboardRef} className="max-w-6xl mx-auto mb-8 sm:mb-10 md:mb-12 lg:mb-16 px-2 sm:px-0">
+          <div className="relative bg-black/60 backdrop-blur-xl rounded-xl sm:rounded-2xl md:rounded-3xl border-2 sm:border-3 md:border-4 border-[#7B61FF] overflow-hidden"
                style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.4), 0 0 100px rgba(123, 97, 255, 0.2)' }}>
 
             {/* Dashboard Image */}
@@ -99,36 +99,36 @@ export default function FeaturesDetail() {
         </div>
 
         {/* Bottom Features - Simplified */}
-        <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto">
+        <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 max-w-5xl mx-auto px-2 sm:px-4">
           {/* Unified Intelligence */}
-          <div className="stat-card text-center px-4">
-            <Zap className="w-7 h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 md:mb-3" />
-            <h4 className="text-base md:text-lg font-bold text-white mb-1.5 md:mb-2">
+          <div className="stat-card text-center px-3 sm:px-4">
+            <Zap className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 sm:mb-2.5 md:mb-3" />
+            <h4 className="text-sm sm:text-base md:text-lg font-bold text-white mb-1.5 sm:mb-2">
               Unified Intelligence
             </h4>
-            <p className="text-xs md:text-sm text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
               See every AI agent, workflow, and data source in one seamless interface.
             </p>
           </div>
 
           {/* Real-Time Insights */}
-          <div className="stat-card text-center px-4">
-            <Clock className="w-7 h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 md:mb-3" />
-            <h4 className="text-base md:text-lg font-bold text-white mb-1.5 md:mb-2">
+          <div className="stat-card text-center px-3 sm:px-4">
+            <Clock className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 sm:mb-2.5 md:mb-3" />
+            <h4 className="text-sm sm:text-base md:text-lg font-bold text-white mb-1.5 sm:mb-2">
               Real-Time Insights
             </h4>
-            <p className="text-xs md:text-sm text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
               Get instant performance metrics, response rates, and automation impact updated live.
             </p>
           </div>
 
           {/* Total Control */}
-          <div className="stat-card text-center px-4">
-            <CheckCircle className="w-7 h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 md:mb-3" />
-            <h4 className="text-base md:text-lg font-bold text-white mb-1.5 md:mb-2">
+          <div className="stat-card text-center px-3 sm:px-4">
+            <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 sm:mb-2.5 md:mb-3" />
+            <h4 className="text-sm sm:text-base md:text-lg font-bold text-white mb-1.5 sm:mb-2">
               Total Control
             </h4>
-            <p className="text-xs md:text-sm text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
               Adjust, pause, or optimize automations instantly, all from your central dashboard.
             </p>
           </div>

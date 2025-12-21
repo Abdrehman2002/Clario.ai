@@ -15,9 +15,9 @@ const partnerTechnologies: CarouselItem[] = [
 
 const LogoCarouselSection = () => {
   return (
-    <div className="w-full bg-[#000000] py-16 lg:py-24">
-      <div className="container mx-auto px-4 mb-12">
-        <h2 className="text-3xl md:text-5xl font-bold text-center text-white">
+    <div className="w-full bg-[#000000] py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 mb-8 sm:mb-10 md:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-white leading-tight px-2">
           Powering Innovation with Leading Technologies
         </h2>
       </div>

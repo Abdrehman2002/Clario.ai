@@ -84,7 +84,7 @@ const HeroSection = () => {
         </div>
 
         {/* Content Container - Centered Layout */}
-        <div ref={heroRef} className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 hero-content text-center" style={{ pointerEvents: 'none' }}>
+        <div ref={heroRef} className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-14 md:pb-16 hero-content text-center" style={{ pointerEvents: 'none' }}>
 
           {/* Tag Line */}
           <div className="mb-6 pointer-events-auto inline-block" style={{ animationDelay: '0.2s', opacity: 0, animation: 'fadeInUp 0.8s ease-out 0.2s forwards' }}>
@@ -109,7 +109,7 @@ const HeroSection = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed px-4"
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 mb-6 sm:mb-7 md:mb-8 max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4"
              style={{
                opacity: 0,
                animation: 'fadeInUp 0.8s ease-out 0.4s forwards'
@@ -119,26 +119,26 @@ const HeroSection = () => {
           </p>
 
           {/* Feature Pills */}
-          <div className="flex flex-wrap gap-2 md:gap-3 mb-8 pointer-events-auto justify-center px-4"
+          <div className="flex flex-wrap gap-2 sm:gap-2.5 md:gap-3 mb-6 sm:mb-7 md:mb-8 pointer-events-auto justify-center px-4"
                style={{
                  opacity: 0,
                  animation: 'fadeInUp 0.8s ease-out 0.5s forwards'
                }}>
             {['24/7 Availability', 'Instant Responses', 'Zero Missed Calls'].map((feature, i) => (
-              <div key={i} className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
-                <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-[#7B61FF]" />
-                <span className="text-xs md:text-sm text-white/90 font-medium">{feature}</span>
+              <div key={i} className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 md:px-4 py-1.5 sm:py-2 md:py-2.5 rounded-lg sm:rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                <CheckCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-[#7B61FF]" />
+                <span className="text-xs sm:text-sm md:text-base text-white/90 font-medium">{feature}</span>
               </div>
             ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pointer-events-auto justify-center mb-12 px-4"
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-3.5 md:gap-4 lg:gap-5 pointer-events-auto justify-center mb-10 sm:mb-11 md:mb-12 px-4"
                style={{
                  opacity: 0,
                  animation: 'fadeInUp 0.8s ease-out 0.6s forwards'
                }}>
-            <a href="https://calendly.com/abdurrehman1711/30min" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-sm md:text-base text-white transition-all duration-300 hover:scale-105"
+            <a href="https://calendly.com/abdurrehman1711/30min" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-2 px-6 sm:px-7 md:px-8 lg:px-10 py-3 sm:py-3.5 md:py-4 rounded-xl lg:rounded-2xl font-bold text-sm sm:text-base md:text-lg text-white transition-all duration-300 hover:scale-105"
                     style={{
                       background: 'linear-gradient(135deg, #7B61FF 0%, #6B4CFF 100%)',
                       boxShadow: '0 0 30px rgba(123, 97, 255, 0.5)',
@@ -153,7 +153,7 @@ const HeroSection = () => {
               <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
             </a>
 
-            <a href="/dashboard.png" target="_blank" className="group flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-sm md:text-base text-white transition-all duration-300 hover:bg-white/10"
+            <a href="/dashboard.png" target="_blank" className="group flex items-center justify-center gap-2 px-6 sm:px-7 md:px-8 lg:px-10 py-3 sm:py-3.5 md:py-4 rounded-xl lg:rounded-2xl font-semibold text-sm sm:text-base md:text-lg text-white transition-all duration-300 hover:bg-white/10"
                     style={{
                       background: 'rgba(255, 255, 255, 0.05)',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -165,26 +165,26 @@ const HeroSection = () => {
           </div>
 
           {/* Simple Stats - No Boxes */}
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 pointer-events-auto px-4"
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-7 md:gap-8 lg:gap-10 pointer-events-auto px-4"
                style={{
                  opacity: 0,
                  animation: 'fadeInUp 0.8s ease-out 0.7s forwards'
                }}>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent mb-1">200+</div>
-              <div className="text-xs md:text-sm text-gray-400">Active Businesses</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent mb-1 sm:mb-1.5 md:mb-2">200+</div>
+              <div className="text-xs sm:text-sm md:text-base text-gray-400">Active Businesses</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent mb-1">40%</div>
-              <div className="text-xs md:text-sm text-gray-400">Revenue Increase</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent mb-1 sm:mb-1.5 md:mb-2">40%</div>
+              <div className="text-xs sm:text-sm md:text-base text-gray-400">Revenue Increase</div>
             </div>
             <div className="text-center">
-              <div className="flex items-center gap-0.5 md:gap-1 mb-1 justify-center">
+              <div className="flex items-center gap-0.5 sm:gap-1 mb-1 sm:mb-1.5 md:mb-2 justify-center">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 md:w-4 md:h-4 fill-[#7B61FF] text-[#7B61FF]" />
+                  <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 fill-[#7B61FF] text-[#7B61FF]" />
                 ))}
               </div>
-              <div className="text-xs md:text-sm text-gray-400">4.9/5 Rating</div>
+              <div className="text-xs sm:text-sm md:text-base text-gray-400">4.9/5 Rating</div>
             </div>
           </div>
 
@@ -203,44 +203,44 @@ const HeroSection = () => {
     );
   }
 
-  // Mobile version remains the same
+  // Mobile version with improved responsiveness
   return (
     <section className="relative min-h-screen">
-      <div className="container mx-auto px-4 pt-24 pb-12">
+      <div className="container mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-10 sm:pb-12">
         <div className="text-center min-h-[80vh] flex flex-col justify-center">
 
-          <div className="inline-flex items-center space-x-2 text-[#7B61FF] px-4 py-2 rounded-full text-sm font-medium mb-6 mx-auto border border-[#7B61FF]/30 bg-[#7B61FF]/10">
-            <Star className="w-4 h-4 fill-current" />
+          <div className="inline-flex items-center space-x-2 text-[#7B61FF] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-5 sm:mb-6 mx-auto border border-[#7B61FF]/30 bg-[#7B61FF]/10">
+            <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
             <span>Trusted by 200+ businesses</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl font-bold text-white leading-tight mb-5 sm:mb-6 px-2">
             Transform your business
-            <span className="block bg-gradient-to-r from-[#7B61FF] to-[#A16BFF] bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-[#7B61FF] to-[#A16BFF] bg-clip-text text-transparent pt-1">
               with AI agents
             </span>
           </h1>
 
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-300 mb-7 sm:mb-8 max-w-xl sm:max-w-2xl mx-auto px-2 leading-relaxed">
             Deploy intelligent voice agents and chatbots that handle appointments, qualify leads, and close deals 24/7.
           </p>
 
-          <div className="flex flex-col gap-4 mb-12">
+          <div className="flex flex-col gap-3 sm:gap-4 mb-10 sm:mb-12 px-2">
             <a
               href="https://calendly.com/abdurrehman1711/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-[#7B61FF] to-[#6B4CFF] hover:from-[#8A71FF] hover:to-[#7B61FF] text-white px-8 py-6 rounded-xl font-bold text-lg shadow-[0_0_30px_rgba(123,97,255,0.5)] flex items-center justify-center"
+              className="bg-gradient-to-r from-[#7B61FF] to-[#6B4CFF] hover:from-[#8A71FF] hover:to-[#7B61FF] text-white px-6 sm:px-8 py-4 sm:py-6 rounded-xl font-bold text-base sm:text-lg shadow-[0_0_30px_rgba(123,97,255,0.5)] flex items-center justify-center transition-all duration-300"
             >
               Get Started Free
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
             </a>
             <a
               href="/dashboard.png"
               target="_blank"
-              className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-6 rounded-xl font-semibold text-lg flex items-center justify-center"
+              className="border-2 border-white/20 text-white hover:bg-white/10 px-6 sm:px-8 py-4 sm:py-6 rounded-xl font-semibold text-base sm:text-lg flex items-center justify-center transition-all duration-300"
             >
-              <Play className="w-5 h-5 mr-2" />
+              <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Watch Demo
             </a>
           </div>

@@ -645,6 +645,51 @@ section[id] {
     backface-visibility: hidden;
   }
 
+  /* Additional scroll performance optimizations */
+  * {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  }
+
+  /* Optimize heavy elements */
+  section,
+  .hero-content,
+  .spline-container {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Reduce repaints during scroll */
+  .hero-content * {
+    transform: translateZ(0);
+  }
+
+  /* Passive scroll listeners - improves scroll performance */
+  body {
+    touch-action: pan-y pinch-zoom;
+  }
+
+  /* CSS Containment for better rendering performance */
+  section {
+    contain: layout style paint;
+  }
+
+  /* Optimize images and media */
+  img, video, canvas {
+    will-change: auto;
+  }
+
+  /* Reduce layout thrashing */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   /* Scroll Stack Styles */
   .scroll-stack-container {
     position: relative;

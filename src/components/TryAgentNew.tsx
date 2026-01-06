@@ -164,7 +164,7 @@ export function TryAgentNew() {
   };
 
   return (
-    <section className="py-16 md:py-20 pb-20 md:pb-32 bg-gradient-to-b from-black via-[#0A0510] to-black relative overflow-visible" style={{ zIndex: 60 }}>
+    <section className="py-16 md:py-20 pb-48 md:pb-64 bg-gradient-to-b from-black via-[#0A0510] to-black relative overflow-visible" style={{ zIndex: 60 }}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,97,255,0.08),transparent_50%)]"></div>
 
       <div className="max-w-5xl mx-auto px-4 md:px-6 relative overflow-visible" style={{ zIndex: 60 }}>

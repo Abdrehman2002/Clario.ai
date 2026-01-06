@@ -670,7 +670,7 @@ section[id] {
   }
 
   /* CSS Containment for better rendering performance */
-  section {
+  section:not([style*="zIndex: 60"]) {
     contain: layout style paint;
   }
 

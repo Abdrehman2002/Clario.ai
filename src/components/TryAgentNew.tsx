@@ -164,17 +164,17 @@ export function TryAgentNew() {
   };
 
   return (
-    <section className="py-16 md:py-20 pb-20 md:pb-32 bg-gradient-to-b from-black via-[#0A0510] to-black relative z-50">
+    <section className="py-16 md:py-20 pb-20 md:pb-32 bg-gradient-to-b from-black via-[#0A0510] to-black relative overflow-visible" style={{ zIndex: 60 }}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,97,255,0.08),transparent_50%)]"></div>
 
-      <div className="max-w-5xl mx-auto px-4 md:px-6 relative z-50">
+      <div className="max-w-5xl mx-auto px-4 md:px-6 relative overflow-visible" style={{ zIndex: 60 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative z-50"
-          style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)' }}
+          className="bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative overflow-visible"
+          style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)', zIndex: 60 }}
         >
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
             {/* Left Side - Text */}
@@ -188,9 +188,9 @@ export function TryAgentNew() {
             </div>
 
             {/* Right Side - Call Interface */}
-            <div className="flex-1 w-full max-w-md space-y-4 md:space-y-6 relative z-50">
+            <div className="flex-1 w-full max-w-md space-y-4 md:space-y-6 relative" style={{ zIndex: 70 }}>
               {/* Dropdown */}
-              <div className="relative z-50" ref={dropdownRef}>
+              <div className="relative" style={{ zIndex: 70 }} ref={dropdownRef}>
                 <motion.button
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}

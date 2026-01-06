@@ -203,34 +203,64 @@ const HeroSection = () => {
     );
   }
 
-  // Mobile version with improved responsiveness
+  // Mobile version with modern purple gradient theme
   return (
-    <section className="relative min-h-screen">
-      <div className="container mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-10 sm:pb-12">
+    <section className="relative min-h-screen bg-gradient-to-b from-black via-[#0A0510] to-black overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,97,255,0.08),transparent_50%)]"></div>
+
+      {/* Animated Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.04]" style={{
+        backgroundImage: `
+          linear-gradient(to right, #7B61FF 1px, transparent 1px),
+          linear-gradient(to bottom, #7B61FF 1px, transparent 1px)
+        `,
+        backgroundSize: '60px 60px'
+      }}></div>
+
+      <div className="container mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-10 sm:pb-12 relative z-10">
         <div className="text-center min-h-[80vh] flex flex-col justify-center">
 
-          <div className="inline-flex items-center space-x-2 text-[#7B61FF] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-5 sm:mb-6 mx-auto border border-[#7B61FF]/30 bg-[#7B61FF]/10">
-            <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
-            <span>Trusted by 200+ businesses</span>
+          {/* Tag Line */}
+          <div className="mb-5 sm:mb-6">
+            <span className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-wider uppercase text-white/90 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-xl"
+                  style={{ background: 'rgba(123, 97, 255, 0.1)' }}>
+              <span className="w-2 h-2 rounded-full bg-[#7B61FF] animate-pulse"></span>
+              AI-Powered Business Automation
+            </span>
           </div>
 
+          {/* Main Headline */}
           <h1 className="text-3xl xs:text-4xl sm:text-5xl font-bold text-white leading-tight mb-5 sm:mb-6 px-2">
             Transform your business
-            <span className="block bg-gradient-to-r from-[#7B61FF] to-[#A16BFF] bg-clip-text text-transparent pt-1">
-              with AI agents
+            <span className="block bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent pt-1">
+              with AI Intelligence.
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-gray-300 mb-7 sm:mb-8 max-w-xl sm:max-w-2xl mx-auto px-2 leading-relaxed">
-            Deploy intelligent voice agents and chatbots that handle appointments, qualify leads, and close deals 24/7.
+          {/* Subheadline */}
+          <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-7 max-w-xl sm:max-w-2xl mx-auto px-2 leading-relaxed">
+            Deploy intelligent voice agents and chatbots that handle appointments, qualify leads, and close deals while you focus on growth.
           </p>
 
-          <div className="flex flex-col gap-3 sm:gap-4 mb-10 sm:mb-12 px-2">
+          {/* Feature Pills */}
+          <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-6 sm:mb-7 justify-center px-2">
+            {['24/7 Availability', 'Instant Responses', 'Zero Missed Calls'].map((feature, i) => (
+              <div key={i} className="flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                <CheckCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#7B61FF]" />
+                <span className="text-xs sm:text-sm text-white/90 font-medium">{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col gap-3 sm:gap-4 mb-8 sm:mb-10 px-2">
             <a
               href="https://calendly.com/abdurrehman1711/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-[#7B61FF] to-[#6B4CFF] hover:from-[#8A71FF] hover:to-[#7B61FF] text-white px-6 sm:px-8 py-4 sm:py-6 rounded-xl font-bold text-base sm:text-lg shadow-[0_0_30px_rgba(123,97,255,0.5)] flex items-center justify-center transition-all duration-300"
+              className="bg-gradient-to-r from-[#7B61FF] to-[#6B4CFF] hover:from-[#8A71FF] hover:to-[#7B61FF] text-white px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg flex items-center justify-center transition-all duration-300"
+              style={{ boxShadow: '0 0 30px rgba(123, 97, 255, 0.5)' }}
             >
               Get Started Free
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
@@ -238,11 +268,36 @@ const HeroSection = () => {
             <a
               href="/dashboard.png"
               target="_blank"
-              className="border-2 border-white/20 text-white hover:bg-white/10 px-6 sm:px-8 py-4 sm:py-6 rounded-xl font-semibold text-base sm:text-lg flex items-center justify-center transition-all duration-300"
+              className="text-white hover:bg-white/10 px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-semibold text-base sm:text-lg flex items-center justify-center transition-all duration-300"
+              style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+              }}
             >
               <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Watch Demo
             </a>
+          </div>
+
+          {/* Stats Section */}
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 px-2">
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent mb-1">200+</div>
+              <div className="text-xs sm:text-sm text-gray-400">Active Businesses</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent mb-1">40%</div>
+              <div className="text-xs sm:text-sm text-gray-400">Revenue Increase</div>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center gap-0.5 sm:gap-1 mb-1 justify-center">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-[#7B61FF] text-[#7B61FF]" />
+                ))}
+              </div>
+              <div className="text-xs sm:text-sm text-gray-400">4.9/5 Rating</div>
+            </div>
           </div>
 
         </div>

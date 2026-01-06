@@ -54,7 +54,7 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative py-16 md:py-32 px-4 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
+      className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
       onMouseMove={handleMouseMove}
     >
       {/* Background Effects */}
@@ -79,22 +79,22 @@ export default function FAQSection() {
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-20">
-          <div className="inline-block mb-4 md:mb-6">
-            <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-[#A16BFF] px-4 md:px-6 py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-sm"
+        <div className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">
+          <div className="inline-block mb-3 sm:mb-4 md:mb-6">
+            <span className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#A16BFF] px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-sm"
               style={{ background: 'rgba(123, 97, 255, 0.1)' }}>
               FAQ
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 px-2">
             Questions?
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 md:mb-8">
+          <h3 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 px-2">
             <span className="bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent">
               We've got answers.
             </span>
           </h3>
-          <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4 sm:px-6">
             Everything you need to know about Clario AI and how we can<br className="hidden md:block" />
             transform your business with intelligent automation.
           </p>

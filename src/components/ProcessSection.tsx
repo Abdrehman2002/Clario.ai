@@ -183,7 +183,7 @@ const ProcessSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 md:py-32 px-4 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
+      className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
       onMouseMove={handleSectionMouseMove}
     >
       {/* Background matching FrameworksSection */}
@@ -208,29 +208,29 @@ const ProcessSection = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div ref={headingRef} className="text-center mb-12 md:mb-20">
-          <div className="inline-block mb-4 md:mb-6">
-            <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-[#A16BFF] px-4 md:px-6 py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-sm"
+        <div ref={headingRef} className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">
+          <div className="inline-block mb-3 sm:mb-4 md:mb-6">
+            <span className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#A16BFF] px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-sm"
               style={{ background: 'rgba(123, 97, 255, 0.1)' }}>
               Process
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 px-2">
             The blueprint.
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 md:mb-8">
+          <h3 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 px-2">
             <span className="bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent">
               Behind every system.
             </span>
           </h3>
-          <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4 sm:px-6">
             A clear three-step process that moves every project from discovery<br className="hidden md:block" />
             to seamless automation and measurable business growth.
           </p>
         </div>
 
         {/* Process Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 md:gap-8 lg:gap-10 mb-12 sm:mb-16 md:mb-24 lg:mb-32 px-2 sm:px-0">
           {processSteps.map((step, index) => (
             <div
               key={step.id}
@@ -298,33 +298,33 @@ const ProcessSection = () => {
         </div>
 
         {/* Benefits Section */}
-        <div className="text-center mb-20 mt-32">
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-300 mb-6">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20 mt-16 sm:mt-24 md:mt-32 px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-300 mb-4 sm:mb-5 md:mb-6">
             Every benefit.
           </h2>
-          <h3 className="text-5xl md:text-7xl font-bold mb-8">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-5 sm:mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent">
               Backed by design.
             </span>
           </h3>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
             We align strategy, automation, and measurable outcomes, ensuring<br className="hidden md:block" />
             every build drives long-term business performance and scalability.
           </p>
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-6xl mx-auto px-4 sm:px-6">
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="benefit-card text-center"
+              className="benefit-card text-center p-4 sm:p-5"
             >
-              <benefit.icon className="w-8 h-8 text-[#7B61FF] mx-auto mb-3" />
-              <h3 className="text-lg font-bold text-white mb-2">
+              <benefit.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#7B61FF] mx-auto mb-2 sm:mb-2.5 md:mb-3" />
+              <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">
                 {benefit.title}
               </h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                 {benefit.description}
               </p>
             </div>

@@ -126,7 +126,7 @@ export function FrameworksSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 md:py-20 pb-16 md:pb-32 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 pb-12 sm:pb-16 md:pb-24 lg:pb-32 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
       onMouseMove={handleMouseMove}
     >
       {/* Background matching TryAgentNew */}
@@ -149,20 +149,20 @@ export function FrameworksSection() {
         }}
       ></div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         {/* Header with Glow Effect */}
-        <div className="text-center max-w-5xl mx-auto mb-12 md:mb-24">
-          <div className="inline-flex items-center space-x-2 mb-4 md:mb-6 px-3 md:px-4 py-2 rounded-full backdrop-blur-xl border border-[#7B61FF]/30 bg-[#7B61FF]/5">
-            <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-[#7B61FF]" />
-            <span className="text-xs md:text-sm font-semibold text-[#A78BFA] uppercase tracking-wider">
+        <div className="text-center max-w-5xl mx-auto mb-10 sm:mb-12 md:mb-20 lg:mb-24">
+          <div className="inline-flex items-center space-x-1.5 sm:space-x-2 mb-3 sm:mb-4 md:mb-6 px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-xl border border-[#7B61FF]/30 bg-[#7B61FF]/5">
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-[#7B61FF]" />
+            <span className="text-xs sm:text-sm font-semibold text-[#A78BFA] uppercase tracking-wider">
               AI Infrastructure
             </span>
-            <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-[#7B61FF]" />
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-[#7B61FF]" />
           </div>
 
           <h2
             ref={headingRef}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6 md:mb-8 px-4"
+            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 px-2 sm:px-4"
             style={{
               lineHeight: '1.1',
               textShadow: '0 0 80px rgba(123, 97, 255, 0.3)'
@@ -178,7 +178,7 @@ export function FrameworksSection() {
           </h2>
           <p
             ref={subheadingRef}
-            className="text-base md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto px-4"
+            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto px-4 sm:px-6"
             style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}
           >
             Each framework is a building block of your AI infrastructure—crafted to automate,
@@ -187,7 +187,7 @@ export function FrameworksSection() {
         </div>
 
         {/* Framework Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 lg:gap-10 max-w-7xl mx-auto px-2 sm:px-0">
           {frameworks.map((framework, index) => (
             <FrameworkCard
               key={framework.id}

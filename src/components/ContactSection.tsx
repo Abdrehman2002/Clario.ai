@@ -62,7 +62,7 @@ const ContactSection = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative py-16 md:py-32 px-4 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
+      className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6 overflow-hidden bg-gradient-to-b from-black via-[#0A0510] to-black"
       onMouseMove={handleSectionMouseMove}
     >
       {/* Background matching other sections */}
@@ -87,29 +87,29 @@ const ContactSection = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div ref={headingRef} className="text-center mb-12 md:mb-20">
-          <div className="inline-block mb-4 md:mb-6">
-            <span className="text-xs md:text-sm font-semibold tracking-widest uppercase text-[#A16BFF] px-4 md:px-6 py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-sm"
+        <div ref={headingRef} className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">
+          <div className="inline-block mb-3 sm:mb-4 md:mb-6">
+            <span className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#A16BFF] px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-sm"
               style={{ background: 'rgba(123, 97, 255, 0.1)' }}>
               Contact Us
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 px-2">
             Let's talk.
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 md:mb-8">
+          <h3 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 px-2">
             <span className="bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent">
               Transform your business today.
             </span>
           </h3>
-          <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4 sm:px-6">
             Ready to automate and scale? Get in touch and let's build<br className="hidden md:block" />
             intelligent AI solutions tailored to your business needs.
           </p>
         </div>
 
         {/* Contact Options - Sleek Design */}
-        <div className="max-w-2xl mx-auto space-y-4 md:space-y-6">
+        <div className="max-w-2xl mx-auto space-y-3 sm:space-y-4 md:space-y-6 px-2 sm:px-4">
           {/* Email */}
           <motion.a
             href="mailto:George@clario.ai"

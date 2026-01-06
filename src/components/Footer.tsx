@@ -69,29 +69,29 @@ const Footer = () => {
         }}
       ></div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16 z-40 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-12 md:py-14 lg:py-16 z-40 relative">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 mb-6 sm:mb-8 md:mb-10 lg:mb-12"
         >
           {/* Brand Section */}
-          <motion.div variants={itemVariants} className="space-y-3 md:space-y-4">
+          <motion.div variants={itemVariants} className="space-y-2 sm:space-y-3 md:space-y-4">
             <div className="flex items-center space-x-2">
               <motion.img
                 src="/logo.svg (2).svg"
                 alt="Clario AI"
-                className="w-16 h-16 md:w-24 md:h-24"
+                className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               />
-              <span className="text-white text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#A16BFF] bg-clip-text text-transparent">
+              <span className="text-white text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#A16BFF] bg-clip-text text-transparent">
                 Clario AI
               </span>
             </div>
-            <p className="text-xs md:text-sm text-gray-400 max-w-xs leading-relaxed">
+            <p className="text-xs sm:text-sm text-gray-400 max-w-xs leading-relaxed">
               Building the AI infrastructure that powers tomorrow's businesses.
             </p>
           </motion.div>

@@ -64,7 +64,7 @@ const HeroSection = () => {
     return (
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Spline 3D Background - Desktop Only */}
-        <div className="absolute inset-0 w-full h-full z-[15] spline-container pointer-events-none will-change-transform">
+        <div className="absolute inset-0 w-full h-full z-[15] spline-container pointer-events-auto will-change-transform">
           <SplineComponent
             scene="https://prod.spline.design/0tU4673t03E7iQ85/scene.splinecode"
             style={{
@@ -72,7 +72,7 @@ const HeroSection = () => {
               height: '100%',
               minHeight: '100vh',
               maxHeight: '100vh',
-              pointerEvents: 'none',
+              pointerEvents: 'auto',
               willChange: 'transform'
             }}
           />

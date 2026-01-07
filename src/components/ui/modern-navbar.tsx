@@ -85,7 +85,7 @@ export function ModernNavbar({
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href={logo.url} className="flex items-center gap-2 group">
+          <a href={logo.url} className="flex items-center -space-x-2 group">
             <img
               src={logo.src}
               alt={logo.alt}

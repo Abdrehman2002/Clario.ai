@@ -26,7 +26,7 @@ const AGENTS = [
     description: "Legal consultations",
   },
   {
-    id: 'agent_spa_placeholder',
+    id: 'agent_26634c1417075ff72793ffe658',
     label: "Spa/Salon Receptionist",
     description: "Beauty & wellness booking",
   },

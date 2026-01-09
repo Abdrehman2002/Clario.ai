@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Activity, DollarSign, Users, TrendingUp, BarChart3, Clock, Zap, CheckCircle } from "lucide-react"
+import { Activity, DollarSign, Users, TrendingUp, BarChart3, Clock, Zap, CheckCircle, Play } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -13,6 +13,8 @@ export default function FeaturesDetail() {
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   const dashboardRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -86,12 +88,38 @@ export default function FeaturesDetail() {
           <div className="relative bg-black/60 backdrop-blur-xl rounded-xl sm:rounded-2xl md:rounded-3xl border-2 sm:border-3 md:border-4 border-[#7B61FF] overflow-hidden"
                style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.4), 0 0 100px rgba(123, 97, 255, 0.2)' }}>
 
-            {/* Dashboard Image */}
-            <img
-              src="/dashboard.png"
-              alt="AI Command Center Dashboard"
+            {/* Dashboard Video */}
+            <video
+              ref={videoRef}
               className="w-full h-auto"
-            />
+              controls
+              poster="/dashboard.png"
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+              onEnded={() => setIsPlaying(false)}
+            >
+              <source src="/Transforming Calls into Booked Appointments with Clary UI 📞 (1).mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Play Button Overlay */}
+            {!isPlaying && (
+              <button
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.play();
+                    setIsPlaying(true);
+                  }
+                }}
+                className="absolute inset-0 flex items-center justify-center group cursor-pointer"
+                aria-label="Play video"
+              >
+                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-[#7B61FF]/90 hover:bg-[#7B61FF] rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                     style={{ boxShadow: '0 0 40px rgba(123, 97, 255, 0.6)' }}>
+                  <Play className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white ml-1" fill="white" />
+                </div>
+              </button>
+            )}
 
             {/* Glow overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#7B61FF]/10 via-transparent to-transparent pointer-events-none"></div>

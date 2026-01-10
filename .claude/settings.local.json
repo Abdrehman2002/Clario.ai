@@ -13,7 +13,9 @@
       "Bash(git commit -m \"$(cat <<''EOF''\nEnhance website: optimize performance, add Calendly integration, and improve UI\n\n- Updated logo and navbar alignment with improved sizing and positioning\n- Increased dropdown z-index to z-[9999] for proper layering\n- Redesigned footer with updated solution links matching current website structure\n- Created new sleek ContactSection with Calendly integration\n- Added Calendly links (https://calendly.com/abdurrehman1711/30min) to all CTA buttons\n- Updated Watch Demo button to link to /dashboard.png\n- Fixed 3D Spline hero background pointer-events for proper cursor interaction\n- Implemented comprehensive scroll performance optimizations:\n  * Reduced ScrollTriggers from 12+ to 1-2 batched animations per section\n  * Added ''once: true'' flag to prevent animation re-calculation\n  * Implemented GSAP Context API with proper cleanup\n  * Simplified animations (removed complex 3D transforms)\n  * Added GPU acceleration with CSS (will-change, translateZ, backface-visibility)\n  * Reduced animation durations from 1-1.2s to 0.6-0.8s\n  * Changed easing from power4 to power2/power3\n- Optimized ProcessSection, FrameworksSection, and FeaturesDetail components\n- Added global CSS performance optimizations in index.css\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git push:*)",
       "Bash(git commit -m \"$(cat <<''EOF''\nAdd .npmrc to fix Vercel deployment peer dependency issues\n\n- Configure npm to use legacy-peer-deps for React 19 compatibility\n- Resolves build failures with cmdk and other packages expecting React 18\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)"
     ],
     "defaultMode": "acceptEdits"
   }

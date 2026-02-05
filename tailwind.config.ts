@@ -12,13 +12,20 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '1rem',
+			padding: {
+				DEFAULT: '1rem',
+				sm: '1.5rem',
+				md: '2rem',
+				lg: '2.5rem',
+				xl: '3rem',
+				'2xl': '3rem',
+			},
 			screens: {
 				'sm': '640px',
 				'md': '768px',
 				'lg': '1024px',
-				'xl': '1280px',
-				'2xl': '1400px'
+				'xl': '1200px',
+				'2xl': '1280px'
 			}
 		},
 		screens: {
@@ -27,6 +34,9 @@ export default {
 			'md': '768px',
 			'lg': '1024px',
 			'xl': '1280px',
+			'laptop-sm': '1366px',
+			'laptop-md': '1440px',
+			'laptop-lg': '1920px',
 			'2xl': '1536px',
 		},
 		extend: {

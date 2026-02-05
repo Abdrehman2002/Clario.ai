@@ -63,28 +63,28 @@ export default function FeaturesDetail() {
   }, [])
 
   return (
-    <div ref={sectionRef} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-black via-[#0A0510] to-black relative overflow-hidden">
+    <div ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-b from-black via-[#0A0510] to-black relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,97,255,0.08),transparent_50%)]"></div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 relative z-10">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16 max-w-4xl mx-auto px-2 sm:px-4">
-          <h2 ref={headingRef} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
+        <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+          <h2 ref={headingRef} className="font-bold tracking-tight text-white mb-4 md:mb-6 leading-tight" style={{ fontSize: 'clamp(2rem, 3.5vw + 1rem, 3.5rem)' }}>
             The command center.
             <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent">
               Your business, made visible.
             </span>
           </h2>
-          <p ref={subtitleRef} className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed">
+          <p ref={subtitleRef} className="text-gray-300 leading-relaxed" style={{ fontSize: 'clamp(1rem, 1.2vw + 0.5rem, 1.125rem)' }}>
             A unified dashboard that gives you real-time visibility into calls, messages,
             automations, and performance, so every decision is data-driven.
           </p>
         </div>
 
         {/* Main Dashboard */}
-        <div ref={dashboardRef} className="max-w-6xl mx-auto mb-8 sm:mb-10 md:mb-12 lg:mb-16 px-2 sm:px-0">
+        <div ref={dashboardRef} className="mb-12 md:mb-16">
           <div className="relative bg-black/60 backdrop-blur-xl rounded-xl sm:rounded-2xl md:rounded-3xl border-2 sm:border-3 md:border-4 border-[#7B61FF] overflow-hidden"
                style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.4), 0 0 100px rgba(123, 97, 255, 0.2)' }}>
 

@@ -145,12 +145,12 @@ const Footer = () => {
               />
             </h4>
             <motion.a
-              href="mailto:George@clario.ai"
+              href="mailto:vextriaai@gmail.com"
               className="group flex items-center gap-2 text-xs md:text-sm text-gray-400 hover:text-[#8B5CF6] transition-colors"
               whileHover={{ x: 5 }}
             >
               <Mail size={14} className="text-[#7B61FF] md:w-4 md:h-4" />
-              <span className="truncate">George@clario.ai</span>
+              <span className="truncate">vextriaai@gmail.com</span>
             </motion.a>
 
             {/* CTA Button */}
@@ -205,7 +205,7 @@ const Footer = () => {
           {/* Social Icons */}
           <motion.div variants={itemVariants} className="flex gap-3 md:gap-4">
             <motion.a
-              href="https://www.linkedin.com/posts/clario-ai-automations_clarioai-aiforbusiness-automationagency-activity-7358650293904904192-1KN5?utm_source=share&utm_medium=member_desktop"
+              href="https://www.linkedin.com/company/vextria-ai-automations/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -233,7 +233,7 @@ const Footer = () => {
             </motion.a>
 
             <motion.a
-              href="mailto:George@clario.ai"
+              href="mailto:vextriaai@gmail.com"
               aria-label="Email"
               className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center text-gray-400 hover:text-[#8B5CF6] hover:border-[#8B5CF6]/50 transition-all duration-300"
               whileHover={{ scale: 1.1, y: -2 }}
@@ -247,7 +247,7 @@ const Footer = () => {
 
       {/* Text Hover Effect */}
       <div className="lg:flex hidden h-[30rem] -mt-52 -mb-36">
-        <TextHoverEffect text="CLARIO" className="z-50" />
+        <TextHoverEffect text="VEXTRIA" className="z-50" />
       </div>
     </footer>
   );

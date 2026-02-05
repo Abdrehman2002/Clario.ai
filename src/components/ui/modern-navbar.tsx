@@ -33,9 +33,9 @@ interface ModernNavbarProps {
 export function ModernNavbar({
   logo = {
     url: "/",
-    src: "/favicon.svg",
-    alt: "Clario AI",
-    title: "Clario AI",
+    src: "/v.png",
+    alt: "Vextria AI",
+    title: "Vextria AI",
   },
   menu = [
     { title: "Home", url: "#hero" },

@@ -81,14 +81,14 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="space-y-2 sm:space-y-3 md:space-y-4">
             <div className="flex items-center space-x-2">
               <motion.img
-                src="/logo.svg (2).svg"
-                alt="Clario AI"
+                src="/v.png"
+                alt="Vextria AI"
                 className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               />
               <span className="text-white text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#A16BFF] bg-clip-text text-transparent">
-                Clario AI
+                Vextria AI
               </span>
             </div>
             <p className="text-xs sm:text-sm text-gray-400 max-w-xs leading-relaxed">
@@ -199,7 +199,7 @@ const Footer = () => {
         >
           {/* Copyright */}
           <motion.p variants={itemVariants} className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Clario AI. All rights reserved.
+            © {new Date().getFullYear()} Vextria AI. All rights reserved.
           </motion.p>
 
           {/* Social Icons */}

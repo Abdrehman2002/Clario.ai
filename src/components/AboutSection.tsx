@@ -65,7 +65,7 @@ const AboutSection = () => {
           <div className="mb-6">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <Sparkles className="w-6 h-6 text-[#0066FF]" />
-              <span className="text-lg text-[#666666] font-medium">About Clario AI</span>
+              <span className="text-lg text-[#666666] font-medium">About Vextria AI</span>
               <Sparkles className="w-6 h-6 text-[#0066FF]" />
             </div>
           </div>
@@ -93,7 +93,7 @@ const AboutSection = () => {
               </h3>
               
               <p className="text-lg text-[#666666] leading-relaxed mb-6">
-              At Clario AI, we fuse automation and intelligence to supercharge your business operations. 
+              At Vextria AI, we fuse automation and intelligence to supercharge your business operations. 
               From voice agents to custom workflows — we build AI that works for you, 24/7.
               </p>
               

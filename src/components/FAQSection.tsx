@@ -6,8 +6,8 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "What is Clario AI and how does it work?",
-    answer: "Clario AI is an advanced AI automation platform that deploys intelligent voice agents and chatbots to handle customer interactions, appointments, and lead qualification. Our AI agents integrate seamlessly with your existing systems to automate repetitive tasks and improve business efficiency."
+    question: "What is Vextria AI and how does it work?",
+    answer: "Vextria AI is an advanced AI automation platform that deploys intelligent voice agents and chatbots to handle customer interactions, appointments, and lead qualification. Our AI agents integrate seamlessly with your existing systems to automate repetitive tasks and improve business efficiency."
   },
   {
     question: "How long does it take to set up?",
@@ -30,7 +30,7 @@ const faqs = [
     answer: "Most clients see a 40% increase in revenue within 3-6 months through improved lead capture, 24/7 availability, and reduced operational costs. Our AI agents handle routine tasks at a fraction of the cost of human staff while maintaining quality."
   },
   {
-    question: "Do I need technical knowledge to use Clario AI?",
+    question: "Do I need technical knowledge to use Vextria AI?",
     answer: "Not at all! Our platform is designed for business users. We provide an intuitive dashboard where you can monitor performance, adjust settings, and view analytics—no coding required. Our team handles all technical setup and maintenance."
   },
   {
@@ -95,7 +95,7 @@ export default function FAQSection() {
             </span>
           </h3>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4 sm:px-6">
-            Everything you need to know about Clario AI and how we can<br className="hidden md:block" />
+            Everything you need to know about Vextria AI and how we can<br className="hidden md:block" />
             transform your business with intelligent automation.
           </p>
         </div>

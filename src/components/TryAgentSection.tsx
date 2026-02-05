@@ -130,7 +130,7 @@ const TryAgentSection = () => {
                   Try Your Agent for Free
                 </h2>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                  Experience Clario AI in action — choose an agent and start a live demo call
+                  Experience Vextria AI in action — choose an agent and start a live demo call
                 </p>
               </div>
 
@@ -213,7 +213,7 @@ const TryAgentSection = () => {
                           <Phone className="w-8 h-8 text-white" />
                         </div>
                         <h3 className="text-xl font-bold text-white mb-2">
-                          Clario AI Talking
+                          Vextria AI Talking
                         </h3>
                         <p className="text-sm text-gray-400">
                           Connected with {currentAgent?.name}

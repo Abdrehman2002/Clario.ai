@@ -90,7 +90,7 @@ const AIChatbots = () => {
       role: "CEO", 
       company: "TechFlow Solutions", 
       rating: 5, 
-      quote: "We were losing $50K/month in missed sales. After implementing Clario's AI chatbot, we now generate $150K/month in additional revenue. The ROI was immediate.", 
+      quote: "We were losing $50K/month in missed sales. After implementing Vextria's AI chatbot, we now generate $150K/month in additional revenue. The ROI was immediate.", 
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
       results: "+300% ROI in 3 months"
     },
@@ -113,7 +113,7 @@ const AIChatbots = () => {
   ];
 
   const fomoElements = [
-    { icon: Users, text: "500+ companies already using Clario AI", color: "#8B5CF6" },
+    { icon: Users, text: "500+ companies already using Vextria AI", color: "#8B5CF6" },
     { icon: TrendingUp, text: "Average 35% increase in conversions", color: "#06B6D4" },
     { icon: Clock, text: "Get results in 30 days or less", color: "#10B981" },
     { icon: DollarSign, text: "ROI within first month", color: "#F59E0B" }
@@ -309,7 +309,7 @@ const AIChatbots = () => {
                     </div>
                     <div>
                       <h4 className="text-xl font-semibold mb-2">AI-Powered Chatbot</h4>
-                      <p className="text-muted-foreground">Implemented Clario's AI chatbot that handles 70% of inquiries automatically with human-like responses.</p>
+                      <p className="text-muted-foreground">Implemented Vextria's AI chatbot that handles 70% of inquiries automatically with human-like responses.</p>
                     </div>
                   </div>
                   
@@ -479,7 +479,7 @@ const AIChatbots = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-white mb-2">500+</div>
-                <div className="text-white/80">Companies already using Clario</div>
+                <div className="text-white/80">Companies already using Vextria</div>
               </div>
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-white mb-2">35%</div>

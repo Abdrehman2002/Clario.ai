@@ -18,8 +18,8 @@ const Index = () => {
         logo={{
           url: "/",
           src: "/logo.svg (2).svg",
-          alt: "Clario AI",
-          title: "Clario AI"
+          alt: "Vextria AI",
+          title: "Vextria AI"
         }}
         menu={[
           { title: "Home", url: "#hero" },

@@ -147,7 +147,7 @@ const AILeadGeneration = () => {
   ];
 
   const fomoElements = [
-    { icon: Users, text: "2,000+ companies using Clario AI", color: "#8B5CF6" },
+    { icon: Users, text: "2,000+ companies using Vextria AI", color: "#8B5CF6" },
     { icon: TrendingUp, text: "Average 300% increase in leads", color: "#06B6D4" },
     { icon: Clock, text: "Get results in 30 days or less", color: "#10B981" },
     { icon: DollarSign, text: "60% reduction in acquisition costs", color: "#F59E0B" }
@@ -377,7 +377,7 @@ const AILeadGeneration = () => {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-green-600">The Solution</h3>
-                      <p className="text-green-600/80">How Clario AI helped</p>
+                      <p className="text-green-600/80">How Vextria AI helped</p>
                     </div>
                   </div>
                   
@@ -677,7 +677,7 @@ const AILeadGeneration = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-white mb-2">2,000+</div>
-                <div className="text-white/80">Companies using Clario</div>
+                <div className="text-white/80">Companies using Vextria</div>
               </div>
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-white mb-2">300%</div>

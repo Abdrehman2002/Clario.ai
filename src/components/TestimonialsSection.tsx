@@ -37,7 +37,7 @@ const testimonials = [
   {
     name: "Sophie Mark",
     title: "VP of Customer Success at GrowthAI",
-    quote: "The AI voice agent runs our customer support 24/7. We've never lost a customer due to wait times since implementing Clario.",
+    quote: "The AI voice agent runs our customer support 24/7. We've never lost a customer due to wait times since implementing Vextria.",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b1e5?w=150&h=150&fit=crop&crop=face",
     rating: 5,
     impact: "24/7 support",

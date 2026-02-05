@@ -183,7 +183,7 @@ export function TryAgentNew() {
                 Try Your Agent for Free
               </h3>
               <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed">
-                Experience Clario AI in action — choose an agent and start a live demo call
+                Experience Vextria AI in action — choose an agent and start a live demo call
               </p>
             </div>
 

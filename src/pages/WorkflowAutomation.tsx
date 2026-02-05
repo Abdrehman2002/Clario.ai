@@ -123,7 +123,7 @@ const WorkflowAutomation = () => {
       role: "Operations Manager", 
       company: "DataFlow Inc.", 
       rating: 5, 
-      quote: "We were losing $200K/month due to manual processes. After implementing Clario's workflow automation, we saved 80% of our time and eliminated costly errors. The ROI was immediate.", 
+      quote: "We were losing $200K/month due to manual processes. After implementing Vextria's workflow automation, we saved 80% of our time and eliminated costly errors. The ROI was immediate.", 
       avatar: "AR",
       results: "80% time savings, $200K/month saved"
     },
@@ -146,7 +146,7 @@ const WorkflowAutomation = () => {
   ];
 
   const fomoElements = [
-    { icon: Users, text: "1000+ companies automated with Clario", color: "#8B5CF6" },
+    { icon: Users, text: "1000+ companies automated with Vextria", color: "#8B5CF6" },
     { icon: TrendingUp, text: "Average 80% time savings", color: "#06B6D4" },
     { icon: Clock, text: "See results in 30 days", color: "#10B981" },
     { icon: DollarSign, text: "ROI within first quarter", color: "#F59E0B" }
@@ -424,7 +424,7 @@ const WorkflowAutomation = () => {
                     </div>
                     <div>
                       <h4 className="text-xl font-semibold mb-2">AI-Powered Automation</h4>
-                      <p className="text-[#666666]">Implemented Clario's workflow automation that handles complex processes in milliseconds with 99.9% accuracy.</p>
+                      <p className="text-[#666666]">Implemented Vextria's workflow automation that handles complex processes in milliseconds with 99.9% accuracy.</p>
                     </div>
                   </div>
                   
@@ -640,7 +640,7 @@ const WorkflowAutomation = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-white mb-2">1000+</div>
-                <div className="text-white/80">Companies automated with Clario</div>
+                <div className="text-white/80">Companies automated with Vextria</div>
               </div>
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-white mb-2">80%</div>

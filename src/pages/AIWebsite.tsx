@@ -147,7 +147,7 @@ const AIWebsite = () => {
   ];
 
   const fomoElements = [
-    { icon: Users, text: "1,000+ websites built with Clario AI", color: "#8B5CF6" },
+    { icon: Users, text: "1,000+ websites built with Vextria AI", color: "#8B5CF6" },
     { icon: TrendingUp, text: "Average 40% increase in conversions", color: "#06B6D4" },
     { icon: Clock, text: "Get your website live in 15 minutes", color: "#10B981" },
     { icon: DollarSign, text: "90% savings vs traditional development", color: "#F59E0B" }
@@ -377,7 +377,7 @@ const AIWebsite = () => {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-green-600">The Solution</h3>
-                      <p className="text-green-600/80">How Clario AI helped</p>
+                      <p className="text-green-600/80">How Vextria AI helped</p>
                     </div>
                   </div>
                   
@@ -687,7 +687,7 @@ const AIWebsite = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-white mb-2">1,000+</div>
-                <div className="text-white/80">Websites built with Clario</div>
+                <div className="text-white/80">Websites built with Vextria</div>
               </div>
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-white mb-2">40%</div>

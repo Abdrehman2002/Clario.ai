@@ -85,13 +85,13 @@ export function ModernNavbar({
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href={logo.url} className="flex items-center -space-x-2 group">
+          <a href={logo.url} className="flex items-center -space-x-2 group min-h-0">
             <img
               src={logo.src}
               alt={logo.alt}
-              className="w-16 h-16 transition-transform group-hover:scale-110 mt-2"
+              className="w-12 h-12 md:w-16 md:h-16 transition-transform group-hover:scale-110 mt-2"
             />
-            <span className="text-2xl font-bold text-white tracking-tight">
+            <span className="text-xl md:text-2xl font-bold text-white tracking-tight">
               {logo.title}
             </span>
           </a>
@@ -148,7 +148,7 @@ export function ModernNavbar({
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="lg:hidden text-white p-3 hover:bg-white/10 active:bg-white/20 rounded-lg transition-colors touch-manipulation"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -170,7 +170,7 @@ export function ModernNavbar({
             transition={{ duration: 0.2 }}
             className="lg:hidden border-t border-white/10 bg-black/95 backdrop-blur-xl"
           >
-            <div className="container mx-auto px-4 py-6 space-y-1">
+            <div className="container mx-auto px-4 py-6 space-y-2 max-h-[calc(100vh-80px)] overflow-y-auto">
               {menu.map((item) => (
                 <a
                   key={item.title}
@@ -179,10 +179,10 @@ export function ModernNavbar({
                     e.preventDefault()
                     handleNavClick(item.url, item.title)
                   }}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                  className={`block px-4 py-4 rounded-lg text-base font-medium transition-colors touch-manipulation ${
                     activeSection === item.title
                       ? "bg-[#7B61FF]/20 text-[#7B61FF]"
-                      : "text-gray-300 hover:bg-white/5 hover:text-white"
+                      : "text-gray-300 active:bg-white/10 hover:text-white"
                   }`}
                 >
                   {item.title}

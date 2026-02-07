@@ -769,6 +769,86 @@ section[id] {
     }
   }
 
+  /* ========================================
+     MOBILE-SPECIFIC OPTIMIZATIONS
+     Touch targets, safe areas, performance
+     ======================================== */
+
+  /* iOS Safari 100dvh support for dynamic viewport */
+  @supports (height: 100dvh) {
+    .safe-top {
+      padding-top: env(safe-area-inset-top);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+
+  /* Touch target minimum 48x48px (Material Design) */
+  @media (max-width: 768px) {
+    button:not(.no-touch-target),
+    a:not(.no-touch-target) {
+      min-height: 48px;
+      min-width: 48px;
+    }
+  }
+
+  /* Improve tap responsiveness */
+  a, button {
+    -webkit-tap-highlight-color: rgba(123, 97, 255, 0.15);
+    touch-action: manipulation;
+  }
+
+  /* Prevent text resize on orientation change */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Smooth scrolling for mobile */
+  @media (max-width: 768px) {
+    html {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Mobile-optimized spacing */
+    body {
+      font-size: 16px;
+    }
+
+    /* Prevent zoom on input focus (iOS) */
+    input, select, textarea {
+      font-size: 16px;
+    }
+  }
+
+  /* Optimize font rendering on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Mobile-specific touch feedback */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  /* Improve mobile button press feedback */
+  button:active, .touch-manipulation:active {
+    opacity: 0.9;
+  }
+
+  /* Mobile viewport height fix */
+  @media (max-width: 768px) {
+    .mobile-vh-100 {
+      height: 100vh;
+      height: 100dvh;
+    }
+  }
+
   /* Optimize images and media */
   img, video, canvas {
     will-change: auto;

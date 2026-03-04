@@ -18,32 +18,32 @@ interface RetellAgent {
 // Available Retell AI Agents
 export const RETELL_AGENTS: RetellAgent[] = [
   {
-    id: 'agent_68d22a69f45a3ee37168684831',
+    id: 'agent_7fd7ccb79e102797dc752d1129',
     name: 'AutoCare',
     description: 'Automotive service scheduling'
   },
   {
-    id: 'agent_71d88e63296903b65f6dc0d372',
+    id: 'agent_f505f23fdcda8e1ce0c1da509a',
     name: 'Real Estate',
     description: 'Property inquiries & showings'
   },
   {
-    id: 'agent_8ce17d51123f73b631cb29c6e0',
+    id: 'agent_18e1bd3c4522eddbcbd2f534e4',
     name: 'Medical',
     description: 'Healthcare appointments'
   },
   {
-    id: 'agent_2c8c98f3046de28c6c9d7fa086',
+    id: 'agent_94e78bae3e80e19ea1de58cfde',
     name: 'Law Firm',
     description: 'Legal consultations'
   },
   {
-    id: 'agent_26634c1417075ff72793ffe658',
+    id: 'agent_504221fd9984ba67a933edb15a',
     name: 'Spa & Salon',
     description: 'Beauty & wellness booking'
   },
   {
-    id: 'agent_6ecbb6ef0fa72411251e18a0a1',
+    id: 'agent_de71e1886ab931ecd2641751ba',
     name: 'Fitness & Gym',
     description: 'Membership & classes'
   }

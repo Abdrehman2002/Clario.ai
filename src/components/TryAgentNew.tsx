@@ -6,32 +6,32 @@ import { RetellWebClient } from "retell-client-js-sdk";
 
 const AGENTS = [
   {
-    id: 'agent_68d22a69f45a3ee37168684831',
+    id: 'agent_7fd7ccb79e102797dc752d1129',
     label: "AutoCare Receptionist",
     description: "Automotive service scheduling",
   },
   {
-    id: 'agent_71d88e63296903b65f6dc0d372',
+    id: 'agent_f505f23fdcda8e1ce0c1da509a',
     label: "Real Estate Receptionist",
     description: "Property inquiries & showings",
   },
   {
-    id: 'agent_8ce17d51123f73b631cb29c6e0',
+    id: 'agent_18e1bd3c4522eddbcbd2f534e4',
     label: "Medical Receptionist",
     description: "Healthcare appointments",
   },
   {
-    id: 'agent_law_placeholder',
+    id: 'agent_94e78bae3e80e19ea1de58cfde',
     label: "Law Firm Receptionist",
     description: "Legal consultations",
   },
   {
-    id: 'agent_26634c1417075ff72793ffe658',
+    id: 'agent_504221fd9984ba67a933edb15a',
     label: "Spa/Salon Receptionist",
     description: "Beauty & wellness booking",
   },
   {
-    id: 'agent_fitness_placeholder',
+    id: 'agent_de71e1886ab931ecd2641751ba',
     label: "Fitness/Gym Receptionist",
     description: "Membership & classes",
   },
@@ -77,7 +77,7 @@ export function TryAgentNew() {
       setIsLoading(true);
       setCallStatus("calling");
 
-      const apiKey = import.meta.env.VITE_RETELL_API_KEY;
+      const apiKey = 'key_52cf8f696d64009de42d4196e27c';
 
       if (!apiKey) {
         throw new Error('Retell API key is not configured');

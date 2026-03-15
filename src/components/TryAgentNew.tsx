@@ -597,8 +597,8 @@ export function TryAgentNew() {
                 loop
                 muted
                 playsInline
-                preload="metadata"
-                onLoadedData={handleMobileVideoLoaded}
+                preload="auto"
+                onCanPlay={handleMobileVideoLoaded}
                 className="w-full h-full object-cover"
                 style={{ objectFit: 'cover' }}
               >

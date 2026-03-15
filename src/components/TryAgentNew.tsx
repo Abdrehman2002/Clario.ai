@@ -360,10 +360,10 @@ export function TryAgentNew() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex-1 w-full bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative overflow-visible flex flex-col"
-            style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)', zIndex: 60 }}
+            style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)', zIndex: 60, userSelect: 'none' }}
           >
             {/* Title and Description */}
-            <div className="text-center md:text-left mb-6">
+            <div className="text-center md:text-left mb-6" style={{ userSelect: 'none' }}>
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
                 Try Your Agent for Free
               </h3>
@@ -372,7 +372,7 @@ export function TryAgentNew() {
               </p>
 
               {/* Feature Highlights */}
-              <div className="space-y-3 mb-4">
+              <div className="space-y-3 mb-4" style={{ userSelect: 'none' }}>
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center mt-0.5">
                     <Check className="w-4 h-4 text-purple-400" />

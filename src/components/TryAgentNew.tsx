@@ -334,8 +334,8 @@ export function TryAgentNew() {
                 loop
                 muted
                 playsInline
-                preload="auto"
-                onCanPlay={handleVideoLoaded}
+                preload="metadata"
+                onLoadedData={handleVideoLoaded}
                 className="w-full h-full object-cover"
                 style={{ objectFit: 'cover' }}
               >

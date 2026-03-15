@@ -1,6 +1,5 @@
 import HeroSection from '@/components/HeroSection';
 import LogoCarouselSection from '@/components/LogoCarouselSection';
-import FeaturesDetail from '@/components/ui/features-detail';
 import { FrameworksSection } from '@/components/FrameworksSection';
 import { TryAgentNew } from '@/components/TryAgentNew';
 import ProcessSection from '@/components/ProcessSection';
@@ -31,7 +30,7 @@ const Index = () => {
         ]}
         auth={{
           login: { text: "Dashboard", url: "https://clariodashboard.vercel.app/" },
-          signup: { text: "Let's Talk", url: "https://calendly.com/abdurrehman1711/30min" },
+          signup: { text: "Let's Talk", url: "https://calendly.com/vextriaai/30min" },
         }}
       />
 
@@ -44,11 +43,6 @@ const Index = () => {
         {/* Logo Carousel */}
         <section id="partners">
           <LogoCarouselSection />
-        </section>
-
-        {/* Features Detail with Dashboard */}
-        <section id="features">
-          <FeaturesDetail />
         </section>
 
         <section id="try-agent">

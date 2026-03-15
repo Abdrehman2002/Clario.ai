@@ -165,7 +165,7 @@ export default function FAQSection() {
             Still have questions? We're here to help.
           </p>
           <motion.a
-            href="https://calendly.com/abdurrehman1711/30min"
+            href="https://calendly.com/vextriaai/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300"

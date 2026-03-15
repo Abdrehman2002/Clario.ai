@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Phone, Check, PhoneOff, Loader2 } from "lucide-react";
+import { ChevronDown, Phone, Check, PhoneOff, Loader2, Volume2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { RetellWebClient } from "retell-client-js-sdk";
 
@@ -43,7 +43,10 @@ export function TryAgentNew() {
   const [isLoading, setIsLoading] = useState(false);
   const [callStatus, setCallStatus] = useState<"idle" | "calling" | "connected" | "ended">("idle");
   const [retellClient, setRetellClient] = useState<RetellWebClient | null>(null);
+  const [isMuted, setIsMuted] = useState(true);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -69,6 +72,84 @@ export function TryAgentNew() {
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
+
+  // Handle video click to unmute
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+      setIsMuted(false);
+    }
+    if (mobileVideoRef.current) {
+      mobileVideoRef.current.muted = false;
+      setIsMuted(false);
+    }
+  };
+
+  // Play/pause video based on viewport visibility for desktop video
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && callStatus === 'idle') {
+            video.play().catch((error) => {
+              console.log("Autoplay failed:", error);
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [callStatus]);
+
+  // Play/pause video based on viewport visibility for mobile video
+  useEffect(() => {
+    const video = mobileVideoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && callStatus === 'idle') {
+            video.play().catch((error) => {
+              console.log("Autoplay failed:", error);
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [callStatus]);
+
+  // Pause video when call connects
+  useEffect(() => {
+    if (callStatus === 'connected' || callStatus === 'calling') {
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
+      if (mobileVideoRef.current) {
+        mobileVideoRef.current.pause();
+      }
+    }
+  }, [callStatus]);
 
   const startCall = async () => {
     if (!selected) return;
@@ -167,28 +248,146 @@ export function TryAgentNew() {
     <section className="py-16 md:py-20 pb-80 md:pb-96 bg-gradient-to-b from-black via-[#0A0510] to-black relative overflow-visible" style={{ zIndex: 60 }}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,97,255,0.08),transparent_50%)]"></div>
 
-      <div className="max-w-5xl mx-auto px-4 md:px-6 relative overflow-visible" style={{ zIndex: 60 }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative overflow-visible"
-          style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)', zIndex: 60 }}
-        >
-          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
-            {/* Left Side - Text */}
-            <div className="flex-1 text-center md:text-left">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative overflow-visible" style={{ zIndex: 60 }}>
+
+        {/* Section Header */}
+        <div className="text-center mb-16 md:mb-20 px-4 relative">
+          {/* Background glow effect */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(123,97,255,0.15),transparent_70%)] blur-3xl"></div>
+
+          <div className="relative">
+            <div className="mb-8">
+              <span className="inline-flex items-center gap-2.5 text-sm font-bold tracking-[0.2em] uppercase px-6 py-3 rounded-full"
+                    style={{
+                      background: 'rgba(123, 97, 255, 0.15)',
+                      border: '1px solid rgba(123, 97, 255, 0.3)',
+                      color: '#A78BFA',
+                      boxShadow: '0 0 20px rgba(123, 97, 255, 0.2)'
+                    }}>
+                ✨ AI INFRASTRUCTURE ✨
+              </span>
+            </div>
+
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-6 leading-[1.1]"
+                style={{
+                  textShadow: '0 0 80px rgba(123, 97, 255, 0.3)'
+                }}>
+              <div className="text-white mb-2">Talk with your agent.</div>
+              <div className="bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent"
+                   style={{
+                     WebkitBackgroundClip: 'text',
+                     WebkitTextFillColor: 'transparent',
+                     filter: 'drop-shadow(0 0 40px rgba(139, 92, 246, 0.4))'
+                   }}>
+                Designed to perform.
+              </div>
+            </h2>
+
+            <p className="text-gray-400 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
+              Each framework is a building block of your AI infrastructure—crafted to automate, connect, and scale your operations with precision.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 lg:gap-12">
+
+          {/* Left Side - Vertical Video (Desktop only) */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="hidden md:block flex-shrink-0"
+          >
+            <div
+              className="relative w-[280px] lg:w-[340px] h-[580px] lg:h-[680px] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+              onClick={handleVideoClick}
+              style={{
+                border: '3px solid #7B61FF',
+                boxShadow: '0 0 40px rgba(123, 97, 255, 0.4), 0 0 80px rgba(123, 97, 255, 0.2)'
+              }}
+            >
+              <video
+                ref={videoRef}
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
+                style={{ objectFit: 'cover' }}
+              >
+                <source src="/0315.mp4" type="video/mp4" />
+              </video>
+
+              {/* Unmute Prompt Overlay */}
+              {isMuted && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50 pointer-events-none">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="flex flex-col items-center gap-3 px-6 py-6 rounded-2xl bg-purple-600 transition-all shadow-2xl pointer-events-auto"
+                    style={{ zIndex: 100 }}
+                  >
+                    <Volume2 className="w-12 h-12 text-white" />
+                    <span className="text-white font-semibold text-sm">Tap to enable sound</span>
+                  </motion.div>
+                </div>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Right Side - Try Your Agent Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex-1 w-full bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative overflow-visible"
+            style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)', zIndex: 60 }}
+          >
+            {/* Title and Description */}
+            <div className="text-center md:text-left mb-6">
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
                 Try Your Agent for Free
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed mb-4">
                 Experience Vextria AI in action — choose an agent and start a live demo call
               </p>
+
+              {/* Feature Highlights */}
+              <div className="space-y-3 mb-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 text-purple-400" />
+                  </div>
+                  <div className="flex-1 text-left">
+                    <p className="text-sm text-gray-300 font-medium">Natural Conversations</p>
+                    <p className="text-xs text-gray-500">Human-like voice interactions</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 text-purple-400" />
+                  </div>
+                  <div className="flex-1 text-left">
+                    <p className="text-sm text-gray-300 font-medium">Instant Response</p>
+                    <p className="text-xs text-gray-500">Answer calls in under 1 second</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 text-purple-400" />
+                  </div>
+                  <div className="flex-1 text-left">
+                    <p className="text-sm text-gray-300 font-medium">Smart Scheduling</p>
+                    <p className="text-xs text-gray-500">Books appointments automatically</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Right Side - Call Interface */}
-            <div className="flex-1 w-full max-w-md space-y-4 md:space-y-6 relative" style={{ zIndex: 70 }}>
+            {/* Call Interface Container */}
+            <div className="space-y-4 md:space-y-6 relative" style={{ zIndex: 70 }}>
               {/* Dropdown */}
               <div className="relative" style={{ zIndex: 70 }} ref={dropdownRef}>
                 <motion.button
@@ -311,12 +510,204 @@ export function TryAgentNew() {
                 </motion.button>
               )}
 
-              <p className="text-center text-xs md:text-sm text-gray-500">
+              <p className="text-center md:text-left text-xs md:text-sm text-gray-500 mb-4">
+                No payment required • Live demo call • Instant connection
+              </p>
+
+              {/* Additional Info */}
+              <div className="border-t border-white/10 pt-4">
+                <h4 className="text-sm font-semibold text-white mb-3">What to Expect:</h4>
+                <ul className="space-y-2 text-xs text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-400 mt-0.5">•</span>
+                    <span>The AI will greet you and ask how it can help</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-400 mt-0.5">•</span>
+                    <span>Try asking about services, pricing, or booking</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-400 mt-0.5">•</span>
+                    <span>Experience natural conversation flow</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-400 mt-0.5">•</span>
+                    <span>Test appointment scheduling capabilities</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* Mobile Version - Video + Card Combined */}
+        <div className="md:hidden mt-8">
+          {/* Mobile Video */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-6"
+          >
+            <div
+              className="relative w-full max-w-[320px] mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+              onClick={handleVideoClick}
+              style={{
+                border: '3px solid #7B61FF',
+                boxShadow: '0 0 40px rgba(123, 97, 255, 0.4), 0 0 80px rgba(123, 97, 255, 0.2)'
+              }}
+            >
+              <video
+                ref={mobileVideoRef}
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
+                style={{ objectFit: 'cover' }}
+              >
+                <source src="/0315.mp4" type="video/mp4" />
+              </video>
+
+              {/* Unmute Prompt Overlay */}
+              {isMuted && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50 pointer-events-none">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="flex flex-col items-center gap-3 px-6 py-6 rounded-2xl bg-purple-600 transition-all shadow-2xl pointer-events-auto"
+                    style={{ zIndex: 100 }}
+                  >
+                    <Volume2 className="w-10 h-10 text-white" />
+                    <span className="text-white font-semibold text-sm">Tap to enable sound</span>
+                  </motion.div>
+                </div>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Mobile Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-6 relative"
+            style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)' }}
+          >
+            {/* Title */}
+            <div className="text-center mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                Try Your Agent for Free
+              </h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Experience Vextria AI in action — choose an agent and start a live demo call
+              </p>
+            </div>
+
+            {/* Call Interface */}
+            <div className="space-y-4">
+              {/* Dropdown */}
+              <div className="relative" ref={dropdownRef}>
+                <motion.button
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  onClick={handleToggle}
+                  disabled={callStatus !== "idle"}
+                  className={cn(
+                    "w-full flex items-center justify-between px-4 py-3.5 rounded-xl border-2 transition-all duration-200",
+                    "bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-purple-500/50 backdrop-blur-sm",
+                    callStatus !== "idle" && "opacity-50 cursor-not-allowed"
+                  )}
+                >
+                  <span className="font-medium text-sm">
+                    {selected ? selected.label : "Select an agent"}
+                  </span>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown className="w-4 h-4 text-gray-400" />
+                  </motion.div>
+                </motion.button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 right-0 mt-2 bg-[#0A0510] border border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-xl z-[9999]"
+                      style={{ background: 'rgba(10, 5, 16, 0.95)' }}
+                    >
+                      <div className="max-h-[280px] overflow-y-auto">
+                        {AGENTS.map((agent) => (
+                          <motion.button
+                            key={agent.id}
+                            whileHover={{ backgroundColor: 'rgba(123, 97, 255, 0.1)' }}
+                            onClick={() => handleSelect(agent)}
+                            className="w-full text-left px-4 py-3 border-b border-white/5 last:border-0 transition-colors"
+                          >
+                            <div className="font-medium text-white text-sm mb-1">{agent.label}</div>
+                            <div className="text-xs text-gray-400">{agent.description}</div>
+                          </motion.button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Call Button */}
+              {(selected || callStatus !== 'idle') && (
+                <motion.button
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={callStatus === 'connected' ? endCall : startCall}
+                  disabled={isLoading || callStatus === 'ended'}
+                  className="w-full px-6 py-3.5 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{
+                    background: callStatus === 'connected'
+                      ? 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)'
+                      : 'linear-gradient(to right, #7B61FF, #6B4CFF)',
+                    boxShadow: callStatus === 'connected'
+                      ? '0 0 30px rgba(239, 68, 68, 0.5)'
+                      : '0 0 30px rgba(123, 97, 255, 0.5)'
+                  }}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Connecting...
+                    </>
+                  ) : callStatus === 'connected' ? (
+                    <>
+                      <PhoneOff className="w-4 h-4" />
+                      End Call
+                    </>
+                  ) : callStatus === 'ended' ? (
+                    <>Call Ended</>
+                  ) : (
+                    <>
+                      <Phone className="w-4 h-4" />
+                      Start Demo Call
+                    </>
+                  )}
+                </motion.button>
+              )}
+
+              <p className="text-center text-xs text-gray-500">
                 No payment required • Live demo call • Instant connection
               </p>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
+
       </div>
     </section>
   );

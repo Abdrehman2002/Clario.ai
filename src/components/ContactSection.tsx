@@ -112,7 +112,7 @@ const ContactSection = () => {
         <div className="max-w-2xl mx-auto space-y-3 sm:space-y-4 md:space-y-6 px-2 sm:px-4">
           {/* Email */}
           <motion.a
-            href="mailto:George@clario.ai"
+            href="mailto:william@vextriaai.com"
             className="contact-item group flex items-center justify-between p-4 md:p-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.05] hover:border-[#7B61FF]/30 transition-all duration-300"
             whileHover={{ x: 10 }}
             transition={{ duration: 0.3 }}
@@ -123,7 +123,7 @@ const ContactSection = () => {
               </div>
               <div className="min-w-0">
                 <h3 className="text-base md:text-lg font-semibold text-white mb-0.5 md:mb-1">Email Us</h3>
-                <p className="text-xs md:text-sm text-gray-400 truncate">George@clario.ai</p>
+                <p className="text-xs md:text-sm text-gray-400 truncate">william@vextriaai.com</p>
               </div>
             </div>
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-gray-600 group-hover:text-[#7B61FF] group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
@@ -131,7 +131,7 @@ const ContactSection = () => {
 
           {/* Schedule Meeting - Primary CTA */}
           <motion.a
-            href="https://calendly.com/abdurrehman1711/30min"
+            href="https://calendly.com/vextriaai/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-item group flex items-center justify-between p-4 md:p-6 rounded-2xl transition-all duration-300"
@@ -151,7 +151,7 @@ const ContactSection = () => {
               </div>
               <div className="min-w-0">
                 <h3 className="text-base md:text-lg font-bold text-white mb-0.5 md:mb-1">Schedule a Meeting</h3>
-                <p className="text-xs md:text-sm text-white/80">Book a 30-minute call</p>
+                <p className="text-xs md:text-sm text-white/80">Book a call with us</p>
               </div>
             </div>
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-white group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />

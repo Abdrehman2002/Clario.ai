@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Play, CheckCircle, Star } from 'lucide-react';
+import { Play, CheckCircle, Mic, Loader2, PhoneOff } from 'lucide-react';
+import { RetellWebClient } from 'retell-client-js-sdk';
 
 // Dynamic import to handle Spline loading (Desktop only)
 const SplineComponent = ({ scene, style }: { scene: string; style: any }) => {
@@ -48,6 +49,8 @@ const SplineComponent = ({ scene, style }: { scene: string; style: any }) => {
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [callStatus, setCallStatus] = useState<'idle' | 'connecting' | 'connected' | 'ended'>('idle');
+  const [retellClient, setRetellClient] = useState<RetellWebClient | null>(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -59,12 +62,90 @@ const HeroSection = () => {
     return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
 
+  // Voice call functionality
+  const AGENT_ID = 'agent_9cef40d41106ca13e58d6a38f6';
+  const API_KEY = 'key_52cf8f696d64009de42d4196e27c';
+
+  const startCall = async () => {
+    try {
+      setCallStatus('connecting');
+
+      const response = await fetch('https://api.retellai.com/v2/create-web-call', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          agent_id: AGENT_ID,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error('Retell API error:', data);
+        throw new Error(data.message || 'Failed to create web call');
+      }
+
+      const client = new RetellWebClient();
+
+      client.on('call_started', () => {
+        console.log('Call started');
+        setCallStatus('connected');
+      });
+
+      client.on('call_ended', () => {
+        console.log('Call ended');
+        setCallStatus('ended');
+        setTimeout(() => {
+          setCallStatus('idle');
+          setRetellClient(null);
+        }, 2000);
+      });
+
+      client.on('error', (error) => {
+        console.error('Call error:', error);
+        setCallStatus('idle');
+        alert('Call failed. Please check microphone permissions and try again.');
+      });
+
+      await client.startCall({
+        accessToken: data.access_token,
+      });
+
+      setRetellClient(client);
+    } catch (err: any) {
+      console.error('Error starting call:', err);
+      alert('Error starting call: ' + (err.message || err));
+      setCallStatus('idle');
+    }
+  };
+
+  const endCall = () => {
+    if (!retellClient) return;
+
+    try {
+      retellClient.stopCall();
+      setCallStatus('ended');
+
+      setTimeout(() => {
+        setCallStatus('idle');
+        setRetellClient(null);
+      }, 2000);
+    } catch (err: any) {
+      console.error('Error ending call:', err);
+      setCallStatus('idle');
+      setRetellClient(null);
+    }
+  };
+
   // Desktop version with redesigned structure
   if (!isMobile) {
     return (
-      <section className="relative h-screen max-h-[900px] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[100dvh] max-h-[100dvh] h-[100dvh] flex items-center justify-center overflow-hidden" style={{ boxSizing: 'border-box', maxWidth: '100vw', width: '100%' }}>
         {/* Spline 3D Background - Desktop Only */}
-        <div className="absolute inset-0 w-full h-full z-[15] spline-container pointer-events-auto will-change-transform">
+        <div className="absolute inset-0 w-full h-full z-[15] spline-container pointer-events-auto" style={{ maxWidth: '100vw', width: '100%', overflow: 'hidden' }}>
           <SplineComponent
             scene="https://prod.spline.design/0tU4673t03E7iQ85/scene.splinecode"
             style={{
@@ -83,50 +164,59 @@ const HeroSection = () => {
              style={{ background: 'radial-gradient(circle at 50% 50%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)' }}>
         </div>
 
-        {/* Content Container - Max 1200px constrained */}
-        <div ref={heroRef} className="relative z-20 w-full max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 py-20 hero-content text-center" style={{ pointerEvents: 'none' }}>
+        {/* Content Container - Max 1100px constrained */}
+        <div ref={heroRef} className="relative z-20 w-full max-w-[1100px] mx-auto px-6 md:px-8 lg:px-12 py-8 hero-content text-center" style={{ pointerEvents: 'none', boxSizing: 'border-box' }}>
 
-          {/* Tag Line */}
-          <div className="mb-6 pointer-events-auto inline-block" style={{ animationDelay: '0.2s', opacity: 0, animation: 'fadeInUp 0.8s ease-out 0.2s forwards' }}>
+          {/* Live Demo Badge */}
+          <div className="mb-3 pointer-events-auto inline-block" style={{ animationDelay: '0.2s', opacity: 0, animation: 'fadeInUp 0.8s ease-out 0.2s forwards' }}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-white/90 px-4 py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-xl"
                   style={{ background: 'rgba(123, 97, 255, 0.1)' }}>
-              <span className="w-2 h-2 rounded-full bg-[#7B61FF] animate-pulse"></span>
-              AI-Powered Business Automation
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              Live AI Voice Demo Available
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-bold mb-5 leading-[1.15] max-w-4xl mx-auto"
+          <h1 className="font-bold mb-3 leading-[1.15] max-w-[900px] mx-auto px-4"
               style={{
                 color: '#FFFFFF',
                 opacity: 0,
                 animation: 'fadeInUp 0.8s ease-out 0.3s forwards',
-                fontSize: 'clamp(2rem, 4vw + 1rem, 4rem)'
+                fontSize: 'clamp(2.2rem, 4.5vw, 4.2rem)',
+                fontWeight: 700,
+                textAlign: 'center'
               }}>
-            Transform your business
-            <span className="block bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent mt-2">
-              with AI Intelligence.
+            AI{' '}
+            <span className="bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent"
+                  style={{
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                  }}>
+              Voice Agents
+            </span>
+            {' '}That
+            <span className="block mt-1">
+              Answer Every Call
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
+          <p className="text-gray-300 mb-4 max-w-[700px] mx-auto leading-relaxed px-4"
              style={{
                opacity: 0,
                animation: 'fadeInUp 0.8s ease-out 0.4s forwards',
-               fontSize: 'clamp(1rem, 1.5vw + 0.5rem, 1.25rem)'
+               fontSize: 'clamp(1rem, 1.4vw, 1.3rem)'
              }}>
-            Deploy intelligent voice agents and chatbots that handle appointments,
-            qualify leads, and close deals while you focus on growth.
+            Capture leads, schedule appointments, and assist customers automatically — 24/7.
           </p>
 
           {/* Feature Pills */}
-          <div className="flex flex-wrap gap-2.5 mb-8 pointer-events-auto justify-center"
+          <div className="flex flex-wrap gap-2 mb-6 pointer-events-auto justify-center"
                style={{
                  opacity: 0,
                  animation: 'fadeInUp 0.8s ease-out 0.5s forwards'
                }}>
-            {['24/7 Availability', 'Instant Responses', 'Zero Missed Calls'].map((feature, i) => (
+            {['Answers Every Call Instantly', 'Books Appointments Automatically', 'Captures & Qualifies Leads', '24/7 Customer Assistance'].map((feature, i) => (
               <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
                 <CheckCircle className="w-4 h-4 text-[#7B61FF] flex-shrink-0" />
                 <span className="text-sm text-white/90 font-medium whitespace-nowrap">{feature}</span>
@@ -135,60 +225,76 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 pointer-events-auto justify-center mb-10"
+          <div className="flex flex-col sm:flex-row gap-3 pointer-events-auto justify-center mb-5"
                style={{
                  opacity: 0,
                  animation: 'fadeInUp 0.8s ease-out 0.6s forwards'
                }}>
-            <a href="https://calendly.com/abdurrehman1711/30min" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base text-white transition-all duration-300 hover:scale-105 whitespace-nowrap"
-                    style={{
-                      background: 'linear-gradient(135deg, #7B61FF 0%, #6B4CFF 100%)',
-                      boxShadow: '0 0 30px rgba(123, 97, 255, 0.5)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 40px rgba(123, 97, 255, 0.7)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 30px rgba(123, 97, 255, 0.5)';
-                    }}>
-              Get Started Free
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            <button
+              onClick={callStatus === 'connected' ? endCall : startCall}
+              disabled={callStatus === 'connecting' || callStatus === 'ended'}
+              className="group flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base text-white transition-all duration-300 hover:scale-105 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{
+                background: callStatus === 'connected'
+                  ? 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)'
+                  : 'linear-gradient(135deg, #7B61FF 0%, #6B4CFF 100%)',
+                boxShadow: callStatus === 'connected'
+                  ? '0 0 30px rgba(239, 68, 68, 0.5)'
+                  : '0 0 30px rgba(123, 97, 255, 0.5)',
+              }}
+              onMouseEnter={(e) => {
+                if (callStatus === 'connected') {
+                  e.currentTarget.style.boxShadow = '0 0 40px rgba(239, 68, 68, 0.7)';
+                } else {
+                  e.currentTarget.style.boxShadow = '0 0 40px rgba(123, 97, 255, 0.7)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (callStatus === 'connected') {
+                  e.currentTarget.style.boxShadow = '0 0 30px rgba(239, 68, 68, 0.5)';
+                } else {
+                  e.currentTarget.style.boxShadow = '0 0 30px rgba(123, 97, 255, 0.5)';
+                }
+              }}>
+              {callStatus === 'connecting' ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Connecting...
+                </>
+              ) : callStatus === 'connected' ? (
+                <>
+                  <PhoneOff className="w-5 h-5" />
+                  End Call
+                </>
+              ) : callStatus === 'ended' ? (
+                <>Call Ended</>
+              ) : (
+                <>
+                  <Mic className="w-5 h-5" />
+                  Call the AI Agent
+                </>
+              )}
+            </button>
 
-            <a href="/dashboard.png" target="_blank" className="group flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base text-white transition-all duration-300 hover:bg-white/10 whitespace-nowrap"
+            <a href="/0315.mp4" target="_blank" className="group flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base text-white transition-all duration-300 hover:bg-white/10 whitespace-nowrap"
                     style={{
                       background: 'rgba(255, 255, 255, 0.05)',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
                       backdropFilter: 'blur(10px)',
                     }}>
               <Play className="w-5 h-5" />
-              Watch Demo
+              Watch Demo Video
             </a>
           </div>
 
-          {/* Simple Stats - No Boxes */}
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 pointer-events-auto"
-               style={{
-                 opacity: 0,
-                 animation: 'fadeInUp 0.8s ease-out 0.7s forwards'
-               }}>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent mb-1.5">200+</div>
-              <div className="text-sm text-gray-400 whitespace-nowrap">Active Businesses</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent mb-1.5">40%</div>
-              <div className="text-sm text-gray-400 whitespace-nowrap">Revenue Increase</div>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center gap-1 mb-1.5 justify-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#7B61FF] text-[#7B61FF]" />
-                ))}
-              </div>
-              <div className="text-sm text-gray-400 whitespace-nowrap">4.9/5 Rating</div>
-            </div>
-          </div>
+          {/* Trust Line */}
+          <p className="text-gray-500 text-sm max-w-2xl mx-auto px-4"
+             style={{
+               opacity: 0,
+               animation: 'fadeInUp 0.8s ease-out 0.65s forwards'
+             }}>
+            Powering AI voice automation for modern businesses
+          </p>
 
         </div>
 
@@ -207,7 +313,7 @@ const HeroSection = () => {
 
   // Mobile version with modern purple gradient theme
   return (
-    <section className="relative min-h-[100dvh] bg-gradient-to-b from-black via-[#0A0510] to-black overflow-hidden safe-top safe-bottom">
+    <section className="relative min-h-screen bg-gradient-to-b from-black via-[#0A0510] to-black overflow-hidden" style={{ boxSizing: 'border-box' }}>
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(123,97,255,0.08),transparent_50%)]"></div>
 
@@ -220,57 +326,91 @@ const HeroSection = () => {
         backgroundSize: '40px 40px'
       }}></div>
 
-      <div className="max-w-[480px] mx-auto px-4 pt-24 pb-8 relative z-10">
-        <div className="text-center min-h-[calc(100dvh-128px)] flex flex-col justify-center py-8">
+      <div className="max-w-[480px] mx-auto px-5 py-8 relative z-10 min-h-screen flex items-center" style={{ boxSizing: 'border-box' }}>
+        <div className="text-center w-full" style={{ boxSizing: 'border-box' }}>
 
-          {/* Tag Line */}
+          {/* Live Demo Badge */}
           <div className="mb-4">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-wider uppercase text-white/90 px-3 py-1.5 rounded-full border border-[#7B61FF]/30 backdrop-blur-xl"
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-wider uppercase text-white/90 px-4 py-2 rounded-full border border-[#7B61FF]/30 backdrop-blur-xl"
                   style={{ background: 'rgba(123, 97, 255, 0.1)' }}>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7B61FF] animate-pulse"></span>
-              AI-Powered Business Automation
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              Live AI Voice Demo
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-bold text-white leading-[1.2] mb-4 px-2"
-              style={{ fontSize: 'clamp(1.75rem, 8vw, 2.5rem)' }}>
-            Transform your business
-            <span className="block bg-gradient-to-r from-[#7B61FF] via-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent mt-1">
-              with AI Intelligence.
+          <h1 className="font-bold text-white leading-[1.2] mb-4 px-2 max-w-full mx-auto"
+              style={{
+                fontSize: 'clamp(2rem, 8vw, 2.75rem)',
+                fontWeight: 700,
+                textAlign: 'center'
+              }}>
+            AI{' '}
+            <span className="bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent"
+                  style={{
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                  }}>
+              Voice Agents
+            </span>
+            {' '}That
+            <span className="block mt-1">
+              Answer Every Call
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-gray-300 mb-5 max-w-md mx-auto px-2 leading-relaxed"
-             style={{ fontSize: 'clamp(0.9375rem, 4vw, 1.0625rem)' }}>
-            Deploy intelligent voice agents and chatbots that handle appointments, qualify leads, and close deals while you focus on growth.
+             style={{ fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)' }}>
+            Capture leads, schedule appointments, and assist customers automatically — 24/7.
           </p>
 
           {/* Feature Pills */}
-          <div className="flex flex-wrap gap-2 mb-5 justify-center px-2">
-            {['24/7 Availability', 'Instant Responses', 'Zero Missed Calls'].map((feature, i) => (
-              <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
-                <CheckCircle className="w-3 h-3 text-[#7B61FF] flex-shrink-0" />
+          <div className="flex flex-wrap gap-2 mb-6 justify-center px-2">
+            {['Answers Every Call', 'Books Appointments', 'Captures Leads', '24/7 Assistance'].map((feature, i) => (
+              <div key={i} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                <CheckCircle className="w-3.5 h-3.5 text-[#7B61FF] flex-shrink-0" />
                 <span className="text-[11px] text-white/90 font-medium whitespace-nowrap">{feature}</span>
               </div>
             ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col gap-3 mb-6 px-2">
-            <a
-              href="https://calendly.com/abdurrehman1711/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-[#7B61FF] to-[#6B4CFF] active:scale-95 text-white px-6 py-4 rounded-xl font-bold text-base flex items-center justify-center transition-all duration-200 min-h-[52px] touch-manipulation"
-              style={{ boxShadow: '0 0 30px rgba(123, 97, 255, 0.5)' }}
+          <div className="flex flex-col gap-3 mb-5 px-2">
+            <button
+              onClick={callStatus === 'connected' ? endCall : startCall}
+              disabled={callStatus === 'connecting' || callStatus === 'ended'}
+              className="active:scale-95 text-white px-6 py-4 rounded-xl font-bold text-base flex items-center justify-center transition-all duration-200 min-h-[52px] touch-manipulation disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{
+                background: callStatus === 'connected'
+                  ? 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)'
+                  : 'linear-gradient(to right, #7B61FF, #6B4CFF)',
+                boxShadow: callStatus === 'connected'
+                  ? '0 0 30px rgba(239, 68, 68, 0.5)'
+                  : '0 0 30px rgba(123, 97, 255, 0.5)'
+              }}
             >
-              Get Started Free
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
+              {callStatus === 'connecting' ? (
+                <>
+                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                  Connecting...
+                </>
+              ) : callStatus === 'connected' ? (
+                <>
+                  <PhoneOff className="w-5 h-5 mr-2" />
+                  End Call
+                </>
+              ) : callStatus === 'ended' ? (
+                <>Call Ended</>
+              ) : (
+                <>
+                  <Mic className="w-5 h-5 mr-2" />
+                  Call the AI Agent
+                </>
+              )}
+            </button>
             <a
-              href="/dashboard.png"
+              href="/0315.mp4"
               target="_blank"
               className="text-white active:scale-95 px-6 py-4 rounded-xl font-semibold text-base flex items-center justify-center transition-all duration-200 min-h-[52px] touch-manipulation"
               style={{
@@ -279,30 +419,15 @@ const HeroSection = () => {
                 backdropFilter: 'blur(10px)',
               }}
             >
-              <Play className="w-4 h-4 mr-2" />
-              Watch Demo
+              <Play className="w-5 h-5 mr-2" />
+              Watch Demo Video
             </a>
           </div>
 
-          {/* Stats Section */}
-          <div className="flex flex-wrap items-center justify-center gap-5 px-2">
-            <div className="text-center min-w-[80px]">
-              <div className="text-2xl font-bold bg-gradient-to-r from-[#7B61FF] to-[#8B5CF6] bg-clip-text text-transparent mb-0.5">200+</div>
-              <div className="text-[10px] text-gray-400 leading-tight">Active<br/>Businesses</div>
-            </div>
-            <div className="text-center min-w-[80px]">
-              <div className="text-2xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#A16BFF] bg-clip-text text-transparent mb-0.5">40%</div>
-              <div className="text-[10px] text-gray-400 leading-tight">Revenue<br/>Increase</div>
-            </div>
-            <div className="text-center min-w-[80px]">
-              <div className="flex items-center gap-0.5 mb-0.5 justify-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-[#7B61FF] text-[#7B61FF]" />
-                ))}
-              </div>
-              <div className="text-[10px] text-gray-400 leading-tight">4.9/5<br/>Rating</div>
-            </div>
-          </div>
+          {/* Trust Line */}
+          <p className="text-gray-500 text-xs max-w-md mx-auto px-2 text-center">
+            Powering AI voice automation for modern businesses
+          </p>
 
         </div>
       </div>

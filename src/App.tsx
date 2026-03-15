@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
-import { VoiceWidget } from "./components/VoiceWidget";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import VoiceAgents from "./pages/VoiceAgents";
@@ -29,6 +28,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <div style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/voice-agents" element={<VoiceAgents />} />
@@ -44,7 +44,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <VoiceWidget />
+          </div>
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>

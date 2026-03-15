@@ -93,7 +93,6 @@ export default function FeaturesDetail() {
               ref={videoRef}
               className="w-full h-auto"
               controls
-              poster="/dashboard.png"
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
               onEnded={() => setIsPlaying(false)}

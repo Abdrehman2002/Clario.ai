@@ -45,6 +45,7 @@ export function TryAgentNew() {
   const [retellClient, setRetellClient] = useState<RetellWebClient | null>(null);
   const [isMuted, setIsMuted] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [mobileVideoLoaded, setMobileVideoLoaded] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
@@ -89,6 +90,11 @@ export function TryAgentNew() {
   // Handle video loaded
   const handleVideoLoaded = () => {
     setVideoLoaded(true);
+  };
+
+  // Handle mobile video loaded
+  const handleMobileVideoLoaded = () => {
+    setMobileVideoLoaded(true);
   };
 
   // Play/pause video based on viewport visibility for desktop video
@@ -577,7 +583,7 @@ export function TryAgentNew() {
               }}
             >
               {/* Loading Placeholder */}
-              {!videoLoaded && (
+              {!mobileVideoLoaded && (
                 <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black flex items-center justify-center">
                   <div className="flex flex-col items-center gap-4">
                     <Loader2 className="w-10 h-10 text-purple-400 animate-spin" />
@@ -592,7 +598,7 @@ export function TryAgentNew() {
                 muted
                 playsInline
                 preload="metadata"
-                onLoadedData={handleVideoLoaded}
+                onLoadedData={handleMobileVideoLoaded}
                 className="w-full h-full object-cover"
                 style={{ objectFit: 'cover' }}
               >
@@ -600,7 +606,7 @@ export function TryAgentNew() {
               </video>
 
               {/* Unmute Prompt Overlay */}
-              {isMuted && videoLoaded && (
+              {isMuted && mobileVideoLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50 pointer-events-none">
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}

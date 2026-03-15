@@ -276,7 +276,7 @@ const HeroSection = () => {
               )}
             </button>
 
-            <a href="/0315.mp4" target="_blank" className="group flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base text-white transition-all duration-300 hover:bg-white/10 whitespace-nowrap"
+            <a href="#try-agent" className="group flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base text-white transition-all duration-300 hover:bg-white/10 whitespace-nowrap"
                     style={{
                       background: 'rgba(255, 255, 255, 0.05)',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -410,8 +410,7 @@ const HeroSection = () => {
               )}
             </button>
             <a
-              href="/0315.mp4"
-              target="_blank"
+              href="#try-agent"
               className="text-white active:scale-95 px-6 py-4 rounded-xl font-semibold text-base flex items-center justify-center transition-all duration-200 min-h-[52px] touch-manipulation"
               style={{
                 background: 'rgba(255, 255, 255, 0.05)',

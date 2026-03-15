@@ -44,6 +44,7 @@ export function TryAgentNew() {
   const [callStatus, setCallStatus] = useState<"idle" | "calling" | "connected" | "ended">("idle");
   const [retellClient, setRetellClient] = useState<RetellWebClient | null>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
@@ -83,6 +84,11 @@ export function TryAgentNew() {
       mobileVideoRef.current.muted = false;
       setIsMuted(false);
     }
+  };
+
+  // Handle video loaded
+  const handleVideoLoaded = () => {
+    setVideoLoaded(true);
   };
 
   // Play/pause video based on viewport visibility for desktop video
@@ -264,7 +270,7 @@ export function TryAgentNew() {
                       color: '#A78BFA',
                       boxShadow: '0 0 20px rgba(123, 97, 255, 0.2)'
                     }}>
-                ✨ AI INFRASTRUCTURE ✨
+                LIVE DEMO
               </span>
             </div>
 
@@ -289,7 +295,7 @@ export function TryAgentNew() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 lg:gap-12">
+        <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-8 lg:gap-12">
 
           {/* Left Side - Vertical Video (Desktop only) */}
           <motion.div
@@ -300,27 +306,38 @@ export function TryAgentNew() {
             className="hidden md:block flex-shrink-0"
           >
             <div
-              className="relative w-[280px] lg:w-[340px] h-[580px] lg:h-[680px] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+              className="relative w-[280px] lg:w-[340px] h-full rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
               onClick={handleVideoClick}
               style={{
                 border: '3px solid #7B61FF',
                 boxShadow: '0 0 40px rgba(123, 97, 255, 0.4), 0 0 80px rgba(123, 97, 255, 0.2)'
               }}
             >
+              {/* Loading Placeholder */}
+              {!videoLoaded && (
+                <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black flex items-center justify-center">
+                  <div className="flex flex-col items-center gap-4">
+                    <Loader2 className="w-12 h-12 text-purple-400 animate-spin" />
+                    <span className="text-purple-300 text-sm font-medium">Loading video...</span>
+                  </div>
+                </div>
+              )}
+
               <video
                 ref={videoRef}
                 loop
                 muted
                 playsInline
-                preload="auto"
+                preload="metadata"
+                onLoadedData={handleVideoLoaded}
                 className="w-full h-full object-cover"
                 style={{ objectFit: 'cover' }}
               >
-                <source src="/0315.mp4" type="video/mp4" />
+                <source src="/demo-video.mp4" type="video/mp4" />
               </video>
 
               {/* Unmute Prompt Overlay */}
-              {isMuted && (
+              {isMuted && videoLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50 pointer-events-none">
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
@@ -342,7 +359,7 @@ export function TryAgentNew() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex-1 w-full bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative overflow-visible"
+            className="flex-1 w-full bg-black/40 backdrop-blur-xl rounded-2xl md:rounded-[32px] border border-white/10 shadow-2xl p-6 md:p-8 lg:p-12 relative overflow-visible flex flex-col"
             style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)', zIndex: 60 }}
           >
             {/* Title and Description */}
@@ -541,8 +558,8 @@ export function TryAgentNew() {
 
         </div>
 
-        {/* Mobile Version - Video + Card Combined */}
-        <div className="md:hidden mt-8">
+        {/* Mobile Version - Video Only */}
+        <div className="md:hidden mt-8 px-4">
           {/* Mobile Video */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -552,27 +569,38 @@ export function TryAgentNew() {
             className="mb-6"
           >
             <div
-              className="relative w-full max-w-[320px] mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+              className="relative w-full mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
               onClick={handleVideoClick}
               style={{
                 border: '3px solid #7B61FF',
                 boxShadow: '0 0 40px rgba(123, 97, 255, 0.4), 0 0 80px rgba(123, 97, 255, 0.2)'
               }}
             >
+              {/* Loading Placeholder */}
+              {!videoLoaded && (
+                <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black flex items-center justify-center">
+                  <div className="flex flex-col items-center gap-4">
+                    <Loader2 className="w-10 h-10 text-purple-400 animate-spin" />
+                    <span className="text-purple-300 text-sm font-medium">Loading video...</span>
+                  </div>
+                </div>
+              )}
+
               <video
                 ref={mobileVideoRef}
                 loop
                 muted
                 playsInline
-                preload="auto"
+                preload="metadata"
+                onLoadedData={handleVideoLoaded}
                 className="w-full h-full object-cover"
                 style={{ objectFit: 'cover' }}
               >
-                <source src="/0315.mp4" type="video/mp4" />
+                <source src="/demo-video.mp4" type="video/mp4" />
               </video>
 
               {/* Unmute Prompt Overlay */}
-              {isMuted && (
+              {isMuted && videoLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50 pointer-events-none">
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
@@ -585,125 +613,6 @@ export function TryAgentNew() {
                   </motion.div>
                 </div>
               )}
-            </div>
-          </motion.div>
-
-          {/* Mobile Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-6 relative"
-            style={{ boxShadow: '0 0 60px rgba(123, 97, 255, 0.15)' }}
-          >
-            {/* Title */}
-            <div className="text-center mb-6">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-                Try Your Agent for Free
-              </h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                Experience Vextria AI in action — choose an agent and start a live demo call
-              </p>
-            </div>
-
-            {/* Call Interface */}
-            <div className="space-y-4">
-              {/* Dropdown */}
-              <div className="relative" ref={dropdownRef}>
-                <motion.button
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                  onClick={handleToggle}
-                  disabled={callStatus !== "idle"}
-                  className={cn(
-                    "w-full flex items-center justify-between px-4 py-3.5 rounded-xl border-2 transition-all duration-200",
-                    "bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-purple-500/50 backdrop-blur-sm",
-                    callStatus !== "idle" && "opacity-50 cursor-not-allowed"
-                  )}
-                >
-                  <span className="font-medium text-sm">
-                    {selected ? selected.label : "Select an agent"}
-                  </span>
-                  <motion.div
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown className="w-4 h-4 text-gray-400" />
-                  </motion.div>
-                </motion.button>
-
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 right-0 mt-2 bg-[#0A0510] border border-white/10 rounded-xl shadow-2xl overflow-hidden backdrop-blur-xl z-[9999]"
-                      style={{ background: 'rgba(10, 5, 16, 0.95)' }}
-                    >
-                      <div className="max-h-[280px] overflow-y-auto">
-                        {AGENTS.map((agent) => (
-                          <motion.button
-                            key={agent.id}
-                            whileHover={{ backgroundColor: 'rgba(123, 97, 255, 0.1)' }}
-                            onClick={() => handleSelect(agent)}
-                            className="w-full text-left px-4 py-3 border-b border-white/5 last:border-0 transition-colors"
-                          >
-                            <div className="font-medium text-white text-sm mb-1">{agent.label}</div>
-                            <div className="text-xs text-gray-400">{agent.description}</div>
-                          </motion.button>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* Call Button */}
-              {(selected || callStatus !== 'idle') && (
-                <motion.button
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={callStatus === 'connected' ? endCall : startCall}
-                  disabled={isLoading || callStatus === 'ended'}
-                  className="w-full px-6 py-3.5 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{
-                    background: callStatus === 'connected'
-                      ? 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)'
-                      : 'linear-gradient(to right, #7B61FF, #6B4CFF)',
-                    boxShadow: callStatus === 'connected'
-                      ? '0 0 30px rgba(239, 68, 68, 0.5)'
-                      : '0 0 30px rgba(123, 97, 255, 0.5)'
-                  }}
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Connecting...
-                    </>
-                  ) : callStatus === 'connected' ? (
-                    <>
-                      <PhoneOff className="w-4 h-4" />
-                      End Call
-                    </>
-                  ) : callStatus === 'ended' ? (
-                    <>Call Ended</>
-                  ) : (
-                    <>
-                      <Phone className="w-4 h-4" />
-                      Start Demo Call
-                    </>
-                  )}
-                </motion.button>
-              )}
-
-              <p className="text-center text-xs text-gray-500">
-                No payment required • Live demo call • Instant connection
-              </p>
             </div>
           </motion.div>
         </div>

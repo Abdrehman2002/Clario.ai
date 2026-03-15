@@ -76,13 +76,15 @@ export function TryAgentNew() {
 
   // Handle video click to unmute
   const handleVideoClick = () => {
-    if (videoRef.current) {
+    if (videoRef.current && videoRef.current.muted) {
       videoRef.current.muted = false;
       setIsMuted(false);
+      videoRef.current.play().catch(err => console.log("Play failed:", err));
     }
-    if (mobileVideoRef.current) {
+    if (mobileVideoRef.current && mobileVideoRef.current.muted) {
       mobileVideoRef.current.muted = false;
       setIsMuted(false);
+      mobileVideoRef.current.play().catch(err => console.log("Play failed:", err));
     }
   };
 
@@ -99,9 +101,14 @@ export function TryAgentNew() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && callStatus === 'idle') {
+          if (entry.isIntersecting && callStatus === 'idle' && videoLoaded) {
+            // Try to play with sound first
+            video.muted = false;
             video.play().catch((error) => {
-              console.log("Autoplay failed:", error);
+              console.log("Unmuted autoplay failed, trying muted:", error);
+              // If unmuted autoplay fails, play muted and show unmute button
+              video.muted = true;
+              video.play().catch(err => console.log("Muted autoplay also failed:", err));
             });
           } else {
             video.pause();
@@ -116,7 +123,7 @@ export function TryAgentNew() {
     return () => {
       observer.disconnect();
     };
-  }, [callStatus]);
+  }, [callStatus, videoLoaded]);
 
   // Play/pause video based on viewport visibility for mobile video
   useEffect(() => {
@@ -126,9 +133,14 @@ export function TryAgentNew() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && callStatus === 'idle') {
+          if (entry.isIntersecting && callStatus === 'idle' && videoLoaded) {
+            // Try to play with sound first
+            video.muted = false;
             video.play().catch((error) => {
-              console.log("Autoplay failed:", error);
+              console.log("Unmuted autoplay failed, trying muted:", error);
+              // If unmuted autoplay fails, play muted and show unmute button
+              video.muted = true;
+              video.play().catch(err => console.log("Muted autoplay also failed:", err));
             });
           } else {
             video.pause();
@@ -143,7 +155,7 @@ export function TryAgentNew() {
     return () => {
       observer.disconnect();
     };
-  }, [callStatus]);
+  }, [callStatus, videoLoaded]);
 
   // Pause video when call connects
   useEffect(() => {
@@ -156,6 +168,21 @@ export function TryAgentNew() {
       }
     }
   }, [callStatus]);
+
+  // Monitor video muted state
+  useEffect(() => {
+    const checkMutedState = () => {
+      if (videoRef.current && !videoRef.current.muted) {
+        setIsMuted(false);
+      }
+      if (mobileVideoRef.current && !mobileVideoRef.current.muted) {
+        setIsMuted(false);
+      }
+    };
+
+    const interval = setInterval(checkMutedState, 100);
+    return () => clearInterval(interval);
+  }, []);
 
   const startCall = async () => {
     if (!selected) return;

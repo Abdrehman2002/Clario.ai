@@ -124,32 +124,6 @@ export function TryAgentNew() {
     };
   }, [callStatus]);
 
-  // Play/pause video based on viewport visibility for mobile video
-  useEffect(() => {
-    const video = mobileVideoRef.current;
-    if (!video) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && callStatus === 'idle') {
-            video.play().catch((error) => {
-              console.log("Autoplay failed:", error);
-            });
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(video);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [callStatus]);
 
   // Pause video when call connects
   useEffect(() => {

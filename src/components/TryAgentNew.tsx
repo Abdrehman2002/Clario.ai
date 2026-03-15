@@ -296,9 +296,69 @@ export function TryAgentNew() {
             </h2>
 
             <p className="text-gray-400 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
-              Each framework is a building block of your AI infrastructure—crafted to automate, connect, and scale your operations with precision.
+
             </p>
           </div>
+        </div>
+
+        {/* Mobile Version - Video Only (Appears first on mobile) */}
+        <div className="md:hidden mb-8 px-4">
+          {/* Mobile Video */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-6"
+          >
+            <div
+              className="relative w-full mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+              onClick={handleVideoClick}
+              style={{
+                border: '3px solid #7B61FF',
+                boxShadow: '0 0 40px rgba(123, 97, 255, 0.4), 0 0 80px rgba(123, 97, 255, 0.2)'
+              }}
+            >
+              {/* Loading Placeholder */}
+              {!mobileVideoLoaded && (
+                <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black flex items-center justify-center">
+                  <div className="flex flex-col items-center gap-4">
+                    <Loader2 className="w-10 h-10 text-purple-400 animate-spin" />
+                    <span className="text-purple-300 text-sm font-medium">Loading video...</span>
+                  </div>
+                </div>
+              )}
+
+              <video
+                ref={mobileVideoRef}
+                loop
+                muted
+                playsInline
+                autoPlay
+                preload="auto"
+                onLoadedMetadata={handleMobileVideoLoaded}
+                className="w-full h-full object-cover"
+                style={{ objectFit: 'cover' }}
+              >
+                <source src="/demo-video.mp4" type="video/mp4" />
+              </video>
+
+              {/* Unmute Prompt Overlay */}
+              {isMuted && mobileVideoLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50 pointer-events-none">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="flex flex-col items-center gap-3 px-6 py-6 rounded-2xl bg-purple-600 transition-all shadow-2xl pointer-events-auto"
+                    style={{ zIndex: 100 }}
+                  >
+                    <Volume2 className="w-10 h-10 text-white" />
+                    <span className="text-white font-semibold text-sm">Tap to enable sound</span>
+                  </motion.div>
+                </div>
+              )}
+            </div>
+          </motion.div>
         </div>
 
         <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-8 lg:gap-12">
@@ -562,66 +622,6 @@ export function TryAgentNew() {
             </div>
           </motion.div>
 
-        </div>
-
-        {/* Mobile Version - Video Only */}
-        <div className="md:hidden mt-8 px-4">
-          {/* Mobile Video */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-6"
-          >
-            <div
-              className="relative w-full mx-auto aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
-              onClick={handleVideoClick}
-              style={{
-                border: '3px solid #7B61FF',
-                boxShadow: '0 0 40px rgba(123, 97, 255, 0.4), 0 0 80px rgba(123, 97, 255, 0.2)'
-              }}
-            >
-              {/* Loading Placeholder */}
-              {!mobileVideoLoaded && (
-                <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black flex items-center justify-center">
-                  <div className="flex flex-col items-center gap-4">
-                    <Loader2 className="w-10 h-10 text-purple-400 animate-spin" />
-                    <span className="text-purple-300 text-sm font-medium">Loading video...</span>
-                  </div>
-                </div>
-              )}
-
-              <video
-                ref={mobileVideoRef}
-                loop
-                muted
-                playsInline
-                autoPlay
-                preload="auto"
-                onLoadedMetadata={handleMobileVideoLoaded}
-                className="w-full h-full object-cover"
-                style={{ objectFit: 'cover' }}
-              >
-                <source src="/demo-video.mp4" type="video/mp4" />
-              </video>
-
-              {/* Unmute Prompt Overlay */}
-              {isMuted && mobileVideoLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50 pointer-events-none">
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="flex flex-col items-center gap-3 px-6 py-6 rounded-2xl bg-purple-600 transition-all shadow-2xl pointer-events-auto"
-                    style={{ zIndex: 100 }}
-                  >
-                    <Volume2 className="w-10 h-10 text-white" />
-                    <span className="text-white font-semibold text-sm">Tap to enable sound</span>
-                  </motion.div>
-                </div>
-              )}
-            </div>
-          </motion.div>
         </div>
 
       </div>

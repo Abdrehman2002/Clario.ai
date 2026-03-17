@@ -1,0 +1,1019 @@
+/* Import Google Fonts - Updated Typography System */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Voice Widget Portal - Ensure it's always visible and not clipped */
+#vextria-voice-widget-portal {
+  /* Complete style reset */
+  all: initial !important;
+
+  /* Re-apply necessary positioning */
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 2147483647 !important; /* Maximum z-index value */
+  overflow: visible !important;
+
+  /* Reset all properties that could create a new stacking context */
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  perspective: none !important;
+  will-change: auto !important;
+  contain: none !important;
+  isolation: auto !important;
+  mix-blend-mode: normal !important;
+
+  /* Ensure it's not affected by parent containers */
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  clip-path: none !important;
+  mask: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+#vextria-voice-widget-portal > * {
+  pointer-events: auto !important;
+  box-sizing: border-box;
+}
+
+/* Remove smooth scrolling animation */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  padding-top: 80px; /* Fixed navbar height (h-20) */
+}
+
+/* Scroll offset for fixed header */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Hero Container - Prevent Overflow */
+.hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  overflow-x: hidden;
+}
+
+/* Hero Title - Responsive Typography */
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.15;
+  font-weight: 700;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Hero Highlight Text */
+.hero-highlight {
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+    line-height: 1.2;
+    padding: 0 16px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+}
+
+/* Clario AI Futuristic Design System - Dark Mode Default */
+
+@layer base {
+  :root {
+    /* 🌑 Core Background System - Cosmic Black */
+    --color-bg-primary: #000000;
+    --color-bg-secondary: #020206;
+    --color-bg-panel: rgba(18, 18, 32, 0.65);
+    --color-bg-mist: #080515;
+    --color-bg-void: #0C0A14;
+
+    /* Base Colors - True Black Theme */
+    --background: 0 0% 0%; /* #000000 */
+    --foreground: 0 0% 100%; /* #FFFFFF */
+
+    /* 🔥 Primary Accent - Neon Purple (from Spline) */
+    --primary: 250 100% 69%; /* #7B61FF */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 250 100% 69%;
+    --primary-light: 250 100% 72%;
+
+    /* 🔥 Secondary Palette - Purple Glows */
+    --secondary: 250 100% 71%; /* #A16BFF - Glow Purple */
+    --secondary-foreground: 0 0% 100%;
+    --violet-glow: 250 100% 71%; /* #A16BFF */
+    --electric-blue: 228 100% 70%; /* #627DFF - Light Beam Blue */
+    --cyber-purple: 249 100% 68%; /* #7E57FF - Particle Glow */
+
+    /* Digital Accent Colors */
+    --accent: 250 100% 69%; /* #7B61FF */
+    --accent-foreground: 0 0% 100%;
+
+    /* 🧊 Glass & Card Effects */
+    --card: 240 26% 9%; /* #151521 */
+    --card-foreground: 0 0% 100%;
+    --glass: rgba(18, 18, 32, 0.65);
+    --glass-border: rgba(161, 107, 255, 0.2);
+
+    /* Interactive States - Dark Mode */
+    --muted: 240 17% 12%; /* #1F1F2E */
+    --muted-foreground: 240 15% 65%; /* #A5A5C2 */
+    --border: 240 17% 12%; /* #1F1F2E */
+    --input: 240 26% 9%; /* #151521 */
+    --ring: 250 100% 69%; /* #7B61FF */
+
+    /* ✨ Functional UI Colors */
+    --success: 168 100% 39%; /* #00C9A7 */
+    --warning: 38 86% 59%; /* #EFB34B */
+    --error: 346 100% 71%; /* #FF4F7A */
+
+    /* 🧊 Text Colors */
+    --text-high: #FFFFFF;
+    --text-medium: #D6D6E8;
+    --text-low: #A0A0B0;
+    --text-muted: #777799;
+
+    /* 🌌 Shadows & Glows - Purple Theme */
+    --glow-primary: 0 0 25px rgba(161, 107, 255, 0.45);
+    --glow-secondary: 0 0 35px rgba(123, 97, 255, 0.45);
+    --glow-hover: 0 0 20px rgba(161, 107, 255, 0.6);
+    --glow-card: 0 0 50px rgba(140, 90, 255, 0.25);
+    --glow-ambient: 0 0 50px rgba(140, 90, 255, 0.25);
+
+    /* 🌈 Gradients - Purple Cosmic Theme */
+    --gradient-hero: radial-gradient(circle at center, rgba(58, 28, 112, 0.4), rgba(0, 0, 0, 1));
+    --gradient-cta: linear-gradient(135deg, #7B61FF 0%, #6B4CFF 100%);
+    --gradient-cta-hover: linear-gradient(135deg, #8A71FF 0%, #7B61FF 100%);
+    --gradient-purple-glow: radial-gradient(circle at center, rgba(161, 107, 255, 0.5), rgba(0, 0, 0, 1));
+    --gradient-electric: linear-gradient(90deg, #627DFF 0%, #7B61FF 100%);
+
+    /* Shadows */
+    --shadow-glow: var(--glow-primary);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-button: var(--glow-hover);
+    
+    /* Animations removed */
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 4%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 220 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 97%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 230 100% 86%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 80%;
+    --input: 0 0% 97%;
+    --ring: 220 100% 50%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background-color: var(--color-bg-primary);
+    color: var(--text-medium);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+  }
+
+  /* 🔤 Typography System - Premium AI Aesthetic */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 5.125rem); /* 40-82px */
+    line-height: 1;
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3.5rem); /* 32-56px */
+    line-height: 1.1;
+    color: #D6D6E8;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2.5rem); /* 24-40px */
+    line-height: 1.2;
+    color: #D6D6E8;
+  }
+
+  h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    color: #D6D6E8;
+  }
+
+  /* Body Text */
+  p, span, div, a {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+  }
+
+  body {
+    font-size: clamp(1rem, 1.5vw, 1.125rem); /* 16-18px */
+    line-height: 1.6;
+  }
+
+  /* Digital particles background */
+  .particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: hsl(var(--particles));
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  /* Glowing orb effects */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: hsl(var(--glass));
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-card {
+    box-shadow: var(--glow-card);
+  }
+
+  .glow-button {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .glow-button:hover {
+    box-shadow: var(--glow-hover);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-cta);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-electric {
+    background: var(--gradient-electric);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Neon underline */
+  .neon-underline {
+    position: relative;
+  }
+
+  .neon-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-cta);
+    border-radius: 1px;
+    box-shadow: var(--glow-primary);
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .neon-underline:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  /* Dark gradient overlay for hero sections */
+  .hero-overlay {
+    position: relative;
+  }
+
+  .hero-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.6) 0%, rgba(10, 10, 10, 0.4) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Mobile-specific 3D Spline optimizations */
+  @media (max-width: 768px) {
+    /* Ensure 3D content scales properly on mobile */
+    .spline-container {
+      width: 100% !important;
+      height: 100vh !important;
+      min-height: 100vh !important;
+      max-height: 100vh !important;
+      overflow: hidden !important;
+    }
+
+    /* Optimize 3D rendering for mobile performance */
+    .spline-container canvas {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+  /* Hide Spline watermark/branding */
+  .spline-container a[href*="spline"],
+  .spline-container [data-logo],
+  .spline-container > div > a,
+  .spline-container > div > div > a {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+    /* Ensure content doesn't overflow on mobile */
+    .hero-content {
+      padding: 1rem;
+      margin-top: 4rem;
+    }
+
+    /* Mobile-specific text scaling */
+    .mobile-text-responsive {
+      font-size: clamp(1rem, 4vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .mobile-heading-responsive {
+      font-size: clamp(1.5rem, 6vw, 3rem);
+      line-height: 1.1;
+    }
+
+    .mobile-large-heading-responsive {
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 1.1;
+    }
+  }
+
+  /* Tablet-specific optimizations */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .spline-container {
+      width: 100% !important;
+      height: 100vh !important;
+      min-height: 100vh !important;
+    }
+
+    .tablet-text-responsive {
+      font-size: clamp(1.25rem, 3vw, 2.5rem);
+      line-height: 1.3;
+    }
+  }
+
+  /* Remove smooth scrolling on mobile */
+  html {
+  }
+
+  /* Mobile touch optimizations */
+  @media (max-width: 768px) {
+    /* Increase touch targets */
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Improve mobile navigation */
+    .mobile-nav {
+      padding: 1rem;
+    }
+
+    /* Mobile-specific spacing */
+    .mobile-spacing {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
+  }
+
+  /* High DPI display optimizations */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .spline-container canvas {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  }
+
+  /* Landscape mobile optimizations */
+  @media (max-width: 768px) and (orientation: landscape) {
+    .hero-content {
+      margin-top: 2rem;
+      padding: 0.5rem;
+    }
+
+    .spline-container {
+      height: 100vh !important;
+    }
+  }
+
+  /* 🎨 Custom Utility Classes for New Color System */
+
+  /* Background Classes */
+  .bg-primary-dark {
+    background-color: var(--color-bg-primary);
+  }
+
+  .bg-secondary-dark {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .bg-panel {
+    background: var(--color-bg-panel);
+    backdrop-filter: blur(10px);
+  }
+
+  .bg-mist {
+    background-color: var(--color-bg-mist);
+  }
+
+  .bg-void {
+    background-color: var(--color-bg-void);
+  }
+
+  /* Accent Color Classes - Purple Theme */
+  .text-neon-purple {
+    color: #7B61FF;
+  }
+
+  .text-glow-purple {
+    color: #A16BFF;
+  }
+
+  .text-electric-blue {
+    color: #627DFF;
+  }
+
+  .bg-neon-purple {
+    background-color: #7B61FF;
+  }
+
+  .bg-glow-purple {
+    background-color: #A16BFF;
+  }
+
+  .bg-electric-blue {
+    background-color: #627DFF;
+  }
+
+  /* Border Classes */
+  .border-neon-purple {
+    border-color: #7B61FF;
+  }
+
+  .border-glow-purple {
+    border-color: #A16BFF;
+  }
+
+  .border-electric-blue {
+    border-color: #627DFF;
+  }
+
+  /* Gradient Backgrounds */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-cta {
+    background: var(--gradient-cta);
+  }
+
+  .bg-gradient-purple-glow {
+    background: var(--gradient-purple-glow);
+  }
+
+  .bg-gradient-electric {
+    background: var(--gradient-electric);
+  }
+
+  /* 🎯 Button Styles - Neon Purple CTA */
+  .btn-neon-purple {
+    background: linear-gradient(135deg, #7B61FF 0%, #6B4CFF 100%);
+    color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(123, 97, 255, 0.6);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 30px rgba(140, 90, 255, 0.35);
+  }
+
+  .btn-neon-purple:hover {
+    background: linear-gradient(135deg, #8A71FF 0%, #7B61FF 100%);
+    box-shadow: 0 0 30px rgba(161, 107, 255, 0.8);
+    transform: translateY(-2px);
+  }
+
+  /* Secondary Button - Transparent with Purple Border */
+  .btn-secondary-purple {
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+    color: #FFFFFF;
+    border-radius: 12px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary-purple:hover {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* 🧊 Glass Card / Container - Glassmorphism */
+  .card-glass {
+    background: rgba(10, 10, 22, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(161, 107, 255, 0.2);
+    box-shadow: 0 0 50px rgba(140, 90, 255, 0.25);
+    border-radius: 16px;
+  }
+
+  /* Text Glow Effects - Purple Theme */
+  .text-glow-purple {
+    color: #7B61FF;
+    text-shadow: 0 0 20px rgba(123, 97, 255, 0.5);
+  }
+
+  .text-glow-violet {
+    color: #A16BFF;
+    text-shadow: 0 0 25px rgba(161, 107, 255, 0.5);
+  }
+
+  .text-glow-hero {
+    text-shadow: 0 0 30px rgba(140, 90, 255, 0.35);
+  }
+
+  /* Fade-in Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  /* Float Animation for Sparkles */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 2s ease-in-out infinite alternate;
+  }
+
+  /* Performance Optimizations */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Disable smooth scrolling for better performance */
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* GPU acceleration for animations */
+  .process-card,
+  .framework-card,
+  .benefit-card,
+  .stat-card,
+  .contact-item {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Additional scroll performance optimizations */
+  /* Note: Universal transform removed — it breaks position:fixed on the navbar */
+
+  /* Optimize heavy elements — exclude nav so fixed positioning works */
+  .hero-content,
+  .spline-container {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Reduce repaints during scroll */
+  .hero-content * {
+    transform: translateZ(0);
+  }
+
+  /* Passive scroll listeners - improves scroll performance */
+  body {
+    touch-action: pan-y pinch-zoom;
+  }
+
+  /* CSS Containment for better rendering performance */
+  /* Note: contain removed from sections — it was trapping the fixed navbar */
+
+  /* ========================================
+     RESPONSIVE LAYOUT SYSTEM
+     Max-width containers prevent stretching
+     Consistent padding across breakpoints
+     ======================================== */
+
+  /* Prevent horizontal overflow on all screen sizes */
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding-top: 80px !important; /* Offset for fixed navbar */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  #root {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+
+  /* Content width constraints - Stripe/Linear/Vercel pattern */
+  .content-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .content-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  /* Narrow content for text-heavy sections */
+  .content-narrow {
+    max-width: 900px;
+  }
+
+  /* Wide content for dashboards/visuals */
+  .content-wide {
+    max-width: 1400px;
+  }
+
+  /* Typography scaling with clamp for consistent sizing */
+  .heading-hero {
+    font-size: clamp(2rem, 4vw + 1rem, 4rem);
+    line-height: 1.15;
+  }
+
+  .heading-section {
+    font-size: clamp(1.75rem, 3.5vw + 0.75rem, 3.5rem);
+    line-height: 1.2;
+  }
+
+  .heading-subsection {
+    font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.5rem);
+    line-height: 1.3;
+  }
+
+  .text-body {
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.125rem);
+    line-height: 1.6;
+  }
+
+  .text-body-large {
+    font-size: clamp(1.125rem, 1.75vw + 0.5rem, 1.25rem);
+    line-height: 1.65;
+  }
+
+  /* Vertical rhythm - Consistent section spacing */
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-spacing {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-spacing {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+
+  /* ========================================
+     MOBILE-SPECIFIC OPTIMIZATIONS
+     Touch targets, safe areas, performance
+     ======================================== */
+
+  /* iOS Safari 100dvh support for dynamic viewport */
+  @supports (height: 100dvh) {
+    .safe-top {
+      padding-top: env(safe-area-inset-top);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+
+  /* Touch target minimum 48x48px (Material Design) */
+  @media (max-width: 768px) {
+    button:not(.no-touch-target),
+    a:not(.no-touch-target) {
+      min-height: 48px;
+      min-width: 48px;
+    }
+  }
+
+  /* Improve tap responsiveness */
+  a, button {
+    -webkit-tap-highlight-color: rgba(123, 97, 255, 0.15);
+    touch-action: manipulation;
+  }
+
+  /* Prevent text resize on orientation change */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Smooth scrolling for mobile */
+  @media (max-width: 768px) {
+    html {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Mobile-optimized spacing */
+    body {
+      font-size: 16px;
+    }
+
+    /* Prevent zoom on input focus (iOS) */
+    input, select, textarea {
+      font-size: 16px;
+    }
+  }
+
+  /* Optimize font rendering on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Mobile-specific touch feedback */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  /* Improve mobile button press feedback */
+  button:active, .touch-manipulation:active {
+    opacity: 0.9;
+  }
+
+  /* Mobile viewport height fix */
+  @media (max-width: 768px) {
+    .mobile-vh-100 {
+      height: 100vh;
+      height: 100dvh;
+    }
+  }
+
+  /* Optimize images and media */
+  img, video, canvas {
+    will-change: auto;
+  }
+
+  /* Reduce layout thrashing */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Scroll Stack Styles */
+  .scroll-stack-container {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  .scroll-stack-item {
+    position: sticky;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+    transform-origin: top center;
+  }
+
+  /* Smooth scrolling for entire page */
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}

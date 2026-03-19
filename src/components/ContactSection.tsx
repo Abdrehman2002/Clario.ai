@@ -18,6 +18,7 @@ const ContactSection = () => {
     phone: '',
     message: ''
   })
+  const [result, setResult] = useState("")
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -71,10 +72,32 @@ const ContactSection = () => {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const mailtoLink = `mailto:william@vextriaai.com?subject=Contact Form Submission from ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`
-    window.location.href = mailtoLink
+    const form = e.target as HTMLFormElement
+    const formDataObj = new FormData(form)
+    formDataObj.append("access_key", "753683eb-da67-456a-84a0-2aa30b674f86")
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataObj
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setResult("Submitted")
+        setFormData({ name: '', email: '', phone: '', message: '' })
+        setTimeout(() => setResult(""), 5000) // Clear message after 5 seconds
+      } else {
+        setResult("Error")
+        setTimeout(() => setResult(""), 5000)
+      }
+    } catch (error) {
+      setResult("Error")
+      setTimeout(() => setResult(""), 5000)
+    }
   }
 
   return (
@@ -215,8 +238,25 @@ const ContactSection = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <Send className="w-5 h-5" />
-                Send Message
+                {result === "Submitted" ? "Submitted!" : "Send Message"}
               </motion.button>
+
+              {/* Success/Error Message */}
+              {result && (
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`mt-4 text-center font-semibold ${
+                    result === "Submitted"
+                      ? "text-green-400"
+                      : "text-red-400"
+                  }`}
+                >
+                  {result === "Submitted"
+                    ? "✓ Message sent successfully!"
+                    : "✗ Failed to send message. Please try again."}
+                </motion.p>
+              )}
             </form>
           </motion.div>
 

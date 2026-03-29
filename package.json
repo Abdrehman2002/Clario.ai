@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "react-snap",
+    "postbuild": "node -e \"process.env.VERCEL ? console.log('Skipping react-snap on Vercel') : require('child_process').execSync('react-snap', {stdio: 'inherit'})\"",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -29,7 +29,13 @@
       "/medicare-ai-receptionist",
       "/dinemate-ai-agent",
       "/autocare-ai-receptionist",
-      "/glamcare-ai-agent"
+      "/glamcare-ai-agent",
+      "/compare/vextria-vs-air-ai",
+      "/compare/vextria-vs-retell-ai",
+      "/compare/bland-ai-vs-dialpad",
+      "/ai-voice-agent-alternatives",
+      "/bland-ai-alternatives",
+      "/best-ai-receptionist-software"
     ]
   },
   "dependencies": {

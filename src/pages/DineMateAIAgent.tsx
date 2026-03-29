@@ -30,6 +30,8 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useVapi } from '@/contexts/VapiContext';
+import { SEO } from '@/components/SEO';
+import { organizationSchema } from '@/utils/schemas';
 
 const DineMateAIAgent = () => {
   const { startCall } = useVapi();
@@ -140,6 +142,14 @@ const DineMateAIAgent = () => {
 
   return (
     <>
+      <SEO
+        title="DineMate AI: Restaurant Reservations, Orders & 45% More Bookings"
+        description="AI agent for restaurants that handles reservations, phone orders, and upselling 24/7. Increase bookings by 45%, reduce no-shows by 60%. Try free for 14 days."
+        canonical="https://vextriaai.com/dinemate-ai-agent"
+        ogTitle="DineMate AI: Restaurant Reservations & Orders 24/7 | Vextria AI"
+        ogDescription="AI-powered restaurant agent that handles reservations, takeout orders, and upsells specials automatically. Increase bookings by 45% and fill every seat."
+        schema={[organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-background" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
 

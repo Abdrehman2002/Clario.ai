@@ -34,6 +34,8 @@ import {
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { workflowAutomationProductSchema, organizationSchema } from '@/utils/schemas';
 
 const WorkflowAutomation = () => {
   const containerVariants = {
@@ -154,6 +156,14 @@ const WorkflowAutomation = () => {
 
   return (
     <>
+      <SEO
+        title="Workflow Automation: Connect Apps & Automate Tasks"
+        description="Automate repetitive tasks and connect your apps seamlessly. Integrate CRMs, calendars, and tools to save time and boost productivity. Try free for 14 days."
+        canonical="https://vextriaai.com/workflow-automation"
+        ogTitle="AI Workflow Automation | Vextria AI"
+        ogDescription="Connect apps and automate tasks. Integrate CRMs, calendars, forms, and communication tools for seamless operations."
+        schema={[workflowAutomationProductSchema, organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-[#FFFFFF]" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
       

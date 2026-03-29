@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { 
-  Palette, 
-  Globe, 
-  Zap, 
-  Clock, 
-  TrendingUp, 
-  CheckCircle, 
-  ArrowRight, 
-  Play, 
-  Star, 
+import {
+  Palette,
+  Globe,
+  Zap,
+  Clock,
+  TrendingUp,
+  CheckCircle,
+  ArrowRight,
+  Play,
+  Star,
   Sparkles,
   Users,
   Shield,
@@ -35,6 +35,8 @@ import {
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { organizationSchema } from '@/utils/schemas';
 
 const AIWebsite = () => {
   const containerVariants = {
@@ -155,6 +157,14 @@ const AIWebsite = () => {
 
   return (
     <>
+      <SEO
+        title="AI Website Builder: Build in 15 Minutes, 40% Higher Conversions"
+        description="AI-powered website builder that creates conversion-optimized sites in 15 minutes. Save 90% on development costs and increase conversions by 40%. Try free today."
+        canonical="https://vextriaai.com/ai-website"
+        ogTitle="AI Website Builder: 15 Minutes & 40% More Conversions | Vextria AI"
+        ogDescription="Create professional, conversion-optimized websites in 15 minutes with AI. No coding required. Built-in SEO, mobile-first design, and 90% cost savings."
+        schema={[organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-[#FFFFFF]" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
       

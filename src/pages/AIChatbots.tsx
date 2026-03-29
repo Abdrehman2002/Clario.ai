@@ -35,6 +35,8 @@ import {
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { chatbotsProductSchema, organizationSchema } from '@/utils/schemas';
 
 const AIChatbots = () => {
   // Case Study Data
@@ -121,6 +123,14 @@ const AIChatbots = () => {
 
   return (
     <>
+      <SEO
+        title="AI Chatbots for Website: Instant Answers & Lead Generation"
+        description="Deploy AI chatbots that provide instant answers, capture leads, and boost conversions 24/7. Automate customer support and sales. Try free for 14 days."
+        canonical="https://vextriaai.com/ai-chatbots"
+        ogTitle="AI Chatbots for Website | Vextria AI"
+        ogDescription="AI-powered chatbots for instant customer support and lead generation. Automate 70% of inquiries and boost conversions."
+        schema={[chatbotsProductSchema, organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-background" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
       

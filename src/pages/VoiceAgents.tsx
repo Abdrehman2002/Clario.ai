@@ -30,6 +30,8 @@ import {
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { voiceAgentsProductSchema, organizationSchema } from '@/utils/schemas';
 
 const VoiceAgents = () => {
   // Case Study Data
@@ -116,6 +118,14 @@ const VoiceAgents = () => {
 
   return (
     <>
+      <SEO
+        title="AI Voice Agents: 24/7 Phone Answering & Appointment Booking"
+        description="Vextria AI Voice Agents handle calls 24/7, book appointments, answer FAQs, and qualify leads. Never miss a customer call again. Free 14-day trial available."
+        canonical="https://vextriaai.com/voice-agents"
+        ogTitle="AI Voice Agents: 24/7 Phone Answering | Vextria AI"
+        ogDescription="AI-powered voice receptionist that answers calls, books appointments, and qualifies leads automatically. Try free for 14 days."
+        schema={[voiceAgentsProductSchema, organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-background" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
       

@@ -17,6 +17,12 @@ import MediCareAIReceptionist from "./pages/MediCareAIReceptionist";
 import DineMateAIAgent from "./pages/DineMateAIAgent";
 import AutoCareAIReceptionist from "./pages/AutoCareAIReceptionist";
 import GlamCareAIAgent from "./pages/GlamCareAIAgent";
+import VextriaVsAirAI from "./pages/compare/VextriaVsAirAI";
+import VextriaVsRetellAI from "./pages/compare/VextriaVsRetellAI";
+import BlandAIVsDialpad from "./pages/compare/BlandAIVsDialpad";
+import AIVoiceAgentAlternatives from "./pages/AIVoiceAgentAlternatives";
+import BlandAIAlternatives from "./pages/BlandAIAlternatives";
+import BestAIReceptionistSoftware from "./pages/BestAIReceptionistSoftware";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +46,14 @@ const App = () => (
             <Route path="/dinemate-ai-agent" element={<DineMateAIAgent />} />
             <Route path="/autocare-ai-receptionist" element={<AutoCareAIReceptionist />} />
             <Route path="/glamcare-ai-agent" element={<GlamCareAIAgent />} />
+            {/* Comparison Pages */}
+            <Route path="/compare/vextria-vs-air-ai" element={<VextriaVsAirAI />} />
+            <Route path="/compare/vextria-vs-retell-ai" element={<VextriaVsRetellAI />} />
+            <Route path="/compare/bland-ai-vs-dialpad" element={<BlandAIVsDialpad />} />
+            {/* Alternatives & Best Of Pages */}
+            <Route path="/ai-voice-agent-alternatives" element={<AIVoiceAgentAlternatives />} />
+            <Route path="/bland-ai-alternatives" element={<BlandAIAlternatives />} />
+            <Route path="/best-ai-receptionist-software" element={<BestAIReceptionistSoftware />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

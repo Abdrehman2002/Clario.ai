@@ -28,6 +28,8 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useVapi } from '@/contexts/VapiContext';
+import { SEO } from '@/components/SEO';
+import { organizationSchema } from '@/utils/schemas';
 
 const MediCareAIReceptionist = () => {
   const { startCall } = useVapi();
@@ -138,6 +140,14 @@ const MediCareAIReceptionist = () => {
 
   return (
     <>
+      <SEO
+        title="Medicare AI Receptionist: 24/7 Patient Calls & 70% Fewer No-Shows"
+        description="HIPAA-compliant AI receptionist for healthcare practices. Handle patient calls 24/7, reduce no-shows by 70%, and increase appointments by 40%. Try free for 14 days."
+        canonical="https://vextriaai.com/medicare-ai-receptionist"
+        ogTitle="Medicare AI Receptionist: 24/7 Healthcare Call Handling | Vextria AI"
+        ogDescription="AI receptionist for medical clinics that handles patient calls 24/7. HIPAA compliant, reduces no-shows by 70%, and increases appointments by 40%."
+        schema={[organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-background" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
 

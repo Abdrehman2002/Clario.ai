@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
+  <url>
+    <loc>https://vextriaai.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+
+  <!-- Product Pages -->
+  <url>
+    <loc>https://vextriaai.com/voice-agents</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/ai-chatbots</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/ai-lead-generation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/workflow-automation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/whatsapp-integration</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/ai-website</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+
+  <!-- Industry-Specific Pages -->
+  <url>
+    <loc>https://vextriaai.com/medicare-ai-receptionist</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/dinemate-ai-agent</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/autocare-ai-receptionist</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/glamcare-ai-agent</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+
+  <!-- Comparison Pages (High-Intent Traffic) -->
+  <url>
+    <loc>https://vextriaai.com/compare/vextria-vs-airai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/compare/vextria-vs-retellai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/compare/blandai-vs-dialpad</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+
+  <!-- Alternative/Comparison Pages -->
+  <url>
+    <loc>https://vextriaai.com/ai-voice-agent-alternatives</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/blandai-alternatives</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://vextriaai.com/best-ai-receptionist-software</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+</urlset>

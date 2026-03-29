@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { 
-  MessageSquare, 
-  Phone, 
-  Zap, 
-  Clock, 
-  TrendingUp, 
-  CheckCircle, 
-  ArrowRight, 
-  Play, 
-  Star, 
+import {
+  MessageSquare,
+  Phone,
+  Zap,
+  Clock,
+  TrendingUp,
+  CheckCircle,
+  ArrowRight,
+  Play,
+  Star,
   Sparkles,
   Users,
   Shield,
@@ -34,6 +34,8 @@ import {
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { organizationSchema } from '@/utils/schemas';
 
 const WhatsAppIntegration = () => {
   const containerVariants = {
@@ -158,6 +160,14 @@ const WhatsAppIntegration = () => {
 
   return (
     <>
+      <SEO
+        title="WhatsApp AI Integration: Voice Notes, Automated Orders & Booking"
+        description="AI WhatsApp Agent that understands voice notes, processes orders, and books appointments 24/7. Increase after-hours orders by 45% and reduce booking friction by 70%."
+        canonical="https://vextriaai.com/whatsapp-integration"
+        ogTitle="WhatsApp AI Integration: Voice Notes & Automated Booking | Vextria AI"
+        ogDescription="AI-powered WhatsApp agent that understands voice messages, processes orders automatically, and handles bookings 24/7. Try free for 14 days."
+        schema={[organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-[#FFFFFF]" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
       

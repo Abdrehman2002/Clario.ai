@@ -29,6 +29,8 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useVapi } from '@/contexts/VapiContext';
+import { SEO } from '@/components/SEO';
+import { organizationSchema } from '@/utils/schemas';
 
 const GlamCareAIAgent = () => {
   const { startCall } = useVapi();
@@ -139,6 +141,14 @@ const GlamCareAIAgent = () => {
 
   return (
     <>
+      <SEO
+        title="GlamCare AI: Salon & Spa Luxury Booking, 55% More Appointments"
+        description="AI concierge for salons and spas that handles luxury bookings, package upselling, and VIP client management 24/7. Increase bookings by 55%, reduce no-shows by 70%."
+        canonical="https://vextriaai.com/glamcare-ai-agent"
+        ogTitle="GlamCare AI: Luxury Salon & Spa Bookings 24/7 | Vextria AI"
+        ogDescription="AI concierge for beauty businesses. Handles luxury appointments, premium package upselling, and personalized client service 24/7. Increase bookings by 55%."
+        schema={[organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-background" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
 

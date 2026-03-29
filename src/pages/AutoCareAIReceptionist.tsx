@@ -30,6 +30,8 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useVapi } from '@/contexts/VapiContext';
+import { SEO } from '@/components/SEO';
+import { organizationSchema } from '@/utils/schemas';
 
 const AutoCareAIReceptionist = () => {
   const { startCall } = useVapi();
@@ -140,6 +142,14 @@ const AutoCareAIReceptionist = () => {
 
   return (
     <>
+      <SEO
+        title="AutoCare AI: Auto Shop Receptionist, Service Scheduling & 50% More Bookings"
+        description="AI receptionist for auto repair shops that handles service scheduling, quotes, and bookings 24/7. Increase appointments by 50%, reduce no-shows by 65%."
+        canonical="https://vextriaai.com/autocare-ai-receptionist"
+        ogTitle="AutoCare AI: Auto Shop Receptionist 24/7 | Vextria AI"
+        ogDescription="AI receptionist for auto repair shops. Handles service scheduling, instant quotes, and emergency breakdowns 24/7. Increase bookings by 50%."
+        schema={[organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-background" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
 

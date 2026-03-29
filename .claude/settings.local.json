@@ -29,7 +29,9 @@
       "Bash(ffmpeg:*)",
       "Bash(git rm:*)",
       "Bash(find:*)",
-      "Bash(python -m json.tool:*)"
+      "Bash(python -m json.tool:*)",
+      "Bash(mkdir:*)",
+      "Bash(rm:*)"
     ],
     "defaultMode": "acceptEdits"
   }

@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { 
-  Target, 
-  TrendingUp, 
-  Brain, 
-  Zap, 
-  Clock, 
-  Users, 
+import {
+  Target,
+  TrendingUp,
+  Brain,
+  Zap,
+  Clock,
+  Users,
   CheckCircle,
   ArrowRight,
   Play,
@@ -35,6 +35,8 @@ import {
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
+import { organizationSchema } from '@/utils/schemas';
 
 const AILeadGeneration = () => {
   const containerVariants = {
@@ -155,6 +157,14 @@ const AILeadGeneration = () => {
 
   return (
     <>
+      <SEO
+        title="AI Lead Generation: 300% More Qualified Leads & 60% Lower Costs"
+        description="AI-powered lead generation that automatically finds qualified prospects and reduces customer acquisition costs by 60%. Generate 300% more leads with intelligent targeting."
+        canonical="https://vextriaai.com/ai-lead-generation"
+        ogTitle="AI Lead Generation: 300% More Leads | Vextria AI"
+        ogDescription="Find qualified B2B prospects automatically with AI-powered targeting. Reduce acquisition costs by 60% and increase conversion rates by 45%."
+        schema={[organizationSchema]}
+      />
       <Header />
       <div className="min-h-screen bg-[#FFFFFF]" style={{ maxWidth: '100vw', width: '100%', overflowX: 'hidden' }}>
       
